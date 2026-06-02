@@ -2,6 +2,7 @@
 <html lang="fa" dir="rtl">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -27,7 +28,7 @@
 
 <a href="support.html">پشتیبانی</a>
 
-<a href="#gallery">گالری</a>
+<a href="gallery.html">گالری</a>
 
 <a href="#team">تیم</a>
 
@@ -42,42 +43,28 @@
 <h1> NORD </h1>
 
 <p>
-به سرور رسمی Nord خوش آمدید
-</p>
-
-<a href="downloads.html">
-
-<button class="main-btn">
-
-مشاهده دانلودها
-
-</button>
-
-</a>
-
-</section>
-
-<section class="info-grid">
-
-<div class="card">
-
-<h2>🌐 آیپی سرور</h2>
-
-<p id="server-ip">
-
-play.nordserver.ir
-
+سرور رسمی ماینکرفت نورد
 </p>
 
 <button onclick="copyIP()">
-
-کپی آیپی
-
+کپی آیپی سرور
 </button>
 
-</div>
+</section>
 
-<div class="card">
+<section class="info-card">
+
+<h2>🌍 آیپی سرور</h2>
+
+<p id="server-ip">
+
+play.nord.ir
+
+</p>
+
+</section>
+
+<section class="info-card">
 
 <h2>📢 کانال بله</h2>
 
@@ -87,47 +74,36 @@ play.nordserver.ir
 
 </p>
 
-</div>
+</section>
+
+<section class="info-card">
+
+<h2>📣 اطلاعیه</h2>
+
+<p>
+
+به سرور Nord خوش آمدید.
+
+</p>
 
 </section>
 
-<section class="news">
-
-<h2>📢 آخرین اخبار</h2>
-
-<div class="news-card">
-
-<h3>آپدیت جدید</h3>
-
-<p>
-نسخه جدید سرور منتشر شد
-</p>
-
-</div>
-
-<div class="news-card">
-
-<h3>رویداد ویژه</h3>
-
-<p>
-رویداد آخر هفته فعال شد
-</p>
-
-</div>
-
-</section>
-
-<section id="gallery">
+<section class="gallery-preview">
 
 <h2>🖼 گالری سرور</h2>
 
-<div class="gallery">
+<div class="gallery-grid">
 
 <img src="images/server1.jpg">
+
 <img src="images/server2.jpg">
+
 <img src="images/server3.jpg">
+
 <img src="images/server4.jpg">
+
 <img src="images/server5.jpg">
+
 <img src="images/server6.jpg">
 
 </div>
@@ -140,34 +116,34 @@ play.nordserver.ir
 
 <div class="team-grid">
 
-<div class="member">
-<h3>Owner</h3>
+<div class="owner-card">
+
+<h3>👑 OWNER</h3>
+
 <p>mohammadamin</p>
+
+<span>Founder Of Nord</span>
+
 </div>
 
 <div class="member">
-<h3>Admin 1</h3>
-<p>نام مدیر</p>
+Admin 1
 </div>
 
 <div class="member">
-<h3>Admin 2</h3>
-<p>نام مدیر</p>
+Admin 2
 </div>
 
 <div class="member">
-<h3>Admin 3</h3>
-<p>نام مدیر</p>
+Admin 3
 </div>
 
 <div class="member">
-<h3>Admin 4</h3>
-<p>نام مدیر</p>
+Admin 4
 </div>
 
 <div class="member">
-<h3>Admin 5</h3>
-<p>نام مدیر</p>
+Admin 5
 </div>
 
 </div>
@@ -180,37 +156,27 @@ play.nordserver.ir
 
 <p>
 
-اینجا توضیحات سرور Nord را قرار بده.
+اینجا توضیحات سرور Nord قرار میگیرد.
 
 </p>
 
 </section>
 
-<footer>
-
-<p>
-NORD © 2026
-</p>
-
-</footer>
-
 <button id="topBtn">
-
 ⬆
-
 </button>
 
 <script>
 
 function copyIP(){
 
-const ip =
-document.getElementById("server-ip")
-.innerText;
+navigator.clipboard.writeText(
 
-navigator.clipboard.writeText(ip);
+document.getElementById("server-ip").innerText
 
-alert("IP Copied");
+);
+
+alert("IP کپی شد");
 
 }
 
