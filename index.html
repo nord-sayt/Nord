@@ -4,13 +4,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NORD ULTRA 6.0</title>
+<title>NORD PRO MAX</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- HEADER -->
 <header>
 <div class="logo">NORD</div>
 
@@ -19,20 +18,15 @@
 <a href="#login">ورود</a>
 <a href="#server">سرور</a>
 <a href="#rules">قوانین</a>
-<a href="#download">دانلود</a>
 </nav>
 </header>
 
-<!-- HERO -->
 <section class="hero" id="home">
 <h1>NORD</h1>
-<p>Ultimate Minecraft Network</p>
-<button onclick="scrollToLogin()">شروع</button>
+<p>Ultimate Minecraft Server</p>
 </section>
 
-<!-- LOGIN -->
 <section class="section" id="login">
-
 <h2>👤 ورود / ثبت نام</h2>
 
 <div class="card">
@@ -40,64 +34,41 @@
 <input id="user" placeholder="نام کاربری">
 <input id="pass" type="password" placeholder="رمز">
 
-<button onclick="register()" class="btn">ثبت نام</button>
-<button onclick="login()" class="btn2">ورود</button>
+<button class="btn" onclick="register()">ثبت نام</button>
+<button class="btn2" onclick="login()">ورود</button>
 
 <p id="msg"></p>
 
 </div>
 </section>
 
-<!-- SERVER -->
 <section class="section" id="server">
-
-<h2>🎮 سرور Minecraft</h2>
+<h2>🎮 سرور</h2>
 
 <div class="card">
 
-<h3>IP سرور:</h3>
+<h3>IP:</h3>
 <p id="ip">nord-mc.net</p>
 
 <button class="btn" onclick="copyIP()">کپی IP</button>
 
 </div>
-
 </section>
 
-<!-- RULES -->
 <section class="section" id="rules">
-
 <h2>📜 قوانین</h2>
 
-<div class="grid">
-
-<div class="box">❌ چیت ممنوع</div>
-<div class="box">🤝 احترام اجباری</div>
-<div class="box">🚫 اسپم ممنوع</div>
-<div class="box">🎮 بازی منصفانه</div>
-
-</div>
-
-</section>
-
-<!-- DOWNLOAD -->
-<section class="section" id="download">
-
-<h2>⬇ دانلود فایل‌ها</h2>
-
-<div class="card">
-
-<p>مودها و پک‌های NORD</p>
-
-<a class="btn" href="#">دانلود مودها</a>
-<a class="btn2" href="#">دانلود پک‌ها</a>
-
+<div class="rules">
+<div class="rule">❌ چیت ممنوع</div>
+<div class="rule">🤝 احترام اجباری</div>
+<div class="rule">🚫 اسپم ممنوع</div>
+<div class="rule">🎮 بازی منصفانه</div>
 </div>
 
 </section>
 
 <footer>
-© NORD ULTRA 6.0
+© NORD PRO MAX
 </footer>
 
 <script>
@@ -108,23 +79,16 @@ msg.innerText="ثبت شد ✔";
 }
 
 function login(){
-let u = user.value;
-let p = pass.value;
-
-if(localStorage.getItem("u_"+u) === p){
-msg.innerText="خوش آمدی " + u;
+if(localStorage.getItem("u_"+user.value) === pass.value){
+msg.innerText="خوش آمدی";
 }else{
 msg.innerText="❌ اشتباه";
 }
 }
 
 function copyIP(){
-navigator.clipboard.writeText(document.getElementById("ip").innerText);
+navigator.clipboard.writeText(ip.innerText);
 alert("کپی شد");
-}
-
-function scrollToLogin(){
-document.getElementById("login").scrollIntoView({behavior:"smooth"});
 }
 
 </script>
