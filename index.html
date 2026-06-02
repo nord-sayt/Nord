@@ -1,86 +1,87 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
-
+<html lang="fa">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NORD</title>
+<title>Nord Server</title>
 <link rel="stylesheet" href="style.css">
-<script defer src="app.js"></script>
 </head>
-
 <body>
 
 <header>
-<div class="logo">NORD</div>
-
-<nav>
-<a href="#home">خانه</a>
-<a href="#downloads">دانلود</a>
-<a href="#server">سرور</a>
-<a href="#contact">ارتباط</a>
-</nav>
+  <h1>⚡ NORD SERVER</h1>
+  <nav>
+    <button onclick="show('home')">خانه</button>
+    <button onclick="show('login')">ورود</button>
+    <button onclick="show('profile')">پروفایل</button>
+    <button onclick="show('team')">تیم</button>
+    <button onclick="show('owner')">اونر</button>
+  </nav>
 </header>
 
-<section class="hero" id="home">
-<h1>NORD</h1>
-<p>Download Center + Minecraft Server</p>
-<a class="btn" href="#downloads">شروع دانلود</a>
+<main>
+
+<!-- HOME -->
+<section id="home">
+  <h2>📢 اعلامیه‌ها</h2>
+  <div id="announcements"></div>
+
+  <h2>📡 سرور</h2>
+  <p>IP: <span id="ip">Not Set</span></p>
+  <p>بله: <span id="bale">Not Set</span></p>
 </section>
 
-<!-- DOWNLOAD -->
-<section class="section" id="downloads">
-<h2>📥 دانلودها</h2>
-
-<div class="grid">
-
-<div class="card">
-<h3>مودها</h3>
-<p>آخرین نسخه مودها</p>
-<button onclick="download('Mods Pack')">دانلود</button>
-</div>
-
-<div class="card">
-<h3>مپ‌ها</h3>
-<p>مپ‌های سرور</p>
-<button onclick="download('Maps Pack')">دانلود</button>
-</div>
-
-<div class="card">
-<h3>ریسورس پک</h3>
-<p>گرافیک بهتر</p>
-<button onclick="download('Texture Pack')">دانلود</button>
-</div>
-
-</div>
+<!-- LOGIN -->
+<section id="login" class="hidden">
+  <h2>ورود / ثبت نام</h2>
+  <input id="user" placeholder="یوزرنیم">
+  <input id="pass" type="password" placeholder="پسورد">
+  <button onclick="register()">ثبت نام</button>
+  <button onclick="login()">ورود</button>
 </section>
 
-<!-- SERVER -->
-<section class="section" id="server">
-<h2>🎮 سرور ما</h2>
-
-<div class="server-box">
-<p>IP سرور:</p>
-<h3 id="ip">play.nord-server.com</h3>
-<button onclick="copyIP()">کپی IP</button>
-</div>
-
+<!-- PROFILE -->
+<section id="profile" class="hidden">
+  <h2>👤 پروفایل</h2>
+  <p id="me"></p>
 </section>
 
-<!-- CONTACT -->
-<section class="section" id="contact">
-<h2>📞 ارتباط</h2>
+<!-- TEAM -->
+<section id="team" class="hidden">
+  <h2>👥 تیم Nord</h2>
 
-<div class="card">
-<p>تلگرام: @minecraft_nord</p>
-<p>پشتیبانی فعال 24/7</p>
-</div>
+  <div class="card">
+    👑 Owner: <b>mohammadamin</b>
+  </div>
 
+  <h3>اعضای تیم (5 نفر)</h3>
+
+  <div id="teamList"></div>
 </section>
 
-<footer>
-© 2026 NORD - All Rights Reserved
-</footer>
+<!-- OWNER PANEL -->
+<section id="owner" class="hidden">
+  <h2>👑 پنل اونر</h2>
 
+  <textarea id="annText" placeholder="اعلامیه جدید"></textarea>
+  <button onclick="addAnn()">ثبت اعلامیه</button>
+
+  <input id="ipInput" placeholder="IP سرور">
+  <input id="baleInput" placeholder="آیدی کانال بله">
+  <button onclick="saveSettings()">ذخیره تنظیمات</button>
+
+  <h3>👥 تنظیم تیم (5 نفر)</h3>
+
+  <input id="t1" placeholder="عضو 1">
+  <input id="t2" placeholder="عضو 2">
+  <input id="t3" placeholder="عضو 3">
+  <input id="t4" placeholder="عضو 4">
+  <input id="t5" placeholder="عضو 5">
+
+  <button onclick="saveTeam()">ذخیره تیم</button>
+</section>
+
+</main>
+
+<script src="app.js"></script>
 </body>
 </html>
