@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NORD PRO MAX 4.0</title>
+<title>NORD PRO MAX 5.0</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
@@ -15,24 +15,24 @@
 
 <nav>
 <a href="#home">خانه</a>
-<a href="#auth">عضویت</a>
+<a href="#login">ورود</a>
 <a href="#server">سرور</a>
-<a href="#admin">ادمین</a>
+<a href="#rules">قوانین</a>
 </nav>
 </header>
 
 <!-- HERO -->
 <section class="hero" id="home">
 <h1>NORD</h1>
-<p>Ultimate Minecraft Community</p>
+<p>Ultimate Minecraft Server</p>
 </section>
 
-<!-- AUTH -->
-<section class="section" id="auth">
+<!-- LOGIN -->
+<section class="section" id="login">
 
-<h2>👤 عضویت / ورود</h2>
+<h2>👤 ورود / ثبت نام</h2>
 
-<div class="card big">
+<div class="card">
 
 <input id="user" placeholder="نام کاربری">
 <input id="pass" type="password" placeholder="رمز">
@@ -43,6 +43,7 @@
 <p id="msg"></p>
 
 </div>
+
 </section>
 
 <!-- SERVER -->
@@ -50,129 +51,60 @@
 
 <h2>🎮 سرور</h2>
 
-<div class="card big">
+<div class="card">
 
-<h3>IP سرور</h3>
-<p id="serverIP">Coming Soon</p>
+<h3>IP:</h3>
+<p id="ip">Coming Soon</p>
 
 <button class="btn" onclick="copyIP()">کپی IP</button>
 
 </div>
+
 </section>
 
-<!-- ADMIN -->
-<section class="section" id="admin">
+<!-- RULES -->
+<section class="section" id="rules">
 
-<h2>👑 پنل ادمین</h2>
+<h2>📜 قوانین سرور</h2>
 
-<div class="card big">
+<div class="rules">
 
-<input id="adminPass" type="password" placeholder="رمز ادمین">
-
-<button class="btn" onclick="adminLogin()">ورود ادمین</button>
-
-<div id="panel" style="display:none;margin-top:20px;">
-
-<input id="ipInput" placeholder="IP سرور">
-<button class="btn" onclick="setIP()">ثبت IP</button>
-
-<br><br>
-
-<input id="announceInput" placeholder="اعلان جدید">
-<button class="btn2" onclick="setAnnounce()">ثبت اعلان</button>
-
-<br><br>
-
-<button class="btn2" onclick="resetAll()">ریست کامل</button>
-
-</div>
+<div class="rule">❌ چیت ممنوع</div>
+<div class="rule">🤝 احترام اجباری</div>
+<div class="rule">🚫 اسپم ممنوع</div>
+<div class="rule">🎮 بازی منصفانه</div>
 
 </div>
 
 </section>
 
 <footer>
-© NORD PRO MAX 4.0
+© NORD PRO MAX 5.0
 </footer>
 
 <script>
 
-const ADMIN_PASS = "nordadmin";
-
-/* USERS */
 function register(){
-let u = document.getElementById("user").value;
-let p = document.getElementById("pass").value;
-
-if(!u || !p){
-msg("پر کن همه رو");
-return;
-}
-
-localStorage.setItem("user_"+u, p);
-msg("ثبت شد ✔");
+let u = user.value;
+let p = pass.value;
+localStorage.setItem("u_"+u,p);
+msg.innerText="ثبت شد ✔";
 }
 
 function login(){
-let u = document.getElementById("user").value;
-let p = document.getElementById("pass").value;
+let u = user.value;
+let p = pass.value;
 
-let saved = localStorage.getItem("user_"+u);
-
-if(saved === p){
-msg("خوش آمدی " + u);
+if(localStorage.getItem("u_"+u) === p){
+msg.innerText="خوش آمدی " + u;
 }else{
-msg("اشتباهه ❌");
+msg.innerText="اشتباه ❌";
 }
 }
 
-function msg(t){
-document.getElementById("msg").innerText = t;
-}
-
-/* SERVER */
 function copyIP(){
-navigator.clipboard.writeText(
-document.getElementById("serverIP").innerText
-);
+navigator.clipboard.writeText(ip.innerText);
 alert("کپی شد");
-}
-
-/* ADMIN */
-function adminLogin(){
-let p = document.getElementById("adminPass").value;
-
-if(p === ADMIN_PASS){
-document.getElementById("panel").style.display = "block";
-alert("ادمین وارد شد");
-}else{
-alert("رمز اشتباهه");
-}
-}
-
-function setIP(){
-let ip = document.getElementById("ipInput").value;
-localStorage.setItem("ip", ip);
-document.getElementById("serverIP").innerText = ip;
-}
-
-function setAnnounce(){
-let a = document.getElementById("announceInput").value;
-localStorage.setItem("announce", a);
-}
-
-function resetAll(){
-localStorage.clear();
-location.reload();
-}
-
-window.onload = function(){
-
-if(localStorage.getItem("ip")){
-document.getElementById("serverIP").innerText =
-localStorage.getItem("ip");
-}
-
 }
 
 </script>
