@@ -900,3 +900,120 @@ box-shadow:
 rgba(91,91,255,.8);
 
 }
+/* ==========================
+   ADMIN PANEL
+========================== */
+
+.admin-login{
+
+width:90%;
+max-width:500px;
+
+margin:100px auto;
+
+background:#10192e;
+
+padding:40px;
+
+border-radius:25px;
+
+text-align:center;
+
+}
+
+.admin-login h1{
+
+margin-bottom:25px;
+
+}
+
+.admin-login input{
+
+width:100%;
+
+padding:15px;
+
+border:none;
+
+border-radius:12px;
+
+background:#0b1220;
+
+color:white;
+
+margin-bottom:15px;
+
+}
+
+.admin-login button{
+
+padding:15px 30px;
+
+border:none;
+
+border-radius:12px;
+
+background:#5b5bff;
+
+color:white;
+
+cursor:pointer;
+
+}
+
+.admin-section{
+
+width:90%;
+
+max-width:1200px;
+
+margin:30px auto;
+
+background:#10192e;
+
+padding:30px;
+
+border-radius:20px;
+
+}
+
+.admin-section h2{
+
+margin-bottom:15px;
+
+}
+
+.admin-section input,
+.admin-section textarea{
+
+width:100%;
+
+padding:15px;
+
+margin-bottom:10px;
+
+border:none;
+
+border-radius:12px;
+
+background:#0b1220;
+
+color:white;
+
+}
+
+.admin-section button{
+
+padding:12px 20px;
+
+border:none;
+
+border-radius:10px;
+
+background:#5b5bff;
+
+color:white;
+
+cursor:pointer;
+
+}
