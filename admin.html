@@ -5,33 +5,150 @@
 
 <meta charset="UTF-8">
 
-<title>Nord Admin</title>
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="style.css">
+<title>Nord Control Panel</title>
+
+<link rel="stylesheet"
+href="style.css">
 
 </head>
 
 <body>
 
-<h1>👑 Nord Admin</h1>
+<div class="admin-login" id="loginPage">
 
-<div class="card">
+<h1>👑 Nord Control Panel</h1>
 
-<h2>افزودن دانلود</h2>
+<input
+type="password"
+id="adminPassword"
+placeholder="رمز ادمین">
 
-<input id="title" placeholder="نام">
+<button onclick="login()">
 
-<input id="image" placeholder="عکس">
-
-<input id="link" placeholder="لینک دانلود">
-
-<textarea id="desc"></textarea>
-
-<button onclick="addDownload()">
-
-افزودن
+ورود
 
 </button>
+
+</div>
+
+<div id="adminPanel" style="display:none;">
+
+<header>
+
+<div class="logo">
+⚡ NORD ADMIN
+</div>
+
+</header>
+
+<section class="admin-section">
+
+<h2>🌍 IP سرور</h2>
+
+<input
+type="text"
+id="serverIp"
+placeholder="play.nord.ir">
+
+</section>
+
+<section class="admin-section">
+
+<h2>📢 کانال بله</h2>
+
+<input
+type="text"
+id="baleChannel"
+placeholder="@minecraft_nord">
+
+</section>
+
+<section class="admin-section">
+
+<h2>📣 اطلاعیه</h2>
+
+<textarea
+rows="5"
+id="announcement">
+</textarea>
+
+</section>
+
+<section class="admin-section">
+
+<h2>ℹ درباره ما</h2>
+
+<textarea
+rows="8"
+id="aboutText">
+</textarea>
+
+</section>
+
+<section class="admin-section">
+
+<h2>👑 Owner</h2>
+
+<input
+type="text"
+value="mohammadamin">
+
+</section>
+
+<section class="admin-section">
+
+<h2>🛡 مدیران</h2>
+
+<input type="text" placeholder="Admin 1">
+<input type="text" placeholder="Admin 2">
+<input type="text" placeholder="Admin 3">
+<input type="text" placeholder="Admin 4">
+<input type="text" placeholder="Admin 5">
+
+</section>
+
+<section class="admin-section">
+
+<h2>📦 دانلود جدید</h2>
+
+<input
+type="text"
+placeholder="نام فایل">
+
+<input
+type="text"
+placeholder="توضیحات">
+
+<input
+type="text"
+placeholder="آدرس عکس">
+
+<input
+type="text"
+placeholder="لینک دانلود">
+
+<button>
+افزودن دانلود
+</button>
+
+</section>
+
+<section class="admin-section">
+
+<h2>🖼 افزودن تصویر گالری</h2>
+
+<input
+type="text"
+placeholder="آدرس تصویر">
+
+<button>
+افزودن تصویر
+</button>
+
+</section>
 
 </div>
 
