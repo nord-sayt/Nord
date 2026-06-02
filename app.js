@@ -1,3 +1,1 @@
-function goDownload(){
-window.location.href = "downloads.html";
-}
+console.log("NORD site loaded");
