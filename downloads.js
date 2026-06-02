@@ -1,59 +1,167 @@
-fetch("downloads.json")
-.then(response => response.json())
-.then(data => {
+// ==========================
+// NORD DOWNLOADS SYSTEM
+// ==========================
 
-window.allDownloads = data;
+let allDownloads = [];
 
-renderDownloads(data);
+/**
+ * بارگذاری فایل‌ها
+ */
+async function loadDownloads() {
 
-});
+    const container =
+        document.getElementById(
+            "downloadsContainer"
+        );
 
-function renderDownloads(downloads){
+    try {
 
-const container =
-document.getElementById("downloads-container");
+        container.innerHTML = `
+        <div class="loading-box">
+            <h2>⏳ در حال بارگذاری...</h2>
+        </div>
+        `;
 
-container.innerHTML =
-downloads.map(item => `
+        const response =
+            await fetch(
+                "downloads.json"
+            );
 
-<div class="download-card">
+        if (!response.ok) {
 
-<img src="${item.image}" alt="${item.title}">
+            throw new Error(
+                "downloads.json not found"
+            );
 
-<h2>${item.title}</h2>
+        }
 
-<p>${item.description}</p>
+        const data =
+            await response.json();
 
-<a href="${item.link}">
+        allDownloads = data;
 
-<button>
-دانلود
-</button>
+        renderDownloads(
+            allDownloads
+        );
 
-</a>
+    } catch (error) {
 
-</div>
+        console.error(error);
 
-`).join("");
+        container.innerHTML = `
+        <div class="error-box">
+            <h2>❌ خطا</h2>
+            <p>
+            فایل دانلودها پیدا نشد
+            </p>
+        </div>
+        `;
+
+    }
 
 }
 
-function searchDownloads(){
+/**
+ * ساخت کارت‌ها
+ */
+function renderDownloads(downloads) {
 
-const text =
-document.getElementById("search")
-.value
-.toLowerCase();
+    const container =
+        document.getElementById(
+            "downloadsContainer"
+        );
 
-const result =
-window.allDownloads.filter(item =>
+    if (
+        downloads.length === 0
+    ) {
 
-item.title
-.toLowerCase()
-.includes(text)
+        container.innerHTML = `
+        <div class="empty-box">
+            <h2>
+            🔍 فایلی پیدا نشد
+            </h2>
+        </div>
+        `;
 
+        return;
+
+    }
+
+    container.innerHTML =
+        downloads.map(item => `
+
+        <div class="download-card">
+
+            <img
+            src="${item.image}"
+            alt="${item.title}">
+
+            <div class="download-info">
+
+                <h3>
+                ${item.title}
+                </h3>
+
+                <p>
+                ${item.description}
+                </p>
+
+                <a
+                href="${item.link}"
+                class="download-btn"
+                download>
+
+                📥 دانلود
+
+                </a>
+
+            </div>
+
+        </div>
+
+    `).join("");
+
+}
+
+/**
+ * جستجو
+ */
+function searchDownloads() {
+
+    const query =
+        document
+        .getElementById(
+            "searchInput"
+        )
+        .value
+        .toLowerCase()
+        .trim();
+
+    const filtered =
+        allDownloads.filter(item =>
+
+            item.title
+            .toLowerCase()
+            .includes(query)
+
+            ||
+
+            item.description
+            .toLowerCase()
+            .includes(query)
+
+        );
+
+    renderDownloads(
+        filtered
+    );
+
+}
+
+/**
+ * اجرا هنگام باز شدن صفحه
+ */
+document.addEventListener(
+    "DOMContentLoaded",
+    loadDownloads
 );
-
-renderDownloads(result);
-
-}
