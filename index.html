@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NORD PRO MAX 3.0</title>
+<title>NORD PRO MAX 4.0</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
@@ -15,27 +15,39 @@
 
 <nav>
 <a href="#home">خانه</a>
+<a href="#auth">عضویت</a>
 <a href="#server">سرور</a>
-<a href="#downloads">دانلود</a>
-<a href="#gallery">گالری</a>
 <a href="#admin">ادمین</a>
 </nav>
 </header>
 
 <!-- HERO -->
 <section class="hero" id="home">
-
 <h1>NORD</h1>
-<p>Minecraft Community & Server</p>
+<p>Ultimate Minecraft Community</p>
+</section>
 
-<div class="announce">
-⚡ اعلان: <span id="announceText">خوش آمدید به NORD</span>
+<!-- AUTH -->
+<section class="section" id="auth">
+
+<h2>👤 عضویت / ورود</h2>
+
+<div class="card big">
+
+<input id="user" placeholder="نام کاربری">
+<input id="pass" type="password" placeholder="رمز">
+
+<button class="btn" onclick="register()">ثبت نام</button>
+<button class="btn2" onclick="login()">ورود</button>
+
+<p id="msg"></p>
+
 </div>
-
 </section>
 
 <!-- SERVER -->
 <section class="section" id="server">
+
 <h2>🎮 سرور</h2>
 
 <div class="card big">
@@ -43,73 +55,35 @@
 <h3>IP سرور</h3>
 <p id="serverIP">Coming Soon</p>
 
-<button class="btn" onclick="copyIP()">📋 کپی IP</button>
+<button class="btn" onclick="copyIP()">کپی IP</button>
 
 </div>
 </section>
 
-<!-- DOWNLOADS -->
-<section class="section" id="downloads">
-<h2>📦 دانلودها</h2>
-
-<div class="cards">
-
-<div class="card">
-<h3>PvP Pack</h3>
-<a class="btn" href="#">دانلود</a>
-</div>
-
-<div class="card">
-<h3>Shaders</h3>
-<a class="btn" href="#">دانلود</a>
-</div>
-
-<div class="card">
-<h3>Mods</h3>
-<a class="btn" href="#">دانلود</a>
-</div>
-
-</div>
-</section>
-
-<!-- GALLERY -->
-<section class="section" id="gallery">
-<h2>🖼 گالری</h2>
-
-<div class="cards">
-
-<div class="card">🎮 تصویر 1</div>
-<div class="card">🔥 تصویر 2</div>
-<div class="card">⚡ تصویر 3</div>
-
-</div>
-</section>
-
-<!-- ADMIN PANEL -->
+<!-- ADMIN -->
 <section class="section" id="admin">
-<h2>👑 پنل ادمین NORD</h2>
+
+<h2>👑 پنل ادمین</h2>
 
 <div class="card big">
 
-<input id="pass" type="password" placeholder="رمز ادمین">
+<input id="adminPass" type="password" placeholder="رمز ادمین">
 
-<button class="btn" onclick="login()">ورود</button>
+<button class="btn" onclick="adminLogin()">ورود ادمین</button>
 
-<div id="panel" style="display:none; margin-top:20px;">
+<div id="panel" style="display:none;margin-top:20px;">
 
-<h3>تنظیم IP سرور</h3>
-<input id="ipInput" placeholder="IP">
-<button class="btn" onclick="setIP()">ثبت</button>
-
-<br><br>
-
-<h3>تغییر اعلان</h3>
-<input id="announceInput" placeholder="اعلان">
-<button class="btn2" onclick="setAnnounce()">ثبت</button>
+<input id="ipInput" placeholder="IP سرور">
+<button class="btn" onclick="setIP()">ثبت IP</button>
 
 <br><br>
 
-<button class="btn2" onclick="resetAll()">ریست همه</button>
+<input id="announceInput" placeholder="اعلان جدید">
+<button class="btn2" onclick="setAnnounce()">ثبت اعلان</button>
+
+<br><br>
+
+<button class="btn2" onclick="resetAll()">ریست کامل</button>
 
 </div>
 
@@ -118,19 +92,59 @@
 </section>
 
 <footer>
-© NORD PRO MAX 3.0
+© NORD PRO MAX 4.0
 </footer>
 
 <script>
 
-const ADMIN_PASS = "nord123";
+const ADMIN_PASS = "nordadmin";
+
+/* USERS */
+function register(){
+let u = document.getElementById("user").value;
+let p = document.getElementById("pass").value;
+
+if(!u || !p){
+msg("پر کن همه رو");
+return;
+}
+
+localStorage.setItem("user_"+u, p);
+msg("ثبت شد ✔");
+}
 
 function login(){
+let u = document.getElementById("user").value;
 let p = document.getElementById("pass").value;
+
+let saved = localStorage.getItem("user_"+u);
+
+if(saved === p){
+msg("خوش آمدی " + u);
+}else{
+msg("اشتباهه ❌");
+}
+}
+
+function msg(t){
+document.getElementById("msg").innerText = t;
+}
+
+/* SERVER */
+function copyIP(){
+navigator.clipboard.writeText(
+document.getElementById("serverIP").innerText
+);
+alert("کپی شد");
+}
+
+/* ADMIN */
+function adminLogin(){
+let p = document.getElementById("adminPass").value;
 
 if(p === ADMIN_PASS){
 document.getElementById("panel").style.display = "block";
-alert("خوش آمدی ادمین");
+alert("ادمین وارد شد");
 }else{
 alert("رمز اشتباهه");
 }
@@ -145,17 +159,11 @@ document.getElementById("serverIP").innerText = ip;
 function setAnnounce(){
 let a = document.getElementById("announceInput").value;
 localStorage.setItem("announce", a);
-document.getElementById("announceText").innerText = a;
 }
 
 function resetAll(){
 localStorage.clear();
 location.reload();
-}
-
-function copyIP(){
-navigator.clipboard.writeText(document.getElementById("serverIP").innerText);
-alert("IP کپی شد");
 }
 
 window.onload = function(){
@@ -165,25 +173,9 @@ document.getElementById("serverIP").innerText =
 localStorage.getItem("ip");
 }
 
-if(localStorage.getItem("announce")){
-document.getElementById("announceText").innerText =
-localStorage.getItem("announce");
-}
-
 }
 
 </script>
 
 </body>
 </html>
-<section class="box">
-  <h2>👑 Owner</h2>
-  <button onclick="showOwner()">نمایش Owner</button>
-  <p id="ownerBox"></p>
-</section>
-
-<section class="box">
-  <h2>🧊 Team NORD</h2>
-  <button onclick="showTeam()">نمایش تیم</button>
-  <div id="teamBox"></div>
-</section>
