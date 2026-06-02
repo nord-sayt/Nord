@@ -140,3 +140,43 @@ padding:10px 20px;
 border-radius:10px;
 cursor:pointer;
 }
+.support-page{
+padding:40px;
+}
+
+.support-page input,
+.support-page textarea{
+width:100%;
+padding:15px;
+margin:10px 0;
+border:none;
+border-radius:12px;
+}
+
+.support-page button{
+padding:12px 25px;
+background:#4f46e5;
+color:white;
+border:none;
+border-radius:12px;
+}
+
+.news-page{
+padding:40px;
+}
+
+.news-card{
+background:#111827;
+padding:20px;
+margin-bottom:20px;
+border-radius:15px;
+}
+
+.gallery img{
+transition:0.3s;
+cursor:pointer;
+}
+
+.gallery img:hover{
+transform:scale(1.05);
+}
