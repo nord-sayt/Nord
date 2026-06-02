@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+<meta charset="UTF-8">
+<title>NORD ADMIN PANEL</title>
+<style>
+body{
+  font-family: Arial;
+  background:#00111a;
+  color:white;
+  text-align:center;
+}
+input, textarea, button{
+  margin:10px;
+  padding:10px;
+  width:250px;
+}
+button{
+  background:#00e5ff;
+  border:none;
+  cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<h1>👑 NORD ADMIN PANEL</h1>
+
+<!-- 🔐 LOGIN -->
+<h2>🔐 ورود ادمین</h2>
+<input id="pass" placeholder="رمز ادمین">
+<button onclick="login()">ورود</button>
+
+<hr>
+
+<!-- 👑 OWNER -->
+<h2>👑 تغییر Owner</h2>
+<input id="ownerInput" placeholder="اسم Owner">
+<button onclick="saveOwner()">ذخیره Owner</button>
+
+<!-- 🧊 TEAM -->
+<h2>🧊 تغییر Team</h2>
+<textarea id="teamInput" placeholder="هر اسم در یک خط"></textarea>
+<button onclick="saveTeam()">ذخیره Team</button>
+
+<script>
+
+// 🔐 Login
+function login(){
+  let pass = document.getElementById("pass").value;
+
+  if(pass === "nord123"){
+    alert("✅ وارد شدی Admin");
+  } else {
+    alert("❌ رمز اشتباهه");
+  }
+}
+
+// 👑 Save owner
+function saveOwner(){
+  let name = document.getElementById("ownerInput").value;
+  localStorage.setItem("ownerName", name);
+  alert("👑 Owner ذخیره شد");
+}
+
+// 🧊 Save team
+function saveTeam(){
+  let text = document.getElementById("teamInput").value;
+  let arr = text.split("\n");
+
+  localStorage.setItem("team", JSON.stringify(arr));
+  alert("🧊 Team ذخیره شد");
+}
+
+</script>
+
+</body>
+</html>
