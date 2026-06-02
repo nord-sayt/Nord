@@ -180,3 +180,94 @@ cursor:pointer;
 .gallery img:hover{
 transform:scale(1.05);
 }
+html{
+scroll-behavior:smooth;
+}
+
+.hero{
+background:
+linear-gradient(
+135deg,
+#0f172a,
+#1e1b4b,
+#312e81
+);
+
+padding:120px 20px;
+text-align:center;
+}
+
+.hero h1{
+font-size:70px;
+text-shadow:
+0 0 15px #4f46e5,
+0 0 30px #4f46e5;
+}
+
+.card,
+.download-card,
+.member,
+.news-card{
+
+transition:0.4s;
+
+}
+
+.card:hover,
+.download-card:hover,
+.member:hover,
+.news-card:hover{
+
+transform:
+translateY(-8px);
+
+box-shadow:
+0 0 30px
+rgba(79,70,229,.5);
+
+}
+
+.gallery img{
+
+transition:.4s;
+
+}
+
+.gallery img:hover{
+
+transform:
+scale(1.05);
+
+box-shadow:
+0 0 25px #4f46e5;
+
+}
+
+.main-btn{
+
+background:#4f46e5;
+
+padding:15px 30px;
+
+font-size:18px;
+
+border:none;
+
+border-radius:15px;
+
+color:white;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.main-btn:hover{
+
+transform:scale(1.05);
+
+box-shadow:
+0 0 20px #4f46e5;
+
+}
