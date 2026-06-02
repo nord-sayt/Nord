@@ -1,86 +1,130 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<title>Nord Server</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nord</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header>
-  <h1>⚡ Nord Server Panel</h1>
+    <div class="logo">NORD</div>
 
-  <nav>
-    <button onclick="show('home')">خانه</button>
-    <button onclick="show('download')">دانلود</button>
-    <button onclick="show('team')">تیم</button>
-    <button onclick="show('support')">پشتیبانی</button>
-    <button onclick="show('owner')">اونر</button>
-  </nav>
+    <nav>
+        <a href="#home">خانه</a>
+        <a href="#gallery">گالری</a>
+        <a href="#team">تیم</a>
+        <a href="#about">درباره ما</a>
+    </nav>
 </header>
 
-<!-- HOME -->
-<section id="home">
-  <h2>📢 تبلیغ سرور</h2>
+<section class="hero" id="home">
 
-  <div class="card">
-    <p>🎮 IP: <span id="ip">Not Set</span></p>
-    <p>📢 بله: <span id="bale">Not Set</span></p>
-    <p>👑 Owner: mohammadamin</p>
-  </div>
+    <h1>⚡ NORD SERVER</h1>
 
-  <div id="announcements"></div>
+    <p>
+        بهترین سرور ماینکرفت نورد
+    </p>
+
 </section>
 
-<!-- DOWNLOAD -->
-<section id="download" class="hidden">
-  <h2>📦 دانلودها</h2>
+<section class="info">
 
-  <div id="downloadList"></div>
+    <div class="card">
+
+        <h2>🌐 آیپی سرور</h2>
+
+        <p>
+            IP_SERVER_HERE
+        </p>
+
+    </div>
+
+    <div class="card">
+
+        <h2>📢 کانال بله</h2>
+
+        <p>
+            @minecraft_nord
+        </p>
+
+    </div>
+
 </section>
 
-<!-- TEAM -->
-<section id="team" class="hidden">
-  <h2>👥 تیم Nord</h2>
+<section id="gallery">
 
-  <div class="card">
-    👑 Owner: <b>mohammadamin</b>
-  </div>
+    <h2>🖼 گالری سرور</h2>
 
-  <div id="teamList"></div>
+    <div class="gallery">
+
+        <img src="https://picsum.photos/400/250?1">
+        <img src="https://picsum.photos/400/250?2">
+        <img src="https://picsum.photos/400/250?3">
+        <img src="https://picsum.photos/400/250?4">
+
+    </div>
+
 </section>
 
-<!-- SUPPORT -->
-<section id="support" class="hidden">
-  <h2>🛠 پشتیبانی</h2>
+<section id="team">
 
-  <div class="card">
-    📩 تلگرام: @minecraft_nord
-  </div>
+    <h2>👑 تیم مدیریت</h2>
+
+    <div class="team">
+
+        <div class="member">
+            <h3>Owner</h3>
+            <p>mohammadamin</p>
+        </div>
+
+        <div class="member">
+            <h3>Admin 1</h3>
+            <p>نام مدیر</p>
+        </div>
+
+        <div class="member">
+            <h3>Admin 2</h3>
+            <p>نام مدیر</p>
+        </div>
+
+        <div class="member">
+            <h3>Admin 3</h3>
+            <p>نام مدیر</p>
+        </div>
+
+        <div class="member">
+            <h3>Admin 4</h3>
+            <p>نام مدیر</p>
+        </div>
+
+        <div class="member">
+            <h3>Admin 5</h3>
+            <p>نام مدیر</p>
+        </div>
+
+    </div>
+
 </section>
 
-<!-- OWNER -->
-<section id="owner" class="hidden">
-  <h2>👑 پنل اونر</h2>
+<section id="about">
 
-  <textarea id="annText" placeholder="اعلامیه"></textarea>
-  <button onclick="addAnn()">ثبت اعلامیه</button>
+    <h2>ℹ درباره ما</h2>
 
-  <input id="ipInput" placeholder="IP سرور">
-  <input id="baleInput" placeholder="کانال بله">
-  <button onclick="saveSettings()">ذخیره</button>
+    <p>
+        متن درباره سرور نورد را اینجا قرار بده.
+    </p>
 
-  <h3>👥 تیم (5 نفر)</h3>
-  <input id="t1"><input id="t2"><input id="t3"><input id="t4"><input id="t5">
-  <button onclick="saveTeam()">ذخیره تیم</button>
-
-  <h3>📦 افزودن دانلود</h3>
-  <input id="dTitle" placeholder="اسم فایل">
-  <input id="dDesc" placeholder="توضیح">
-  <input id="dLink" placeholder="لینک دانلود">
-  <button onclick="addDownload()">افزودن فایل</button>
 </section>
 
-<script src="app.js"></script>
+<footer>
+
+    <p>
+        NORD © 2026
+    </p>
+
+</footer>
+
 </body>
 </html>
