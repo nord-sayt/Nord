@@ -6,11 +6,12 @@ font-family:tahoma;
 }
 
 body{
-background:#050814;
+background:#050816;
 color:white;
+scroll-behavior:smooth;
 }
 
-/* HEADER FIX */
+/* HEADER */
 header{
 position:fixed;
 top:0;
@@ -19,14 +20,14 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 padding:15px 40px;
-background:rgba(0,0,0,.7);
+background:rgba(0,0,0,0.75);
 backdrop-filter:blur(10px);
 border-bottom:1px solid #00d4ff;
 z-index:1000;
 }
 
 .logo{
-font-size:30px;
+font-size:28px;
 color:#00d4ff;
 font-weight:bold;
 }
@@ -39,7 +40,7 @@ gap:15px;
 nav a{
 color:white;
 text-decoration:none;
-font-size:14px;
+transition:0.3s;
 }
 
 nav a:hover{
@@ -53,14 +54,22 @@ display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
+background:linear-gradient(135deg,#0b1020,#1a0f2e);
 text-align:center;
-background:linear-gradient(135deg,#0b1220,#1b1035);
 }
 
 .hero h1{
-font-size:130px;
+font-size:140px;
 color:#00d4ff;
-text-shadow:0 0 40px #00d4ff;
+text-shadow:0 0 50px #00d4ff;
+}
+
+.hero button{
+padding:10px 25px;
+background:#00d4ff;
+border:none;
+cursor:pointer;
+margin-top:20px;
 }
 
 /* SECTIONS */
@@ -79,26 +88,26 @@ margin-bottom:20px;
 .card{
 background:#111827;
 padding:20px;
-width:320px;
+width:350px;
 margin:auto;
 border-radius:15px;
 border:1px solid #00d4ff55;
 }
 
-/* RULES FIX */
-.rules{
+/* GRID */
+.grid{
 display:flex;
-flex-wrap:wrap;
 justify-content:center;
+flex-wrap:wrap;
 gap:15px;
 }
 
-.rule{
+.box{
 background:#111827;
 padding:15px;
 border-radius:10px;
+min-width:150px;
 border:1px solid #00d4ff55;
-min-width:200px;
 }
 
 /* INPUT */
@@ -110,12 +119,14 @@ border:none;
 border-radius:8px;
 }
 
-/* BUTTON */
+/* BUTTONS */
 .btn,.btn2{
 padding:10px 15px;
-margin-top:10px;
+margin:8px;
 border:none;
 cursor:pointer;
+display:inline-block;
+text-decoration:none;
 }
 
 .btn{
@@ -131,8 +142,8 @@ color:white;
 /* FOOTER */
 footer{
 text-align:center;
-padding:25px;
-background:#111827;
+padding:30px;
+background:#0b0f1a;
 border-top:1px solid #00d4ff;
 margin-top:50px;
 }
