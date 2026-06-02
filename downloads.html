@@ -1,37 +1,74 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>دانلودها | Nord</title>
-<link rel="stylesheet" href="style.css">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Nord Downloads</title>
+
+<link rel="stylesheet"
+href="style.css">
+
 </head>
+
 <body>
 
 <header>
-<div class="logo">NORD</div>
+
+<div class="logo">
+
+⚡ NORD
+
+</div>
 
 <nav>
+
 <a href="index.html">خانه</a>
+
 <a href="downloads.html">دانلودها</a>
+
+<a href="support.html">پشتیبانی</a>
+
+<a href="gallery.html">گالری</a>
+
 </nav>
+
 </header>
 
 <section class="downloads-page">
 
-<h1>📦 دانلودها</h1>
+<h1>
+
+📦 دانلودهای Nord
+
+</h1>
+
+<p>
+
+تمام فایل‌های رسمی سرور نورد
+
+</p>
 
 <input
 type="text"
-id="search"
-placeholder="جستجو..."
+id="searchInput"
+placeholder="جستجو فایل..."
 onkeyup="searchDownloads()">
 
-<div id="downloads-container"></div>
+<div
+id="downloadsContainer"
+class="downloads-grid">
+
+</div>
 
 </section>
 
 <script src="downloads.js"></script>
 
 </body>
+
 </html>
