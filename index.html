@@ -4,12 +4,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NORD PRO MAX 5.0</title>
+<title>NORD ULTRA 6.0</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+<!-- HEADER -->
 <header>
 <div class="logo">NORD</div>
 
@@ -18,13 +19,15 @@
 <a href="#login">ورود</a>
 <a href="#server">سرور</a>
 <a href="#rules">قوانین</a>
+<a href="#download">دانلود</a>
 </nav>
 </header>
 
 <!-- HERO -->
 <section class="hero" id="home">
 <h1>NORD</h1>
-<p>Ultimate Minecraft Server</p>
+<p>Ultimate Minecraft Network</p>
+<button onclick="scrollToLogin()">شروع</button>
 </section>
 
 <!-- LOGIN -->
@@ -37,24 +40,23 @@
 <input id="user" placeholder="نام کاربری">
 <input id="pass" type="password" placeholder="رمز">
 
-<button class="btn" onclick="register()">ثبت نام</button>
-<button class="btn2" onclick="login()">ورود</button>
+<button onclick="register()" class="btn">ثبت نام</button>
+<button onclick="login()" class="btn2">ورود</button>
 
 <p id="msg"></p>
 
 </div>
-
 </section>
 
 <!-- SERVER -->
 <section class="section" id="server">
 
-<h2>🎮 سرور</h2>
+<h2>🎮 سرور Minecraft</h2>
 
 <div class="card">
 
-<h3>IP:</h3>
-<p id="ip">Coming Soon</p>
+<h3>IP سرور:</h3>
+<p id="ip">nord-mc.net</p>
 
 <button class="btn" onclick="copyIP()">کپی IP</button>
 
@@ -65,29 +67,43 @@
 <!-- RULES -->
 <section class="section" id="rules">
 
-<h2>📜 قوانین سرور</h2>
+<h2>📜 قوانین</h2>
 
-<div class="rules">
+<div class="grid">
 
-<div class="rule">❌ چیت ممنوع</div>
-<div class="rule">🤝 احترام اجباری</div>
-<div class="rule">🚫 اسپم ممنوع</div>
-<div class="rule">🎮 بازی منصفانه</div>
+<div class="box">❌ چیت ممنوع</div>
+<div class="box">🤝 احترام اجباری</div>
+<div class="box">🚫 اسپم ممنوع</div>
+<div class="box">🎮 بازی منصفانه</div>
+
+</div>
+
+</section>
+
+<!-- DOWNLOAD -->
+<section class="section" id="download">
+
+<h2>⬇ دانلود فایل‌ها</h2>
+
+<div class="card">
+
+<p>مودها و پک‌های NORD</p>
+
+<a class="btn" href="#">دانلود مودها</a>
+<a class="btn2" href="#">دانلود پک‌ها</a>
 
 </div>
 
 </section>
 
 <footer>
-© NORD PRO MAX 5.0
+© NORD ULTRA 6.0
 </footer>
 
 <script>
 
 function register(){
-let u = user.value;
-let p = pass.value;
-localStorage.setItem("u_"+u,p);
+localStorage.setItem("u_"+user.value, pass.value);
 msg.innerText="ثبت شد ✔";
 }
 
@@ -98,13 +114,17 @@ let p = pass.value;
 if(localStorage.getItem("u_"+u) === p){
 msg.innerText="خوش آمدی " + u;
 }else{
-msg.innerText="اشتباه ❌";
+msg.innerText="❌ اشتباه";
 }
 }
 
 function copyIP(){
-navigator.clipboard.writeText(ip.innerText);
+navigator.clipboard.writeText(document.getElementById("ip").innerText);
 alert("کپی شد");
+}
+
+function scrollToLogin(){
+document.getElementById("login").scrollIntoView({behavior:"smooth"});
 }
 
 </script>
