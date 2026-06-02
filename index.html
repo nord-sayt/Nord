@@ -4,156 +4,41 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NORD PRO MAX 2.1</title>
+<title>Nord</title>
 <link rel="stylesheet" href="style.css">
+<script defer src="app.js"></script>
 </head>
 
 <body>
 
-<header>
-<div class="logo">NORD</div>
+<header class="header">
+<div class="logo">Nord</div>
 
 <nav>
-<a href="#home">خانه</a>
-<a href="#server">سرور</a>
-<a href="#downloads">دانلود</a>
-<a href="#gallery">گالری</a>
-<a href="#rules">قوانین</a>
-<a href="#admin">ادمین</a>
+<a href="index.html">خانه</a>
+<a href="downloads.html">دانلود</a>
+<a href="gallery.html">گالری</a>
+<a href="news.html">اخبار</a>
+<a href="team.html">تیم</a>
+<a href="contact.html">ارتباط</a>
 </nav>
 </header>
 
-<section class="hero" id="home">
-
-<h1>NORD</h1>
-<p>Minecraft Server & Community</p>
-
-<div class="announce">
-⚡ اعلان: <span id="announceText">به سرور NORD خوش آمدید!</span>
-</div>
-
+<section class="hero">
+<h1>Nord</h1>
+<p>Ultimate Minecraft Server</p>
+<button onclick="goDownload()">شروع</button>
 </section>
 
-<section class="section" id="server">
-<h2>🎮 سرور</h2>
-
-<div class="card big">
-
-<p>IP سرور:</p>
-<h3 id="serverIP">Coming Soon</h3>
-
-<button onclick="copyIP()" class="btn">📋 کپی IP</button>
-
-</div>
-</section>
-
-<section class="section" id="downloads">
-<h2>📦 دانلودها</h2>
-
-<div class="cards">
-
-<div class="card">
-<h3>PvP Pack</h3>
-<p>پک حرفه‌ای PvP</p>
-<a class="btn" href="#">دانلود</a>
-</div>
-
-<div class="card">
-<h3>Shaders</h3>
-<p>گرافیک خفن</p>
-<a class="btn" href="#">دانلود</a>
-</div>
-
-<div class="card">
-<h3>Mods</h3>
-<p>مودهای کاربردی</p>
-<a class="btn" href="#">دانلود</a>
-</div>
-
-</div>
-</section>
-
-<section class="section" id="gallery">
-<h2>🖼 گالری</h2>
-
-<div class="cards">
-
-<div class="card">🎮 عکس 1</div>
-<div class="card">🔥 عکس 2</div>
-<div class="card">⚡ عکس 3</div>
-
-</div>
-</section>
-
-<section class="section" id="rules">
-<h2>📜 قوانین</h2>
-
-<div class="cards">
-
-<div class="card">❌ چیت ممنوع</div>
-<div class="card">🤝 احترام</div>
-<div class="card">🚫 اسپم ممنوع</div>
-
-</div>
-</section>
-
-<section class="section" id="admin">
-<h2>👑 پنل ساده ادمین</h2>
-
-<div class="card big">
-
-<input id="ipInput" placeholder="IP سرور">
-
-<button onclick="setIP()" class="btn">ثبت IP</button>
-
-<br><br>
-
-<input id="announceInput" placeholder="اعلان جدید">
-
-<button onclick="setAnnounce()" class="btn2">ثبت اعلان</button>
-
-</div>
-
+<section class="cards">
+<div class="card">Survival</div>
+<div class="card">PvP</div>
+<div class="card">Mods</div>
 </section>
 
 <footer>
-© NORD PRO MAX 2.1
+© Nord 2026
 </footer>
-
-<script>
-
-function copyIP(){
-navigator.clipboard.writeText(
-document.getElementById("serverIP").innerText
-);
-alert("IP کپی شد");
-}
-
-function setIP(){
-let ip = document.getElementById("ipInput").value;
-document.getElementById("serverIP").innerText = ip;
-localStorage.setItem("ip", ip);
-}
-
-function setAnnounce(){
-let a = document.getElementById("announceInput").value;
-document.getElementById("announceText").innerText = a;
-localStorage.setItem("announce", a);
-}
-
-window.onload = function(){
-if(localStorage.getItem("ip")){
-document.getElementById("serverIP").innerText =
-localStorage.getItem("ip");
-}
-
-if(localStorage.getItem("announce")){
-document.getElementById("announceText").innerText =
-localStorage.getItem("announce");
-}
-}
-
-</script>
 
 </body>
 </html>
