@@ -4,11 +4,14 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
 <title>NORD SERVER</title>
 
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet"
+href="style.css">
 
 </head>
 
@@ -17,7 +20,9 @@
 <header>
 
 <div class="logo">
+
 ⚡ NORD
+
 </div>
 
 <nav>
@@ -30,9 +35,7 @@
 
 <a href="gallery.html">گالری</a>
 
-<a href="#team">تیم</a>
-
-<a href="#about">درباره ما</a>
+<a href="admin.html">کنترل</a>
 
 </nav>
 
@@ -40,21 +43,33 @@
 
 <section class="hero">
 
-<h1> NORD </h1>
+<h1>
+
+🔥 NORD SERVER
+
+</h1>
 
 <p>
+
 سرور رسمی ماینکرفت نورد
+
 </p>
 
 <button onclick="copyIP()">
+
 کپی آیپی سرور
+
 </button>
 
 </section>
 
 <section class="info-card">
 
-<h2>🌍 آیپی سرور</h2>
+<h2>
+
+🌍 آیپی سرور
+
+</h2>
 
 <p id="server-ip">
 
@@ -66,9 +81,13 @@ play.nord.ir
 
 <section class="info-card">
 
-<h2>📢 کانال بله</h2>
+<h2>
 
-<p>
+📢 کانال بله
+
+</h2>
+
+<p id="bale-channel">
 
 @minecraft_nord
 
@@ -78,9 +97,13 @@ play.nord.ir
 
 <section class="info-card">
 
-<h2>📣 اطلاعیه</h2>
+<h2>
 
-<p>
+📣 اطلاعیه
+
+</h2>
+
+<p id="announcement-text">
 
 به سرور Nord خوش آمدید.
 
@@ -90,7 +113,11 @@ play.nord.ir
 
 <section class="gallery-preview">
 
-<h2>🖼 گالری سرور</h2>
+<h2>
+
+🖼 گالری سرور
+
+</h2>
 
 <div class="gallery-grid">
 
@@ -112,38 +139,64 @@ play.nord.ir
 
 <section id="team">
 
-<h2>👑 تیم مدیریت</h2>
+<h2>
+
+👑 تیم مدیریت
+
+</h2>
 
 <div class="team-grid">
 
 <div class="owner-card">
 
-<h3>👑 OWNER</h3>
+<h3>
 
-<p>mohammadamin</p>
+👑 OWNER
 
-<span>Founder Of Nord</span>
+</h3>
+
+<p>
+
+mohammadamin
+
+</p>
+
+<span>
+
+Founder Of Nord
+
+</span>
 
 </div>
 
 <div class="member">
+
 Admin 1
+
 </div>
 
 <div class="member">
+
 Admin 2
+
 </div>
 
 <div class="member">
+
 Admin 3
+
 </div>
 
 <div class="member">
+
 Admin 4
+
 </div>
 
 <div class="member">
+
 Admin 5
+
 </div>
 
 </div>
@@ -152,9 +205,13 @@ Admin 5
 
 <section id="about">
 
-<h2>ℹ درباره ما</h2>
+<h2>
 
-<p>
+ℹ درباره ما
+
+</h2>
+
+<p id="about-text">
 
 اینجا توضیحات سرور Nord قرار میگیرد.
 
@@ -163,7 +220,9 @@ Admin 5
 </section>
 
 <button id="topBtn">
+
 ⬆
+
 </button>
 
 <script>
@@ -172,7 +231,9 @@ function copyIP(){
 
 navigator.clipboard.writeText(
 
-document.getElementById("server-ip").innerText
+document.getElementById(
+"server-ip"
+).innerText
 
 );
 
@@ -181,17 +242,21 @@ alert("IP کپی شد");
 }
 
 const topBtn =
-document.getElementById("topBtn");
+document.getElementById(
+"topBtn"
+);
 
 window.onscroll = () => {
 
 if(window.scrollY > 300){
 
-topBtn.style.display = "block";
+topBtn.style.display =
+"block";
 
 }else{
 
-topBtn.style.display = "none";
+topBtn.style.display =
+"none";
 
 }
 
@@ -210,6 +275,8 @@ behavior:"smooth"
 };
 
 </script>
+
+<script src="loadSettings.js"></script>
 
 </body>
 
