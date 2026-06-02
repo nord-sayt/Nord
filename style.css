@@ -6,7 +6,7 @@ font-family:tahoma;
 }
 
 body{
-background:#050814;
+background:#050712;
 color:white;
 }
 
@@ -21,7 +21,6 @@ padding:20px 40px;
 background:rgba(0,0,0,.6);
 backdrop-filter:blur(10px);
 border-bottom:1px solid #00d4ff;
-z-index:1000;
 }
 
 .logo{
@@ -53,16 +52,9 @@ background:linear-gradient(135deg,#0b1220,#1b1035);
 }
 
 .hero h1{
-font-size:150px;
+font-size:160px;
 color:#00d4ff;
-text-shadow:0 0 50px #00d4ff;
-}
-
-.announce{
-margin-top:20px;
-padding:10px 20px;
-border:1px solid #00d4ff;
-border-radius:10px;
+text-shadow:0 0 60px #00d4ff;
 }
 
 /* SECTIONS */
@@ -76,40 +68,35 @@ color:#00d4ff;
 margin-bottom:30px;
 }
 
-/* CARDS */
-.cards{
-display:flex;
-justify-content:center;
-gap:20px;
-flex-wrap:wrap;
-}
-
+/* CARD */
 .card{
 background:#111827;
 padding:20px;
-width:260px;
+width:300px;
+margin:auto;
 border-radius:15px;
 border:1px solid #00d4ff55;
-transition:.3s;
-}
-
-.card:hover{
-transform:scale(1.05);
-box-shadow:0 0 25px #00d4ff;
 }
 
 .card.big{
 width:420px;
-padding:30px;
 }
 
-/* BUTTONS */
+/* INPUT */
+input{
+width:80%;
+padding:10px;
+margin:10px;
+border:none;
+border-radius:8px;
+}
+
+/* BUTTON */
 .btn,.btn2{
 padding:10px 20px;
-margin-top:10px;
+margin:10px;
 border:none;
 cursor:pointer;
-display:inline-block;
 }
 
 .btn{
@@ -120,16 +107,6 @@ color:black;
 .btn2{
 background:#7c3aed;
 color:white;
-}
-
-/* INPUT */
-input{
-padding:10px;
-width:80%;
-margin-top:10px;
-border:none;
-border-radius:8px;
-outline:none;
 }
 
 /* FOOTER */
