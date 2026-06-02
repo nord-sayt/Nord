@@ -8,7 +8,6 @@ font-family:tahoma;
 body{
 background:#050814;
 color:white;
-padding-top:80px;
 }
 
 /* HEADER */
@@ -18,27 +17,23 @@ top:0;
 width:100%;
 display:flex;
 justify-content:space-between;
-align-items:center;
-padding:15px 40px;
-background:rgba(0,0,0,.75);
+padding:20px 40px;
+background:rgba(0,0,0,.6);
 backdrop-filter:blur(10px);
 border-bottom:1px solid #00d4ff;
-z-index:999;
+z-index:1000;
 }
 
 .logo{
-font-size:28px;
+font-size:35px;
 color:#00d4ff;
 font-weight:bold;
-}
-
-nav{
-display:flex;
-gap:15px;
+text-shadow:0 0 20px #00d4ff;
 }
 
 nav a{
 color:white;
+margin:0 10px;
 text-decoration:none;
 }
 
@@ -58,72 +53,77 @@ background:linear-gradient(135deg,#0b1220,#1b1035);
 }
 
 .hero h1{
-font-size:130px;
+font-size:140px;
 color:#00d4ff;
 text-shadow:0 0 40px #00d4ff;
 }
 
-/* SECTION */
+.announce{
+margin-top:20px;
+padding:10px 20px;
+border:1px solid #00d4ff;
+border-radius:10px;
+}
+
+/* SECTIONS */
 .section{
-padding:100px 20px;
+padding:120px 20px;
 text-align:center;
 }
 
 .section h2{
 color:#00d4ff;
-margin-bottom:20px;
+margin-bottom:30px;
 }
 
 /* CARD */
+.cards{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+}
+
 .card{
 background:#111827;
 padding:20px;
-width:320px;
-margin:auto;
+width:260px;
 border-radius:15px;
 border:1px solid #00d4ff55;
+transition:.3s;
 }
 
-/* RULES */
-.rules{
-display:flex;
-justify-content:center;
-flex-wrap:wrap;
-gap:15px;
+.card:hover{
+transform:scale(1.05);
+box-shadow:0 0 20px #00d4ff;
 }
 
-.rule{
-background:#111827;
-padding:15px;
-border-radius:10px;
-border:1px solid #00d4ff55;
-min-width:150px;
+.card.big{
+width:400px;
 }
 
-/* INPUT */
-input{
-width:90%;
-padding:10px;
-margin:8px 0;
-border:none;
-border-radius:8px;
-}
-
-/* BUTTONS */
 .btn,.btn2{
-padding:10px 15px;
-margin:5px;
+padding:10px 20px;
 border:none;
 cursor:pointer;
+margin-top:10px;
+display:inline-block;
 }
 
-.btn{background:#00d4ff;color:black;}
-.btn2{background:#7c3aed;color:white;}
+.btn{
+background:#00d4ff;
+color:black;
+}
+
+.btn2{
+background:#7c3aed;
+color:white;
+}
 
 /* FOOTER */
 footer{
 text-align:center;
-padding:25px;
-background:#0b0f1a;
+padding:30px;
+background:#111827;
 border-top:1px solid #00d4ff;
 }
