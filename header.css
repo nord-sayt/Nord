@@ -1,0 +1,32 @@
+header{
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 35px;
+background:rgba(0,0,0,0.75);
+backdrop-filter:blur(12px);
+border-bottom:1px solid #00d4ff;
+z-index:9999;
+}
+
+nav a{
+position:relative;
+}
+
+nav a::after{
+content:"";
+position:absolute;
+left:0;
+bottom:-5px;
+width:0%;
+height:2px;
+background:#00d4ff;
+transition:0.3s;
+}
+
+nav a:hover::after{
+width:100%;
+}
