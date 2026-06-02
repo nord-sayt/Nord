@@ -5,6 +5,10 @@ box-sizing:border-box;
 font-family:tahoma;
 }
 
+html{
+scroll-behavior:smooth;
+}
+
 body{
 background:#050816;
 color:white;
@@ -14,8 +18,11 @@ header{
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:20px 50px;
+padding:20px 40px;
 background:#0b1220;
+position:sticky;
+top:0;
+z-index:1000;
 }
 
 .logo{
@@ -27,164 +34,11 @@ color:#4f46e5;
 nav a{
 color:white;
 text-decoration:none;
-margin:0 15px;
+margin:0 10px;
 }
 
 .hero{
-text-align:center;
-padding:100px 20px;
-background:linear-gradient(135deg,#111827,#0f172a);
-}
 
-.hero h1{
-font-size:60px;
-margin-bottom:20px;
-}
-
-.hero p{
-font-size:20px;
-}
-
-.info{
-display:flex;
-gap:20px;
-padding:30px;
-}
-
-.card{
-flex:1;
-background:#111827;
-padding:25px;
-border-radius:15px;
-}
-
-#gallery{
-padding:40px;
-}
-
-.gallery{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:20px;
-}
-
-.gallery img{
-width:100%;
-border-radius:15px;
-}
-
-#team{
-padding:40px;
-}
-
-.team{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
-}
-
-.member{
-background:#111827;
-padding:20px;
-border-radius:15px;
-text-align:center;
-}
-
-#about{
-padding:40px;
-}
-
-footer{
-text-align:center;
-padding:20px;
-background:#0b1220;
-margin-top:30px;
-}
-.downloads-page{
-padding:40px;
-}
-
-#search{
-width:100%;
-padding:15px;
-margin-bottom:20px;
-border-radius:12px;
-border:none;
-font-size:18px;
-}
-
-#downloads-container{
-display:grid;
-grid-template-columns:
-repeat(auto-fit,minmax(300px,1fr));
-gap:20px;
-}
-
-.download-card{
-background:#111827;
-padding:20px;
-border-radius:15px;
-}
-
-.download-card img{
-width:100%;
-border-radius:10px;
-margin-bottom:10px;
-}
-
-.download-card button{
-background:#4f46e5;
-color:white;
-border:none;
-padding:10px 20px;
-border-radius:10px;
-cursor:pointer;
-}
-.support-page{
-padding:40px;
-}
-
-.support-page input,
-.support-page textarea{
-width:100%;
-padding:15px;
-margin:10px 0;
-border:none;
-border-radius:12px;
-}
-
-.support-page button{
-padding:12px 25px;
-background:#4f46e5;
-color:white;
-border:none;
-border-radius:12px;
-}
-
-.news-page{
-padding:40px;
-}
-
-.news-card{
-background:#111827;
-padding:20px;
-margin-bottom:20px;
-border-radius:15px;
-}
-
-.gallery img{
-transition:0.3s;
-cursor:pointer;
-}
-
-.gallery img:hover{
-transform:scale(1.05);
-}
-html{
-scroll-behavior:smooth;
-}
-
-.hero{
 background:
 linear-gradient(
 135deg,
@@ -194,52 +48,28 @@ linear-gradient(
 );
 
 padding:120px 20px;
+
 text-align:center;
+
 }
 
 .hero h1{
+
 font-size:70px;
+
 text-shadow:
 0 0 15px #4f46e5,
 0 0 30px #4f46e5;
-}
 
-.card,
-.download-card,
-.member,
-.news-card{
-
-transition:0.4s;
+margin-bottom:20px;
 
 }
 
-.card:hover,
-.download-card:hover,
-.member:hover,
-.news-card:hover{
+.hero p{
 
-transform:
-translateY(-8px);
+font-size:20px;
 
-box-shadow:
-0 0 30px
-rgba(79,70,229,.5);
-
-}
-
-.gallery img{
-
-transition:.4s;
-
-}
-
-.gallery img:hover{
-
-transform:
-scale(1.05);
-
-box-shadow:
-0 0 25px #4f46e5;
+margin-bottom:30px;
 
 }
 
@@ -269,5 +99,208 @@ transform:scale(1.05);
 
 box-shadow:
 0 0 20px #4f46e5;
+
+}
+
+.info-grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(300px,1fr));
+
+gap:20px;
+
+padding:40px;
+
+}
+
+.card{
+
+background:#111827;
+
+padding:25px;
+
+border-radius:15px;
+
+transition:.4s;
+
+}
+
+.card:hover{
+
+transform:translateY(-8px);
+
+box-shadow:
+0 0 30px rgba(79,70,229,.5);
+
+}
+
+.news{
+
+padding:40px;
+
+}
+
+.news-card{
+
+background:#111827;
+
+padding:20px;
+
+margin-bottom:20px;
+
+border-radius:15px;
+
+transition:.4s;
+
+}
+
+.news-card:hover{
+
+transform:translateY(-8px);
+
+box-shadow:
+0 0 30px rgba(79,70,229,.5);
+
+}
+
+#gallery{
+
+padding:40px;
+
+}
+
+.gallery{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(300px,1fr));
+
+gap:20px;
+
+}
+
+.gallery img{
+
+width:100%;
+
+border-radius:15px;
+
+cursor:pointer;
+
+transition:.4s;
+
+}
+
+.gallery img:hover{
+
+transform:scale(1.05);
+
+box-shadow:
+0 0 25px #4f46e5;
+
+}
+
+#team{
+
+padding:40px;
+
+}
+
+.team-grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(220px,1fr));
+
+gap:20px;
+
+}
+
+.member{
+
+background:#111827;
+
+padding:20px;
+
+border-radius:15px;
+
+text-align:center;
+
+transition:.4s;
+
+}
+
+.member:hover{
+
+transform:translateY(-8px);
+
+box-shadow:
+0 0 30px rgba(79,70,229,.5);
+
+}
+
+#about{
+
+padding:40px;
+
+}
+
+footer{
+
+background:#0b1220;
+
+text-align:center;
+
+padding:20px;
+
+margin-top:40px;
+
+}
+
+button{
+
+background:#4f46e5;
+
+color:white;
+
+border:none;
+
+padding:10px 20px;
+
+border-radius:10px;
+
+cursor:pointer;
+
+}
+
+#topBtn{
+
+position:fixed;
+
+bottom:20px;
+
+left:20px;
+
+width:50px;
+
+height:50px;
+
+border:none;
+
+border-radius:50%;
+
+background:#4f46e5;
+
+color:white;
+
+font-size:20px;
+
+display:none;
+
+cursor:pointer;
 
 }
