@@ -1,44 +1,63 @@
+// ===== NORD PRO MAX APP =====
 
-// 👑 OWNER
-function saveOwner(){
-  localStorage.setItem("owner", document.getElementById("ownerInput").value);
+// ثبت نام کاربر
+function register() {
+    const u = document.getElementById("user").value;
+    const p = document.getElementById("pass").value;
+
+    if (!u || !p) {
+        document.getElementById("msg").innerText = "همه فیلدها رو پر کن ❌";
+        return;
+    }
+
+    localStorage.setItem("nord_user_" + u, p);
+    document.getElementById("msg").innerText = "ثبت نام موفق ✔";
 }
 
-function showOwner(){
-  document.getElementById("ownerBox").innerText =
-    "👑 " + (localStorage.getItem("owner") || "No Owner");
+// ورود کاربر
+function login() {
+    const u = document.getElementById("user").value;
+    const p = document.getElementById("pass").value;
+
+    const saved = localStorage.getItem("nord_user_" + u);
+
+    if (saved === p) {
+        document.getElementById("msg").innerText = "خوش آمدی " + u + " 👋";
+        localStorage.setItem("current_user", u);
+    } else {
+        document.getElementById("msg").innerText = "نام کاربری یا رمز اشتباه ❌";
+    }
 }
 
+// کپی IP سرور
+function copyIP() {
+    const ip = document.getElementById("ip").innerText;
 
-// 🧊 TEAM
-function saveTeam(){
-  let arr = document.getElementById("teamInput").value.split("\n");
-  localStorage.setItem("team", JSON.stringify(arr));
+    navigator.clipboard.writeText(ip).then(() => {
+        alert("IP کپی شد ✔");
+    });
 }
 
-function showTeam(){
-  let team = JSON.parse(localStorage.getItem("team") || "[]");
-
-  let box = document.getElementById("teamBox");
-  box.innerHTML = "";
-
-  team.forEach(t=>{
-    let div = document.createElement("div");
-    div.innerText = "🧊 " + t;
-    box.appendChild(div);
-  });
+// نمایش کاربر فعلی (اختیاری)
+function getCurrentUser() {
+    return localStorage.getItem("current_user");
 }
 
-
-// 📢 ANNOUNCEMENT
-function saveAnn(){
-  localStorage.setItem("ann", document.getElementById("annInput").value);
-  showAnn();
+// خروج کاربر
+function logout() {
+    localStorage.removeItem("current_user");
+    alert("خارج شدی ✔");
 }
 
-function showAnn(){
-  document.getElementById("announcements").innerText =
-    localStorage.getItem("ann") || "No announcement";
+// گرفتن IP ذخیره شده (اگر خواستی ارتقا بدی)
+function loadIP() {
+    const savedIP = localStorage.getItem("server_ip");
+    if (savedIP) {
+        document.getElementById("ip").innerText = savedIP;
+    }
 }
 
-showAnn();
+// اجرا هنگام لود سایت
+window.onload = function () {
+    loadIP();
+};
