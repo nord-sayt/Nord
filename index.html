@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NORD MAX Minecraft</title>
+<title>NORD PRO MAX 2.1</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
@@ -15,49 +15,39 @@
 
 <nav>
 <a href="#home">خانه</a>
-<a href="#about">درباره</a>
+<a href="#server">سرور</a>
 <a href="#downloads">دانلود</a>
+<a href="#gallery">گالری</a>
 <a href="#rules">قوانین</a>
-<a href="#team">مدیریت</a>
-<a href="#contact">ارتباط</a>
+<a href="#admin">ادمین</a>
 </nav>
 </header>
 
 <section class="hero" id="home">
+
 <h1>NORD</h1>
-<p>جامعه حرفه‌ای ماینکرفت | دانلود | سرور | مودها</p>
+<p>Minecraft Server & Community</p>
 
-<div class="buttons">
-<a href="#downloads" class="btn">دانلودها</a>
-<a href="#contact" class="btn2">ورود به ارتباط</a>
+<div class="announce">
+⚡ اعلان: <span id="announceText">به سرور NORD خوش آمدید!</span>
+</div>
+
+</section>
+
+<section class="section" id="server">
+<h2>🎮 سرور</h2>
+
+<div class="card big">
+
+<p>IP سرور:</p>
+<h3 id="serverIP">Coming Soon</h3>
+
+<button onclick="copyIP()" class="btn">📋 کپی IP</button>
+
 </div>
 </section>
 
-<section class="about" id="about">
-<h2>⚡ درباره NORD</h2>
-<p>
-NORD یک جامعه حرفه‌ای ماینکرفت است برای دانلود مود، شیدر، پک و معرفی سرورهای خفن.
-</p>
-
-<div class="stats">
-<div class="stat">
-<h3>100+</h3>
-<p>دانلود</p>
-</div>
-
-<div class="stat">
-<h3>24/7</h3>
-<p>آنلاین</p>
-</div>
-
-<div class="stat">
-<h3>PRO</h3>
-<p>Server</p>
-</div>
-</div>
-</section>
-
-<section id="downloads" class="section">
+<section class="section" id="downloads">
 <h2>📦 دانلودها</h2>
 
 <div class="cards">
@@ -70,7 +60,7 @@ NORD یک جامعه حرفه‌ای ماینکرفت است برای دانلو
 
 <div class="card">
 <h3>Shaders</h3>
-<p>شیدر گرافیکی</p>
+<p>گرافیک خفن</p>
 <a class="btn" href="#">دانلود</a>
 </div>
 
@@ -83,50 +73,87 @@ NORD یک جامعه حرفه‌ای ماینکرفت است برای دانلو
 </div>
 </section>
 
-<section id="rules" class="section">
+<section class="section" id="gallery">
+<h2>🖼 گالری</h2>
+
+<div class="cards">
+
+<div class="card">🎮 عکس 1</div>
+<div class="card">🔥 عکس 2</div>
+<div class="card">⚡ عکس 3</div>
+
+</div>
+</section>
+
+<section class="section" id="rules">
 <h2>📜 قوانین</h2>
 
 <div class="cards">
+
 <div class="card">❌ چیت ممنوع</div>
-<div class="card">🤝 احترام اجباری</div>
+<div class="card">🤝 احترام</div>
 <div class="card">🚫 اسپم ممنوع</div>
+
 </div>
 </section>
 
-<section id="team" class="section">
-<h2>👑 مدیریت</h2>
+<section class="section" id="admin">
+<h2>👑 پنل ساده ادمین</h2>
 
-<div class="cards">
-<div class="card">
-OWNER<br>
-محمدامین
-</div>
+<div class="card big">
 
-<div class="card">
-NORD TEAM
-</div>
-</div>
-</section>
+<input id="ipInput" placeholder="IP سرور">
 
-<section id="contact" class="section">
-<h2>📞 ارتباط</h2>
+<button onclick="setIP()" class="btn">ثبت IP</button>
 
-<div class="cards">
-<div class="card">
-بله<br>
-@minecraft_nord
+<br><br>
+
+<input id="announceInput" placeholder="اعلان جدید">
+
+<button onclick="setAnnounce()" class="btn2">ثبت اعلان</button>
+
 </div>
 
-<div class="card">
-پشتیبانی<br>
-به زودی
-</div>
-</div>
 </section>
 
 <footer>
-© 2026 NORD Minecraft
+© NORD PRO MAX 2.1
 </footer>
+
+<script>
+
+function copyIP(){
+navigator.clipboard.writeText(
+document.getElementById("serverIP").innerText
+);
+alert("IP کپی شد");
+}
+
+function setIP(){
+let ip = document.getElementById("ipInput").value;
+document.getElementById("serverIP").innerText = ip;
+localStorage.setItem("ip", ip);
+}
+
+function setAnnounce(){
+let a = document.getElementById("announceInput").value;
+document.getElementById("announceText").innerText = a;
+localStorage.setItem("announce", a);
+}
+
+window.onload = function(){
+if(localStorage.getItem("ip")){
+document.getElementById("serverIP").innerText =
+localStorage.getItem("ip");
+}
+
+if(localStorage.getItem("announce")){
+document.getElementById("announceText").innerText =
+localStorage.getItem("announce");
+}
+}
+
+</script>
 
 </body>
 </html>
