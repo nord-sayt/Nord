@@ -4,20 +4,17 @@
 <head>
 
 <meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Nord Control Panel</title>
 
-<link rel="stylesheet"
-href="style.css">
+<link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
 
-<div class="admin-login" id="loginPage">
+<div id="loginPage" class="admin-login">
 
 <h1>👑 Nord Control Panel</h1>
 
@@ -27,9 +24,7 @@ id="adminPassword"
 placeholder="رمز ادمین">
 
 <button onclick="login()">
-
 ورود
-
 </button>
 
 </div>
@@ -71,8 +66,8 @@ placeholder="@minecraft_nord">
 <h2>📣 اطلاعیه</h2>
 
 <textarea
-rows="5"
-id="announcement">
+id="announcement"
+rows="5">
 </textarea>
 
 </section>
@@ -82,8 +77,8 @@ id="announcement">
 <h2>ℹ درباره ما</h2>
 
 <textarea
-rows="8"
-id="aboutText">
+id="aboutText"
+rows="8">
 </textarea>
 
 </section>
@@ -94,6 +89,7 @@ id="aboutText">
 
 <input
 type="text"
+id="ownerName"
 value="mohammadamin">
 
 </section>
@@ -102,11 +98,11 @@ value="mohammadamin">
 
 <h2>🛡 مدیران</h2>
 
-<input type="text" placeholder="Admin 1">
-<input type="text" placeholder="Admin 2">
-<input type="text" placeholder="Admin 3">
-<input type="text" placeholder="Admin 4">
-<input type="text" placeholder="Admin 5">
+<input id="admin1" placeholder="Admin 1">
+<input id="admin2" placeholder="Admin 2">
+<input id="admin3" placeholder="Admin 3">
+<input id="admin4" placeholder="Admin 4">
+<input id="admin5" placeholder="Admin 5">
 
 </section>
 
@@ -115,22 +111,23 @@ value="mohammadamin">
 <h2>📦 دانلود جدید</h2>
 
 <input
-type="text"
+id="downloadTitle"
 placeholder="نام فایل">
 
 <input
-type="text"
-placeholder="توضیحات">
+id="downloadImage"
+placeholder="لینک عکس">
 
 <input
-type="text"
-placeholder="آدرس عکس">
-
-<input
-type="text"
+id="downloadLink"
 placeholder="لینک دانلود">
 
-<button>
+<textarea
+id="downloadDescription"
+placeholder="توضیحات فایل">
+</textarea>
+
+<button onclick="addDownload()">
 افزودن دانلود
 </button>
 
@@ -141,11 +138,25 @@ placeholder="لینک دانلود">
 <h2>🖼 افزودن تصویر گالری</h2>
 
 <input
-type="text"
-placeholder="آدرس تصویر">
+id="galleryImage"
+placeholder="لینک تصویر">
 
-<button>
+<button onclick="addGalleryImage()">
 افزودن تصویر
+</button>
+
+</section>
+
+<section class="admin-section">
+
+<h2>⚙ مدیریت پنل</h2>
+
+<button onclick="saveSettings()">
+💾 ذخیره تنظیمات
+</button>
+
+<button onclick="logout()">
+🚪 خروج
 </button>
 
 </section>
