@@ -1,36 +1,37 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <title>Downloads - NORD</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>دانلودها | Nord</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header>
-  <div class="logo">NORD</div>
-  <nav>
-    <a href="index.html">خانه</a>
-    <a href="downloads.html">دانلود</a>
-  </nav>
+<div class="logo">NORD</div>
+
+<nav>
+<a href="index.html">خانه</a>
+<a href="downloads.html">دانلودها</a>
+</nav>
 </header>
 
-<h2 style="text-align:center;">📥 دانلود فایل‌ها</h2>
+<section class="downloads-page">
 
-<div class="ads">
-  <p>🔹 مودهای ماینکرفت</p>
-  <a class="btn" href="#">دانلود</a>
-</div>
+<h1>📦 دانلودها</h1>
 
-<div class="ads">
-  <p>🔹 مپ‌های سرور</p>
-  <a class="btn" href="#">دانلود</a>
-</div>
+<input
+type="text"
+id="search"
+placeholder="جستجو..."
+onkeyup="searchDownloads()">
 
-<div class="ads">
-  <p>🔹 Resource Pack</p>
-  <a class="btn" href="#">دانلود</a>
-</div>
+<div id="downloads-container"></div>
+
+</section>
+
+<script src="downloads.js"></script>
 
 </body>
 </html>
