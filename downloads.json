@@ -1,0 +1,15 @@
+[
+  {
+    "title": "Nord Client",
+    "description": "کلاینت رسمی نورد",
+    "image": "images/client.jpg",
+    "link": "files/client.zip"
+  },
+
+  {
+    "title": "Nord Texture Pack",
+    "description": "تکسچرپک رسمی نورد",
+    "image": "images/texture.jpg",
+    "link": "files/texture.zip"
+  }
+]
