@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-
+ 
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
 <head>
 
 <meta charset="UTF-8">
@@ -302,7 +304,60 @@ behavior:"smooth"
 </script>
 
 <script src="loadSettings.js"></script>
+<script>
+// 1. تنظیمات Firebase (اینجا باید جایگزین کنی)
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_PROJECT.firebaseapp.com",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_PROJECT.appspot.com",
+  messagingSenderId: "XXXX",
+  appId: "XXXX"
+};
 
+// 2. شروع Firebase
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+const messagesRef = db.collection("supportMessages");
+
+// 3. ارسال پیام
+document.getElementById("support-form").addEventListener("submit", async function(e){
+  e.preventDefault();
+
+  const name = document.getElementById("support-name").value;
+  const text = document.getElementById("support-message").value;
+
+  await messagesRef.add({
+    name: name,
+    text: text,
+    reply: "",
+    time: Date.now()
+  });
+
+  alert("پیام ارسال شد");
+  this.reset();
+});
+
+// 4. گرفتن پیام‌ها
+messagesRef.orderBy("time", "desc").onSnapshot(snapshot => {
+  const list = document.getElementById("messages-list");
+  list.innerHTML = "";
+
+  snapshot.forEach(doc => {
+    const msg = doc.data();
+
+    const li = document.createElement("li");
+
+    li.innerHTML = `
+      <strong>${msg.name}:</strong> ${msg.text}<br>
+      ${msg.reply ? `<span style="color:green">پاسخ: ${msg.reply}</span><br>` : ""}
+    `;
+
+    list.appendChild(li);
+  });
+});
+</script>
+ 
 </body>
 
 </html>
