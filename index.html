@@ -8,41 +8,35 @@
 <body>
 
 <header>
-  <h1>⚡ NORD SERVER</h1>
+  <h1>⚡ Nord Server Panel</h1>
+
   <nav>
     <button onclick="show('home')">خانه</button>
-    <button onclick="show('login')">ورود</button>
-    <button onclick="show('profile')">پروفایل</button>
+    <button onclick="show('download')">دانلود</button>
     <button onclick="show('team')">تیم</button>
+    <button onclick="show('support')">پشتیبانی</button>
     <button onclick="show('owner')">اونر</button>
   </nav>
 </header>
 
-<main>
-
 <!-- HOME -->
 <section id="home">
-  <h2>📢 اعلامیه‌ها</h2>
+  <h2>📢 تبلیغ سرور</h2>
+
+  <div class="card">
+    <p>🎮 IP: <span id="ip">Not Set</span></p>
+    <p>📢 بله: <span id="bale">Not Set</span></p>
+    <p>👑 Owner: mohammadamin</p>
+  </div>
+
   <div id="announcements"></div>
-
-  <h2>📡 سرور</h2>
-  <p>IP: <span id="ip">Not Set</span></p>
-  <p>بله: <span id="bale">Not Set</span></p>
 </section>
 
-<!-- LOGIN -->
-<section id="login" class="hidden">
-  <h2>ورود / ثبت نام</h2>
-  <input id="user" placeholder="یوزرنیم">
-  <input id="pass" type="password" placeholder="پسورد">
-  <button onclick="register()">ثبت نام</button>
-  <button onclick="login()">ورود</button>
-</section>
+<!-- DOWNLOAD -->
+<section id="download" class="hidden">
+  <h2>📦 دانلودها</h2>
 
-<!-- PROFILE -->
-<section id="profile" class="hidden">
-  <h2>👤 پروفایل</h2>
-  <p id="me"></p>
+  <div id="downloadList"></div>
 </section>
 
 <!-- TEAM -->
@@ -53,34 +47,39 @@
     👑 Owner: <b>mohammadamin</b>
   </div>
 
-  <h3>اعضای تیم (5 نفر)</h3>
-
   <div id="teamList"></div>
 </section>
 
-<!-- OWNER PANEL -->
+<!-- SUPPORT -->
+<section id="support" class="hidden">
+  <h2>🛠 پشتیبانی</h2>
+
+  <div class="card">
+    📩 تلگرام: @minecraft_nord
+  </div>
+</section>
+
+<!-- OWNER -->
 <section id="owner" class="hidden">
   <h2>👑 پنل اونر</h2>
 
-  <textarea id="annText" placeholder="اعلامیه جدید"></textarea>
+  <textarea id="annText" placeholder="اعلامیه"></textarea>
   <button onclick="addAnn()">ثبت اعلامیه</button>
 
   <input id="ipInput" placeholder="IP سرور">
-  <input id="baleInput" placeholder="آیدی کانال بله">
-  <button onclick="saveSettings()">ذخیره تنظیمات</button>
+  <input id="baleInput" placeholder="کانال بله">
+  <button onclick="saveSettings()">ذخیره</button>
 
-  <h3>👥 تنظیم تیم (5 نفر)</h3>
-
-  <input id="t1" placeholder="عضو 1">
-  <input id="t2" placeholder="عضو 2">
-  <input id="t3" placeholder="عضو 3">
-  <input id="t4" placeholder="عضو 4">
-  <input id="t5" placeholder="عضو 5">
-
+  <h3>👥 تیم (5 نفر)</h3>
+  <input id="t1"><input id="t2"><input id="t3"><input id="t4"><input id="t5">
   <button onclick="saveTeam()">ذخیره تیم</button>
-</section>
 
-</main>
+  <h3>📦 افزودن دانلود</h3>
+  <input id="dTitle" placeholder="اسم فایل">
+  <input id="dDesc" placeholder="توضیح">
+  <input id="dLink" placeholder="لینک دانلود">
+  <button onclick="addDownload()">افزودن فایل</button>
+</section>
 
 <script src="app.js"></script>
 </body>
