@@ -42,13 +42,15 @@
 <h1>🔥 NORD SERVER</h1>
 
 <p>
-به جامعه رسمی سرور نورد خوش آمدید
+به سرور رسمی Nord خوش آمدید
 </p>
 
 <a href="downloads.html">
 
 <button class="main-btn">
+
 مشاهده دانلودها
+
 </button>
 
 </a>
@@ -62,11 +64,15 @@
 <h2>🌐 آیپی سرور</h2>
 
 <p id="server-ip">
+
 play.nordserver.ir
+
 </p>
 
 <button onclick="copyIP()">
+
 کپی آیپی
+
 </button>
 
 </div>
@@ -76,7 +82,9 @@ play.nordserver.ir
 <h2>📢 کانال بله</h2>
 
 <p>
+
 @minecraft_nord
+
 </p>
 
 </div>
@@ -85,14 +93,14 @@ play.nordserver.ir
 
 <section class="news">
 
-<h2>📢 آخرین اعلانات</h2>
+<h2>📢 آخرین اخبار</h2>
 
 <div class="news-card">
 
 <h3>آپدیت جدید</h3>
 
 <p>
-نسخه جدید سرور منتشر شد.
+نسخه جدید سرور منتشر شد
 </p>
 
 </div>
@@ -102,7 +110,7 @@ play.nordserver.ir
 <h3>رویداد ویژه</h3>
 
 <p>
-رویداد هفتگی فعال شد.
+رویداد آخر هفته فعال شد
 </p>
 
 </div>
@@ -116,15 +124,10 @@ play.nordserver.ir
 <div class="gallery">
 
 <img src="images/server1.jpg">
-
 <img src="images/server2.jpg">
-
 <img src="images/server3.jpg">
-
 <img src="images/server4.jpg">
-
 <img src="images/server5.jpg">
-
 <img src="images/server6.jpg">
 
 </div>
@@ -177,9 +180,7 @@ play.nordserver.ir
 
 <p>
 
-اینجا درباره سرور Nord می‌نویسی.
-
-قوانین، اهداف، توضیحات و هر چیزی که خواستی.
+اینجا توضیحات سرور Nord را قرار بده.
 
 </p>
 
@@ -192,6 +193,12 @@ NORD © 2026
 </p>
 
 </footer>
+
+<button id="topBtn">
+
+⬆
+
+</button>
 
 <script>
 
@@ -206,6 +213,35 @@ navigator.clipboard.writeText(ip);
 alert("IP Copied");
 
 }
+
+const topBtn =
+document.getElementById("topBtn");
+
+window.onscroll = () => {
+
+if(window.scrollY > 300){
+
+topBtn.style.display = "block";
+
+}else{
+
+topBtn.style.display = "none";
+
+}
+
+};
+
+topBtn.onclick = () => {
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
+
+};
 
 </script>
 
