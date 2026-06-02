@@ -1,7 +1,12 @@
-body{
+*{
 margin:0;
+padding:0;
+box-sizing:border-box;
 font-family:tahoma;
-background:#070812;
+}
+
+body{
+background:#050816;
 color:white;
 }
 
@@ -9,45 +14,89 @@ header{
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:15px;
-background:#0d1b2a;
-box-shadow:0 0 15px #00f2ff;
+padding:20px 50px;
+background:#0b1220;
 }
 
-button{
-background:#00d4ff;
-border:none;
-padding:10px;
-margin:5px;
-border-radius:8px;
-cursor:pointer;
+.logo{
+font-size:35px;
 font-weight:bold;
+color:#4f46e5;
 }
 
-button:hover{
-background:#00ffaa;
+nav a{
+color:white;
+text-decoration:none;
+margin:0 15px;
 }
 
-section{
-padding:20px;
+.hero{
+text-align:center;
+padding:100px 20px;
+background:linear-gradient(135deg,#111827,#0f172a);
 }
 
-.hidden{display:none;}
+.hero h1{
+font-size:60px;
+margin-bottom:20px;
+}
+
+.hero p{
+font-size:20px;
+}
+
+.info{
+display:flex;
+gap:20px;
+padding:30px;
+}
 
 .card{
+flex:1;
 background:#111827;
-padding:15px;
-margin:10px 0;
-border-radius:10px;
-border:1px solid #00f2ff;
+padding:25px;
+border-radius:15px;
 }
 
-input,textarea{
+#gallery{
+padding:40px;
+}
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:20px;
+}
+
+.gallery img{
 width:100%;
-padding:10px;
-margin:5px 0;
-border-radius:8px;
-border:none;
-background:#1a1a2e;
-color:white;
+border-radius:15px;
+}
+
+#team{
+padding:40px;
+}
+
+.team{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+
+.member{
+background:#111827;
+padding:20px;
+border-radius:15px;
+text-align:center;
+}
+
+#about{
+padding:40px;
+}
+
+footer{
+text-align:center;
+padding:20px;
+background:#0b1220;
+margin-top:30px;
 }
