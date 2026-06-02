@@ -1,36 +1,85 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="fa" dir="rtl">
+
 <head>
-  <meta charset="UTF-8">
-  <title>NORD</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NORD</title>
+<link rel="stylesheet" href="style.css">
+<script defer src="app.js"></script>
 </head>
+
 <body>
 
 <header>
-  <div class="logo">NORD</div>
-  <nav>
-    <a href="index.html">خانه</a>
-    <a href="downloads.html">دانلود</a>
-    <a href="news.html">اخبار</a>
-    <a href="team.html">تیم</a>
-    <a href="contact.html">ارتباط</a>
-  </nav>
+<div class="logo">NORD</div>
+
+<nav>
+<a href="#home">خانه</a>
+<a href="#downloads">دانلود</a>
+<a href="#server">سرور</a>
+<a href="#contact">ارتباط</a>
+</nav>
 </header>
 
-<section class="hero">
-  <h1>NORD SERVER</h1>
-  <p>مرکز دانلود مودها، مپ‌ها و فایل‌های ماینکرفت</p>
-  <a class="btn" href="downloads.html">رفتن به دانلود</a>
+<section class="hero" id="home">
+<h1>NORD</h1>
+<p>Download Center + Minecraft Server</p>
+<a class="btn" href="#downloads">شروع دانلود</a>
 </section>
 
-<section class="ads">
-  <h2>🔥 سرور ما</h2>
-  <p>به سرور ماینکرفت ما بپیوندید: <b>@minecraft_nord</b></p>
+<!-- DOWNLOAD -->
+<section class="section" id="downloads">
+<h2>📥 دانلودها</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>مودها</h3>
+<p>آخرین نسخه مودها</p>
+<button onclick="download('Mods Pack')">دانلود</button>
+</div>
+
+<div class="card">
+<h3>مپ‌ها</h3>
+<p>مپ‌های سرور</p>
+<button onclick="download('Maps Pack')">دانلود</button>
+</div>
+
+<div class="card">
+<h3>ریسورس پک</h3>
+<p>گرافیک بهتر</p>
+<button onclick="download('Texture Pack')">دانلود</button>
+</div>
+
+</div>
+</section>
+
+<!-- SERVER -->
+<section class="section" id="server">
+<h2>🎮 سرور ما</h2>
+
+<div class="server-box">
+<p>IP سرور:</p>
+<h3 id="ip">play.nord-server.com</h3>
+<button onclick="copyIP()">کپی IP</button>
+</div>
+
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+<h2>📞 ارتباط</h2>
+
+<div class="card">
+<p>تلگرام: @minecraft_nord</p>
+<p>پشتیبانی فعال 24/7</p>
+</div>
+
 </section>
 
 <footer>
-  <p>© NORD 2026</p>
+© 2026 NORD - All Rights Reserved
 </footer>
 
 </body>
