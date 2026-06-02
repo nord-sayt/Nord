@@ -329,7 +329,22 @@ behavior:"smooth"
 
 <script src="loadSettings.js"></script>
 
- 
+ <script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAJxTzk2zdymM4pB3Vcm7j_dyCDNJFQwN4",
+  authDomain: "nord-sayt.firebaseapp.com",
+  projectId: "nord-sayt",
+  storageBucket: "nord-sayt.firebasestorage.app",
+  messagingSenderId: "393664898126",
+  appId: "1:393664898126:web:5d90379f2561fe39c68f1f"
+};
+
+const app = initializeApp(firebaseConfig);
+
+console.log("Firebase Connected");
+</script>
 </body>
 
 </html>
