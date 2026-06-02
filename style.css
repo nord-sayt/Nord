@@ -100,3 +100,43 @@ padding:20px;
 background:#0b1220;
 margin-top:30px;
 }
+.downloads-page{
+padding:40px;
+}
+
+#search{
+width:100%;
+padding:15px;
+margin-bottom:20px;
+border-radius:12px;
+border:none;
+font-size:18px;
+}
+
+#downloads-container{
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(300px,1fr));
+gap:20px;
+}
+
+.download-card{
+background:#111827;
+padding:20px;
+border-radius:15px;
+}
+
+.download-card img{
+width:100%;
+border-radius:10px;
+margin-bottom:10px;
+}
+
+.download-card button{
+background:#4f46e5;
+color:white;
+border:none;
+padding:10px 20px;
+border-radius:10px;
+cursor:pointer;
+}
