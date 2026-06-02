@@ -1,7 +1,7 @@
 body{
 margin:0;
 font-family:tahoma;
-background:#050510;
+background:#070812;
 color:white;
 }
 
@@ -10,24 +10,22 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 padding:15px;
-background:linear-gradient(90deg,#000428,#004e92);
-box-shadow:0 0 20px #00f2ff;
+background:#0d1b2a;
+box-shadow:0 0 15px #00f2ff;
 }
 
 button{
-background:#00f2ff;
+background:#00d4ff;
 border:none;
 padding:10px;
 margin:5px;
-border-radius:10px;
+border-radius:8px;
 cursor:pointer;
-transition:0.3s;
 font-weight:bold;
 }
 
 button:hover{
 background:#00ffaa;
-transform:scale(1.05);
 }
 
 section{
@@ -36,28 +34,20 @@ padding:20px;
 
 .hidden{display:none;}
 
-input,textarea{
-width:100%;
-padding:10px;
-margin:5px 0;
-border-radius:10px;
-border:none;
-background:#111;
-color:white;
-}
-
 .card{
-background:#0d0d1a;
-padding:10px;
+background:#111827;
+padding:15px;
 margin:10px 0;
 border-radius:10px;
 border:1px solid #00f2ff;
 }
 
-#teamList div{
-background:#111827;
+input,textarea{
+width:100%;
 padding:10px;
 margin:5px 0;
-border-radius:10px;
-border:1px solid #00f2ff;
+border-radius:8px;
+border:none;
+background:#1a1a2e;
+color:white;
 }
