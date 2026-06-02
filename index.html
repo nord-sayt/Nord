@@ -1,6 +1,32 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-analytics.js";
+  import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+  import { getStorage } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-storage.js";
 
+  // جایگزین با firebaseConfig خودت
+  const firebaseConfig = {
+    apiKey: "AIzaSyAJxTzk2zdymM4pB3Vcm7j_dyCDNJFQwN4",
+    authDomain: "nord-sayt.firebaseapp.com",
+    projectId: "nord-sayt",
+    storageBucket: "nord-sayt.firebasestorage.app",
+    messagingSenderId: "393664898126",
+    appId: "1:393664898126:web:5d90379f2561fe39c68f1f",
+    measurementId: "G-NC4LNV5TFN"
+  };
+
+  // اتصال
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+
+  // Firestore و Storage رو global کن تا راحت بهش دسترسی داشته باشی
+  window.db = getFirestore(app);
+  window.storage = getStorage(app);
+
+  console.log("✅ Firebase Connected");
+</script>
 <head>
 
 <meta charset="UTF-8">
@@ -303,6 +329,26 @@ behavior:"smooth"
 
 <script src="loadSettings.js"></script>
 
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-analytics.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAJxTzk2zdymM4pB3Vcm7j_dyCDNJFQwN4",
+  authDomain: "nord-sayt.firebaseapp.com",
+  projectId: "nord-sayt",
+  storageBucket: "nord-sayt.firebasestorage.app",
+  messagingSenderId: "393664898126",
+  appId: "1:393664898126:web:5d90379f2561fe39c68f1f",
+  measurementId: "G-NC4LNV5TFN"
+};
+
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+
+console.log("✅ Firebase Connected");
+</script>
+ 
 </body>
 
 </html>
