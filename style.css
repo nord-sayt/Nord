@@ -127,3 +127,35 @@ padding:30px;
 background:#111827;
 border-top:1px solid #00d4ff;
 }
+body{
+background-image:url("https://images.unsplash.com/photo-1604079628040-94301bb21b91");
+background-size:cover;
+background-attachment:fixed;
+}
+
+.hero{
+background:rgba(0,0,0,0.6);
+backdrop-filter:blur(6px);
+}
+
+.card{
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+box-shadow:0 0 25px #00d4ff;
+}
+
+.btn,.btn2{
+border-radius:10px;
+transition:0.3s;
+}
+
+.btn:hover{
+transform:scale(1.05);
+}
+
+.btn2:hover{
+transform:scale(1.05);
+}
