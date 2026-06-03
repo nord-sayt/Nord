@@ -1,76 +1,21 @@
-// loadSettings.js
+window.addEventListener("DOMContentLoaded", async () => {
+  try {
+    const res = await fetch("/api/nord/settings");
+    const data = await res.json();
 
-window.addEventListener(
-"DOMContentLoaded",
-() => {
+    const ip = document.getElementById("server-ip");
+    if (ip) ip.textContent = data.serverIp || "play.nord.ir";
 
-const saved =
-localStorage.getItem(
-"nordSettings"
-);
+    const channel = document.getElementById("bale-channel");
+    if (channel) channel.textContent = data.baleChannel || "@minecraft_nord";
 
-if(!saved) return;
+    const news = document.getElementById("announcement-text");
+    if (news) news.textContent = data.announcement || "به Nord خوش آمدید";
 
-const data =
-JSON.parse(saved);
+    const about = document.getElementById("about-text");
+    if (about) about.textContent = data.aboutText || "درباره سرور";
 
-// IP
-
-const ip =
-document.getElementById(
-"server-ip"
-);
-
-if(ip){
-
-ip.textContent =
-data.serverIp || "play.nord.ir";
-
-}
-
-// کانال بله
-
-const channel =
-document.getElementById(
-"bale-channel"
-);
-
-if(channel){
-
-channel.textContent =
-data.baleChannel ||
-"@minecraft_nord";
-
-}
-
-// اطلاعیه
-
-const news =
-document.getElementById(
-"announcement-text"
-);
-
-if(news){
-
-news.textContent =
-data.announcement ||
-"به Nord خوش آمدید";
-
-}
-
-// درباره ما
-
-const about =
-document.getElementById(
-"about-text"
-);
-
-if(about){
-
-about.textContent =
-data.aboutText ||
-"درباره سرور";
-
-}
-
+  } catch (e) {
+    console.error("خطا در بارگذاری تنظیمات", e);
+  }
 });
