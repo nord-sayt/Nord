@@ -1,170 +1,83 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Nord Control Panel</title>
-
-<link rel="stylesheet" href="style.css">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nord Control Panel</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <div id="loginPage" class="admin-login">
-
-<h1>👑 Nord Control Panel</h1>
-
-<input
-type="password"
-id="adminPassword"
-placeholder="Password Admin">
-
-<button onclick="login()">
-ورود
-</button>
-
+  <h1>Nord Control Panel</h1>
+  <input type="password" id="adminPassword" placeholder="رمز عبور ادمین">
+  <button onclick="login()">ورود</button>
 </div>
 
 <div id="adminPanel" style="display:none;">
 
-<header>
+  <header>
+    <div class="logo"><em>NORD</em> ADMIN</div>
+  </header>
 
-<div class="logo">
-⚡ NORD ADMIN
-</div>
+  <section class="admin-section">
+    <h2>IP سرور</h2>
+    <input type="text" id="serverIp" placeholder="play.nord.ir">
+  </section>
 
-</header>
+  <section class="admin-section">
+    <h2>کانال بله</h2>
+    <input type="text" id="baleChannel" placeholder="@minecraft_nord">
+  </section>
 
-<section class="admin-section">
+  <section class="admin-section">
+    <h2>اطلاعیه</h2>
+    <textarea id="announcement" rows="5"></textarea>
+  </section>
 
-<h2>🌍 IP سرور</h2>
+  <section class="admin-section">
+    <h2>درباره ما</h2>
+    <textarea id="aboutText" rows="8"></textarea>
+  </section>
 
-<input
-type="text"
-id="serverIp"
-placeholder="play.nord.ir">
+  <section class="admin-section">
+    <h2>Owner</h2>
+    <input type="text" id="ownerName" value="mohammadamin">
+  </section>
 
-</section>
+  <section class="admin-section">
+    <h2>مدیران</h2>
+    <input id="admin1" placeholder="Admin 1">
+    <input id="admin2" placeholder="Admin 2">
+    <input id="admin3" placeholder="Admin 3">
+    <input id="admin4" placeholder="Admin 4">
+    <input id="admin5" placeholder="Admin 5">
+  </section>
 
-<section class="admin-section">
+  <section class="admin-section">
+    <h2>دانلود جدید</h2>
+    <input id="downloadTitle" placeholder="نام فایل">
+    <input id="downloadImage" placeholder="لینک عکس">
+    <input id="downloadLink" placeholder="لینک دانلود">
+    <textarea id="downloadDescription" placeholder="توضیحات فایل"></textarea>
+    <button onclick="addDownload()">افزودن دانلود</button>
+  </section>
 
-<h2>📢 کانال بله</h2>
+  <section class="admin-section">
+    <h2>افزودن تصویر گالری</h2>
+    <input id="galleryImage" placeholder="لینک تصویر">
+    <button onclick="addGalleryImage()">افزودن تصویر</button>
+  </section>
 
-<input
-type="text"
-id="baleChannel"
-placeholder="@minecraft_nord">
-
-</section>
-
-<section class="admin-section">
-
-<h2>📣 اطلاعیه</h2>
-
-<textarea
-id="announcement"
-rows="5">
-</textarea>
-
-</section>
-
-<section class="admin-section">
-
-<h2>ℹ درباره ما</h2>
-
-<textarea
-id="aboutText"
-rows="8">
-</textarea>
-
-</section>
-
-<section class="admin-section">
-
-<h2>👑 Owner</h2>
-
-<input
-type="text"
-id="ownerName"
-value="mohammadamin">
-
-</section>
-
-<section class="admin-section">
-
-<h2>🛡 مدیران</h2>
-
-<input id="admin1" placeholder="Admin 1">
-<input id="admin2" placeholder="Admin 2">
-<input id="admin3" placeholder="Admin 3">
-<input id="admin4" placeholder="Admin 4">
-<input id="admin5" placeholder="Admin 5">
-
-</section>
-
-<section class="admin-section">
-
-<h2>📦 دانلود جدید</h2>
-
-<input
-id="downloadTitle"
-placeholder="نام فایل">
-
-<input
-id="downloadImage"
-placeholder="لینک عکس">
-
-<input
-id="downloadLink"
-placeholder="لینک دانلود">
-
-<textarea
-id="downloadDescription"
-placeholder="توضیحات فایل">
-</textarea>
-
-<button onclick="addDownload()">
-افزودن دانلود
-</button>
-
-</section>
-
-<section class="admin-section">
-
-<h2>🖼 افزودن تصویر گالری</h2>
-
-<input
-id="galleryImage"
-placeholder="لینک تصویر">
-
-<button onclick="addGalleryImage()">
-افزودن تصویر
-</button>
-
-</section>
-
-<section class="admin-section">
-
-<h2>⚙ مدیریت پنل</h2>
-
-<button onclick="saveSettings()">
-💾 ذخیره تنظیمات
-</button>
-
-<button onclick="logout()">
-🚪 خروج
-</button>
-
-</section>
+  <section class="admin-section">
+    <h2>مدیریت پنل</h2>
+    <button onclick="saveSettings()">ذخیره تنظیمات</button>
+    <button onclick="logout()">خروج</button>
+  </section>
 
 </div>
 
-<script src="admin.js"></script>
+<script src="js/admin.js"></script>
 
 </body>
-
 </html>
