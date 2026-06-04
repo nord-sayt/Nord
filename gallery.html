@@ -1,130 +1,61 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-
 <head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
-
-<title>Nord Gallery</title>
-
-<link rel="stylesheet"
-href="style.css">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nord — گالری</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <header>
-
-<div class="logo">
-⚡ NORD
-</div>
-
-<nav>
-
-<a href="index.html">خانه</a>
-
-<a href="downloads.html">دانلودها</a>
-
-<a href="support.html">پشتیبانی</a>
-
-<a href="gallery.html">گالری</a>
-
-</nav>
-
+  <div class="logo"><em>NORD</em></div>
+  <nav>
+    <a href="index.html">خانه</a>
+    <a href="downloads.html">دانلودها</a>
+    <a href="support.html">پشتیبانی</a>
+    <a href="gallery.html">گالری</a>
+  </nav>
 </header>
 
 <section class="gallery-page">
+  <h1>گالری سرور Nord</h1>
+  <p>تصاویر رسمی از سرور نورد</p>
 
-<h1>
-
-🖼 گالری سرور Nord
-
-</h1>
-
-<p>
-
-تصاویر رسمی از سرور نورد
-
-</p>
-
-<div class="gallery-container">
-
-<img src="images/server1.jpg" alt="Nord">
-
-<img src="images/server2.jpg" alt="Nord">
-
-<img src="images/server3.jpg" alt="Nord">
-
-<img src="images/server4.jpg" alt="Nord">
-
-<img src="images/server5.jpg" alt="Nord">
-
-<img src="images/server6.jpg" alt="Nord">
-
-</div>
-
+  <div class="gallery-container">
+    <img src="images/server1.jpg" alt="Nord">
+    <img src="images/server2.jpg" alt="Nord">
+    <img src="images/server3.jpg" alt="Nord">
+    <img src="images/server4.jpg" alt="Nord">
+    <img src="images/server5.jpg" alt="Nord">
+    <img src="images/server6.jpg" alt="Nord">
+  </div>
 </section>
 
 <div id="lightbox">
-
-<img id="lightboxImage">
-
+  <img id="lightboxImage" alt="Nord">
 </div>
 
 <footer>
-
-<p>
-
-NORD SERVER © 2026
-
-</p>
-
+  <p>NORD SERVER &copy; 2026</p>
 </footer>
 
 <script>
-
-const galleryImages =
-document.querySelectorAll(
-".gallery-container img"
-);
-
-const lightbox =
-document.getElementById(
-"lightbox"
-);
-
-const lightboxImage =
-document.getElementById(
-"lightboxImage"
-);
+const galleryImages = document.querySelectorAll('.gallery-container img');
+const lightbox = document.getElementById('lightbox');
+const lightboxImage = document.getElementById('lightboxImage');
 
 galleryImages.forEach(img => {
-
-img.onclick = () => {
-
-lightbox.style.display =
-"flex";
-
-lightboxImage.src =
-img.src;
-
-};
-
+  img.onclick = () => {
+    lightbox.style.display = 'flex';
+    lightboxImage.src = img.src;
+  };
 });
 
 lightbox.onclick = () => {
-
-lightbox.style.display =
-"none";
-
+  lightbox.style.display = 'none';
 };
-
 </script>
 
 </body>
-
 </html>
