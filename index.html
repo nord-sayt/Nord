@@ -29,8 +29,6 @@ filter:blur(90px);
 animation:bgMove 12s ease-in-out infinite alternate;
 z-index:-1;
 }
-
-/* EXTRA background layer (ظریف) */
 body::after{
 content:"";
 position:fixed;
@@ -41,7 +39,6 @@ radial-gradient(circle at 80% 70%, #0066ff10, transparent 45%);
 z-index:-2;
 pointer-events:none;
 }
-
 @keyframes bgMove{
 from{transform:translate(0,0);}
 to{transform:translate(220px,120px);}
@@ -90,17 +87,17 @@ align-items:center;
 gap:10px;
 }
 .logo-icon{
-width:44px;
-height:44px;
+width:50px;
+height:50px;
 border-radius:50%;
-background:linear-gradient(135deg,#ff2b2b,#8b0000);
+background:linear-gradient(135deg,#00e5ff,#0066ff);
 display:flex;
 align-items:center;
 justify-content:center;
-font-weight:900;
+font-size:24px;
+font-weight:bold;
 color:white;
-box-shadow:0 0 18px #ff2b2b88;
-animation:pulse 2s infinite;
+box-shadow:0 0 25px #00e5ff88;
 }
 .logo-text{
 font-weight:800;
@@ -152,7 +149,6 @@ margin-top:10px;
 padding:10px 15px;
 background:linear-gradient(135deg,#00e5ff,#0066ff);
 color:black;
-font-weight:bold;
 border-radius:8px;
 text-decoration:none;
 transition:.25s;
@@ -190,6 +186,10 @@ border-radius:14px;
 border:1px solid #1b2a44;
 animation:float 6s ease-in-out infinite;
 transition:.25s;
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:10px;
 }
 .card:hover{
 transform:translateY(-10px) scale(1.02);
@@ -219,6 +219,16 @@ color:white;
 outline:none;
 }
 
+/* TEAM */
+.team-card{
+background:#070b18;
+border:1px solid #1b2a44;
+padding:15px;
+margin:10px 0;
+border-radius:12px;
+text-align:center;
+}
+
 /* FLOAT */
 @keyframes float{
 0%{transform:translateY(0);}
@@ -235,6 +245,7 @@ border-top:1px solid #1b2a44;
 margin-top:30px;
 }
 </style>
+
 </head>
 
 <body>
@@ -286,7 +297,9 @@ margin-top:30px;
 <!-- DOWNLOAD + SEARCH -->
 <section class="box" id="downloads">
 <h2>دانلودها</h2>
-<input id="searchInput" placeholder="جستجو در فایل‌ها...">
+<div class="search-box">
+<input id="searchInput" placeholder="🔍 جستجو در فایل‌ها...">
+</div>
 <div class="container" id="list">
 <div class="card">Resource Pack<a class="btn">Download</a></div>
 <div class="card">FPS Booster<a class="btn">Download</a></div>
@@ -297,7 +310,18 @@ margin-top:30px;
 <!-- SUPPORT -->
 <section class="box" id="support">
 <h2>پشتیبانی</h2>
-<a class="btn" href="https://ble.ir/ma_shahripour" target="_blank">💬 بله</a>
+<a class="btn bale-btn" href="https://ble.ir/ma_shahripour">بله</a>
+</section>
+
+<!-- TEAM -->
+<section class="box" id="team">
+<h2>تیم پشتیبانی</h2>
+<div class="team-card"><h3>Owner</h3><p>Mash</p></div>
+<div class="team-card"><h3>Admin 1</h3><p>---</p></div>
+<div class="team-card"><h3>Admin 2</h3><p>---</p></div>
+<div class="team-card"><h3>Admin 3</h3><p>---</p></div>
+<div class="team-card"><h3>Admin 4</h3><p>---</p></div>
+<div class="team-card"><h3>Admin 5</h3><p>---</p></div>
 </section>
 
 <footer>© 2026 NORD SERVER HUB</footer>
@@ -322,7 +346,7 @@ const searchInput=document.getElementById("searchInput");
 searchInput.addEventListener("input",function(){
 const val=this.value.toLowerCase();
 document.querySelectorAll("#list .card").forEach(c=>{
-c.style.display=c.innerText.toLowerCase().includes(val)?"block":"none";
+c.style.display=c.innerText.toLowerCase().includes(val)?"flex":"none";
 });
 });
 </script>
