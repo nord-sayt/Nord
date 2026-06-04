@@ -13,47 +13,82 @@ font-family:tahoma;
 background:#05070f;
 color:white;
 overflow-x:hidden;
+scroll-behavior:smooth;
 }
 
-/* glow */
+/* 🌌 animated glow background */
 body::before{
 content:"";
 position:fixed;
-width:800px;
-height:800px;
+width:900px;
+height:900px;
 background:radial-gradient(circle,#00e5ff33,#0000 70%);
-top:-200px;
-left:-200px;
-filter:blur(80px);
-animation:move 12s infinite alternate;
+top:-250px;
+left:-250px;
+filter:blur(90px);
+animation:bgMove 12s ease-in-out infinite alternate;
+z-index:-1;
 }
 
-@keyframes move{
-from{transform:translate(0,0);}
-to{transform:translate(200px,120px);}
+/* EXTRA background layer (ظریف) */
+body::after{
+content:"";
+position:fixed;
+inset:0;
+background:
+radial-gradient(circle at 20% 30%, #00e5ff12, transparent 40%),
+radial-gradient(circle at 80% 70%, #0066ff10, transparent 45%);
+z-index:-2;
+pointer-events:none;
 }
+
+@keyframes bgMove{
+from{transform:translate(0,0);}
+to{transform:translate(220px,120px);}
+}
+
+/* LOADING SCREEN */
+#loader{
+position:fixed;
+inset:0;
+background:#05070f;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+z-index:9999;
+}
+#loader .spinner{
+width:55px;
+height:55px;
+border:4px solid #1b2a44;
+border-top:4px solid #00e5ff;
+border-radius:50%;
+animation:spin 1s linear infinite;
+}
+@keyframes spin{100%{transform:rotate(360deg);}}
+#loader p{color:#00e5ff;margin-top:10px;font-size:14px;}
 
 /* HEADER */
 header{
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:18px 40px;
+padding:15px 30px;
+background:rgba(11,16,32,0.75);
+backdrop-filter:blur(15px);
 position:sticky;
 top:0;
-z-index:10;
-background:rgba(10,15,30,0.6);
-backdrop-filter:blur(14px);
 border-bottom:1px solid #1b2a44;
+z-index:10;
 }
 
+/* LOGO */
 .logo-box{
 display:flex;
 align-items:center;
 gap:10px;
 }
-
-/* LOGO */
 .logo-icon{
 width:44px;
 height:44px;
@@ -67,7 +102,6 @@ color:white;
 box-shadow:0 0 18px #ff2b2b88;
 animation:pulse 2s infinite;
 }
-
 .logo-text{
 font-weight:800;
 color:#00e5ff;
@@ -78,88 +112,111 @@ nav a{
 color:#aaa;
 margin:0 10px;
 text-decoration:none;
-transition:.3s;
+transition:.25s;
+position:relative;
 }
-
 nav a:hover{
 color:#00e5ff;
 }
-
-/* HERO */
-.hero{
-text-align:center;
-padding:80px 20px 30px;
+nav a::after{
+content:"";
+position:absolute;
+bottom:-5px;
+left:0;
+width:0%;
+height:2px;
+background:#00e5ff;
+transition:.25s;
 }
+nav a:hover::after{width:100%;}
 
-.hero h1{
-font-size:55px;
-color:#00e5ff;
-text-shadow:0 0 25px #00e5ff55;
+/* SECTION */
+section{
+padding:35px;
 }
 
 /* PANEL */
 .panel{
-margin:20px auto;
-max-width:420px;
-padding:25px;
-border-radius:18px;
-background:rgba(20,25,40,0.6);
+background:rgba(11,16,32,0.85);
+padding:20px;
+border-radius:14px;
 border:1px solid #1b2a44;
 animation:float 6s ease-in-out infinite;
+box-shadow:0 0 25px #00e5ff10;
 }
 
-/* BUTTON */
+/* BUTTONS GAMEY */
 .btn{
 display:inline-block;
-margin-top:12px;
-padding:12px 20px;
+margin-top:10px;
+padding:10px 15px;
 background:linear-gradient(135deg,#00e5ff,#0066ff);
 color:black;
-font-weight:700;
-border-radius:12px;
+font-weight:bold;
+border-radius:8px;
 text-decoration:none;
-transition:.3s;
+transition:.25s;
+position:relative;
+overflow:hidden;
 }
-
 .btn:hover{
-transform:translateY(-6px) scale(1.05);
+transform:translateY(-4px) scale(1.05);
+box-shadow:0 0 20px #00e5ff55;
 }
+.btn::before{
+content:"";
+position:absolute;
+top:0;
+left:-100%;
+width:100%;
+height:100%;
+background:linear-gradient(90deg,transparent,#ffffff22,transparent);
+transition:.5s;
+}
+.btn:hover::before{left:100%;}
 
 /* GRID */
 .container{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-gap:20px;
-padding:30px;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:15px;
 }
 
 /* CARD */
 .card{
-background:rgba(20,25,40,0.6);
+background:rgba(11,16,32,0.85);
+padding:15px;
+border-radius:14px;
 border:1px solid #1b2a44;
-border-radius:16px;
-padding:20px;
 animation:float 6s ease-in-out infinite;
-transition:.3s;
+transition:.25s;
 }
-
 .card:hover{
-transform:translateY(-12px) scale(1.03);
+transform:translateY(-10px) scale(1.02);
 border-color:#00e5ff;
+box-shadow:0 0 20px #00e5ff22;
 }
 
 /* BOX */
 .box{
-margin:40px;
-padding:25px;
-background:rgba(20,25,40,0.6);
-border-radius:16px;
+margin-top:20px;
+padding:20px;
+background:rgba(11,16,32,0.85);
+border-radius:14px;
 border:1px solid #1b2a44;
+backdrop-filter:blur(10px);
 }
 
-/* TEXT */
-b{
-color:#00e5ff;
+/* INPUT */
+input{
+width:90%;
+padding:12px;
+border-radius:10px;
+border:none;
+margin-top:10px;
+background:#070b18;
+color:white;
+outline:none;
 }
 
 /* FLOAT */
@@ -169,33 +226,30 @@ color:#00e5ff;
 100%{transform:translateY(0);}
 }
 
-@keyframes pulse{
-0%{transform:scale(1);}
-50%{transform:scale(1.15);}
-100%{transform:scale(1);}
-}
-
 /* FOOTER */
 footer{
 text-align:center;
 padding:20px;
 color:#777;
 border-top:1px solid #1b2a44;
-margin-top:40px;
+margin-top:30px;
 }
 </style>
-
 </head>
 
 <body>
 
-<header>
+<!-- LOADING -->
+<div id="loader">
+<div class="spinner"></div>
+<p>Loading NORD SERVER...</p>
+</div>
 
+<header>
 <div class="logo-box">
 <div class="logo-icon">N</div>
 <div class="logo-text">NORD SERVER</div>
 </div>
-
 <nav>
 <a href="#server">سرور</a>
 <a href="#downloads">دانلود</a>
@@ -203,87 +257,74 @@ margin-top:40px;
 <a href="#news">اعلامیه</a>
 <a href="#support">پشتیبانی</a>
 </nav>
-
 </header>
 
 <!-- SERVER -->
 <section class="hero" id="server">
-
 <h1>NORD SERVER</h1>
-
 <div class="panel">
-
 <p><b>IP:</b> play.nord.ir</p>
 <p><b>Version:</b> 1.18.2</p>
 <p><b>Status:</b> 🔴 Offline</p>
-
 <a class="btn" onclick="copyIP()">📋 کپی آیپی</a>
-
 </div>
 </section>
 
 <!-- ABOUT -->
 <section class="box" id="about">
-
-<h2><b>درباره ما</b></h2>
-
-<p>
-Nord Server یک سرور ماینکرفت حرفه‌ای است که برای تجربه PvP و Survival ساخته شده.
-هدف ما ساخت یک جامعه فعال برای پلیرهاست.
-</p>
-
+<h2>درباره ما</h2>
+<p>Nord Server یک سرور ماینکرفت حرفه‌ای برای تجربه PvP و Survival است. هدف ما ساخت یک جامعه فعال برای پلیرهاست.</p>
 </section>
 
 <!-- NEWS -->
 <section class="box" id="news">
-
-<h2><b>اعلامیه‌ها</b></h2>
-
-<p><b>اعلامیه 1:</b> سرور در حال ساخت است.</p>
-<p><b>اعلامیه 2:</b> سیستم دانلود فعال شد.</p>
-
+<h2>اعلامیه‌ها</h2>
+<p>اعلامیه 1: سرور در حال ساخت است.</p>
+<p>اعلامیه 2: سیستم دانلود فعال شد.</p>
 </section>
 
-<!-- DOWNLOAD -->
-<section class="container" id="downloads">
-
-<div class="card">
-<h3>Resource Pack</h3>
-<a class="btn">Download</a>
+<!-- DOWNLOAD + SEARCH -->
+<section class="box" id="downloads">
+<h2>دانلودها</h2>
+<input id="searchInput" placeholder="جستجو در فایل‌ها...">
+<div class="container" id="list">
+<div class="card">Resource Pack<a class="btn">Download</a></div>
+<div class="card">FPS Booster<a class="btn">Download</a></div>
+<div class="card">Shader Pack<a class="btn">Download</a></div>
 </div>
-
-<div class="card">
-<h3>FPS Booster</h3>
-<a class="btn">Download</a>
-</div>
-
-<div class="card">
-<h3>Shader Pack</h3>
-<a class="btn">Download</a>
-</div>
-
 </section>
 
 <!-- SUPPORT -->
 <section class="box" id="support">
-
-<h2><b>Support</b></h2>
-
-<a class="btn" href="https://ble.ir/ma_shahripour" target="_blank">
-💬 بله
-</a>
-
+<h2>پشتیبانی</h2>
+<a class="btn" href="https://ble.ir/ma_shahripour" target="_blank">💬 بله</a>
 </section>
 
-<footer>
-© 2026 NORD SERVER HUB
-</footer>
+<footer>© 2026 NORD SERVER HUB</footer>
 
 <script>
+/* COPY IP */
 function copyIP(){
 navigator.clipboard.writeText("play.nord.ir");
 alert("IP کپی شد ✔");
 }
+
+/* LOADING SCREEN */
+window.addEventListener("load",()=>{
+setTimeout(()=>{
+document.getElementById("loader").style.opacity="0";
+setTimeout(()=>document.getElementById("loader").style.display="none",500);
+},900);
+});
+
+/* SEARCH FUNCTIONALITY */
+const searchInput=document.getElementById("searchInput");
+searchInput.addEventListener("input",function(){
+const val=this.value.toLowerCase();
+document.querySelectorAll("#list .card").forEach(c=>{
+c.style.display=c.innerText.toLowerCase().includes(val)?"block":"none";
+});
+});
 </script>
 
 </body>
