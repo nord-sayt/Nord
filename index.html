@@ -12,26 +12,48 @@ margin:0;
 font-family:tahoma;
 background:#05070f;
 color:white;
-overflow-x:hidden;
+overflow:hidden;
 }
 
-body::before{
-content:"";
+/* 🌌 LOADING SCREEN */
+#loader{
 position:fixed;
-width:800px;
-height:800px;
-background:radial-gradient(circle,#00e5ff33,#0000 70%);
-top:-200px;
-left:-200px;
-filter:blur(80px);
-animation:move 12s infinite alternate;
+width:100%;
+height:100%;
+background:#05070f;
+display:flex;
+align-items:center;
+justify-content:center;
+flex-direction:column;
+z-index:9999;
 }
 
-@keyframes move{
-from{transform:translate(0,0);}
-to{transform:translate(200px,120px);}
+.spinner{
+width:60px;
+height:60px;
+border:4px solid #1b2a44;
+border-top:4px solid #00e5ff;
+border-radius:50%;
+animation:spin 1s linear infinite;
 }
 
+@keyframes spin{
+100%{transform:rotate(360deg);}
+}
+
+/* 🌌 PARTICLES */
+#particles{
+position:fixed;
+width:100%;
+height:100%;
+z-index:-1;
+}
+
+canvas{
+display:block;
+}
+
+/* HEADER */
 header{
 display:flex;
 justify-content:space-between;
@@ -39,9 +61,10 @@ align-items:center;
 padding:18px 40px;
 position:sticky;
 top:0;
-background:rgba(10,15,30,0.6);
-backdrop-filter:blur(14px);
+background:rgba(10,15,30,0.7);
+backdrop-filter:blur(15px);
 border-bottom:1px solid #1b2a44;
+z-index:10;
 }
 
 .logo-box{
@@ -68,86 +91,64 @@ color:#00e5ff;
 font-weight:800;
 }
 
-nav a{
-color:#aaa;
-margin:0 10px;
-text-decoration:none;
-}
-
-nav a:hover{
-color:#00e5ff;
-}
-
 section{
 padding:30px;
 }
 
-.hero{
-text-align:center;
-padding:80px 20px 20px;
-}
-
-.panel{
-margin:20px auto;
-max-width:420px;
-padding:25px;
-border-radius:18px;
+/* PANEL */
+.panel, .box, .card{
 background:rgba(20,25,40,0.6);
 border:1px solid #1b2a44;
+border-radius:16px;
+padding:20px;
+margin:20px;
 }
 
+/* BUTTON */
 .btn{
 display:inline-block;
-margin-top:12px;
 padding:12px 20px;
 background:linear-gradient(135deg,#00e5ff,#0066ff);
 color:black;
 border-radius:12px;
 text-decoration:none;
+font-weight:700;
+transition:.3s;
 }
 
-.container{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-gap:20px;
-padding:30px;
+.btn:hover{
+transform:scale(1.05);
+box-shadow:0 0 20px #00e5ff55;
 }
 
-.card{
-background:rgba(20,25,40,0.6);
-border:1px solid #1b2a44;
-border-radius:16px;
-padding:20px;
+/* STATUS */
+.status{
+color:#aaa;
 }
 
-.box{
-margin:40px;
-padding:25px;
-background:rgba(20,25,40,0.6);
-border-radius:16px;
-border:1px solid #1b2a44;
+.online{
+color:#00ff99;
+font-weight:bold;
 }
 
-.ticket{
-margin-top:10px;
-padding:10px;
-border:1px solid #1b2a44;
-border-radius:10px;
-background:#0b1020;
-}
-
-footer{
-text-align:center;
-padding:20px;
-color:#777;
-border-top:1px solid #1b2a44;
-margin-top:40px;
+.offline{
+color:#ff4d4d;
+font-weight:bold;
 }
 </style>
 
 </head>
 
 <body>
+
+<!-- LOADER -->
+<div id="loader">
+<div class="spinner"></div>
+<p>Loading NORD SERVER...</p>
+</div>
+
+<!-- PARTICLES -->
+<canvas id="particles"></canvas>
 
 <header>
 
@@ -156,17 +157,9 @@ margin-top:40px;
 <div class="logo-text">NORD SERVER</div>
 </div>
 
-<nav>
-<a href="#server">سرور</a>
-<a href="#downloads">دانلود</a>
-<a href="#about">درباره ما</a>
-<a href="#news">اعلامیه</a>
-<a href="#support">پشتیبانی</a>
-</nav>
-
 </header>
 
-<section class="hero" id="server">
+<section>
 
 <h1>NORD SERVER</h1>
 
@@ -174,69 +167,106 @@ margin-top:40px;
 
 <p>IP: play.nord.ir</p>
 <p>Version: 1.18.2</p>
-<p>Status: Offline</p>
+
+<p class="status">Status: <span id="status">Checking...</span></p>
+
+<a class="btn" onclick="copyIP()">Copy IP</a>
 
 </div>
 
 </section>
 
-<section class="container" id="downloads">
+<section class="box">
 
-<div class="card">
-<h3>Resource Pack</h3>
-<a class="btn">Download</a>
-</div>
-
-<div class="card">
-<h3>FPS Booster</h3>
-<a class="btn">Download</a>
-</div>
-
-<div class="card">
-<h3>Shader Pack</h3>
-<a class="btn">Download</a>
-</div>
+<h2>Server Status</h2>
+<p id="mcStatus">Checking Minecraft server...</p>
 
 </section>
 
-<section class="box" id="about">
+<script>
 
-<h2>درباره ما</h2>
+//////////////////////////////////////////////////
+// ⚡ LOADING SCREEN
+//////////////////////////////////////////////////
+window.addEventListener("load",()=>{
+setTimeout(()=>{
+document.getElementById("loader").style.display="none";
+},1200);
+});
 
-<p>
-Nord Server یک سرور ماینکرفت است که برای تجربه PvP و Survival ساخته شده.
-هدف ما ساخت یک جامعه فعال و حرفه‌ای برای پلیرهاست.
-</p>
+//////////////////////////////////////////////////
+// 📋 COPY IP
+//////////////////////////////////////////////////
+function copyIP(){
+navigator.clipboard.writeText("play.nord.ir");
+alert("IP copied ✔");
+}
 
-</section>
+//////////////////////////////////////////////////
+// 🟢 MINECRAFT SERVER STATUS (simple API ping)
+//////////////////////////////////////////////////
+async function checkServer(){
+try{
+let res = await fetch("https://api.mcsrvstat.us/2/play.nord.ir");
+let data = await res.json();
 
-<section class="box" id="news">
+if(data.online){
+document.getElementById("status").innerHTML="Online 🟢";
+document.getElementById("mcStatus").innerHTML="Server is ONLINE 🟢";
+}else{
+document.getElementById("status").innerHTML="Offline 🔴";
+document.getElementById("mcStatus").innerHTML="Server is OFFLINE 🔴";
+}
+}catch(e){
+document.getElementById("status").innerHTML="Unknown";
+}
+}
 
-<h2>اعلامیه‌ها</h2>
+checkServer();
 
-<div class="ticket">
-سرور در حال ساخت است و به زودی آنلاین می‌شود.
-</div>
+//////////////////////////////////////////////////
+// 🌌 PARTICLES SYSTEM
+//////////////////////////////////////////////////
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
 
-<div class="ticket">
-سیستم دانلود و پشتیبانی فعال شده است.
-</div>
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
-</section>
+let particles = [];
 
-<section class="box" id="support">
+for(let i=0;i<80;i++){
+particles.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+r:Math.random()*2,
+dx:(Math.random()-0.5),
+dy:(Math.random()-0.5)
+});
+}
 
-<h2>پشتیبانی</h2>
+function animate(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
 
-<a class="btn" href="https://ble.ir/ma_shahripour">
-ارتباط در بله
-</a>
+for(let p of particles){
+p.x += p.dx;
+p.y += p.dy;
 
-</section>
+if(p.x<0||p.x>canvas.width) p.dx*=-1;
+if(p.y<0||p.y>canvas.height) p.dy*=-1;
 
-<footer>
-© 2026 NORD SERVER HUB
-</footer>
+ctx.beginPath();
+ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+ctx.fillStyle="#00e5ff55";
+ctx.fill();
+}
+
+requestAnimationFrame(animate);
+}
+
+animate();
+
+</script>
 
 </body>
 </html>
