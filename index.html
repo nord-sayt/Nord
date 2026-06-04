@@ -1,248 +1,141 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-
 <head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
-
-<title>NORD✨</title>
-
-<link rel="stylesheet"
-href="style.css">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NORD</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <header>
-
-<div class="logo">
-
-⚡ NORD
-
-</div>
-
-<nav>
-
-<a href="index.html">خانه</a>
-
-<a href="downloads.html">دانلودها</a>
-
-<a href="support.html">پشتیبانی</a>
-
-<a href="gallery.html">گالری</a>
-
-<a href="admin.html">کنترل</a>
-
-
-</nav>
-
+  <div class="logo"><em>NORD</em></div>
+  <nav>
+    <a href="index.html">خانه</a>
+    <a href="downloads.html">دانلودها</a>
+    <a href="support.html">پشتیبانی</a>
+    <a href="gallery.html">گالری</a>
+    <a href="admin.html">کنترل</a>
+  </nav>
 </header>
 
 <section class="hero">
-
-<h1>
-
- NORD 
-
-</h1>
-
-<p>
-
-سایت نورد برای دانلود 
-
-</p>
-
-<button onclick="copyIP()">
-
-COPY IP
-
-</button>
-
+  <div class="hero-badge"><i></i> سرور ماینکرافت فارسی</div>
+  <h1>NORD</h1>
+  <p>سایت نورد — دانلود، اخبار و پشتیبانی سرور</p>
+  <div class="hero-cta">
+    <button class="btn btn-primary" onclick="copyServerIP()">کپی آیپی سرور</button>
+    <a href="downloads.html" class="btn btn-ghost">دانلودها</a>
+  </div>
 </section>
 
-<section class="info-card">
+<div class="stats-bar">
+  <div class="stat-item">
+    <span class="stat-val" id="server-ip-stat">در حال بارگذاری...</span>
+    <span class="stat-lbl">آیپی سرور</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-val" id="bale-stat">@server_nord</span>
+    <span class="stat-lbl">کانال بله</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-val">Java + Bedrock</span>
+    <span class="stat-lbl">پلتفرم</span>
+  </div>
+</div>
 
-<h2>
-
-🌍 آیپی سرور
-
-</h2>
-
-<p id="server-ip">
-
-در حال ساخت...
-
-</p>
-
-</section>
-
-<section class="info-card">
-
-<h2>
-
-📢 کانال بله
-
-</h2>
-
-<p id="bale-channel">
-
-@server_nord
-
-</p>
-
-</section>
-
-<section class="info-card">
-
-<h2>
-
-📣 اطلاعیه
-
-</h2>
-
-<p id="announcement-text">
-
-سایت جدیدمون ساخته شد
-
-</p>
-
-</section>
+<div class="cards-row">
+  <div class="info-card">
+    <h2>آیپی سرور</h2>
+    <p id="server-ip">در حال ساخت...</p>
+  </div>
+  <div class="info-card">
+    <h2>کانال بله</h2>
+    <p id="bale-channel">@server_nord</p>
+  </div>
+  <div class="info-card">
+    <h2>اطلاعیه</h2>
+    <p id="announcement-text">سایت جدیدمون ساخته شد</p>
+  </div>
+</div>
 
 <section class="gallery-preview">
-
-<h2>
-
-🖼️ گالری 
-
-</h2>
-
-<div class="gallery-grid">
-
-<img src="images/server1.jpg">
-
-<img src="images/server2.jpg">
-
-<img src="images/server3.jpg">
-
-<img src="images/server4.jpg">
-
-<img src="images/server5.jpg">
-
-<img src="images/server6.jpg">
-
-</div>
-
+  <div class="sec-head">
+    <h2>گالری سرور</h2>
+    <a href="gallery.html">مشاهده همه</a>
+  </div>
+  <div class="gallery-grid">
+    <img src="images/server1.jpg" alt="Nord">
+    <img src="images/server2.jpg" alt="Nord">
+    <img src="images/server3.jpg" alt="Nord">
+    <img src="images/server4.jpg" alt="Nord">
+    <img src="images/server5.jpg" alt="Nord">
+    <img src="images/server6.jpg" alt="Nord">
+  </div>
 </section>
+
 <section id="team">
-
-<h2>👑 تیم مدیریت سرور ماینکرافت نورد</h2>
-
-<div class="owner-card">
-
-<h3> OWNER</h3>
-
-<p>Mash</p>
-
-<span>Founder Of Nord</span>
-
-</div>
-
-<div class="team-grid">
- 
-
-<div class="member">ASHPOUR(Staff)</div>
-
-<div class="member">Fatemezahra(Staff)</div>
-
-<div class="member">Ali110(Staff)</div>
-
-<div class="member">Mxp(Admin)</div>
-
-<div class="member">Admin 5</div>
-
-</div>
-
+  <div class="sec-head"><h2>تیم مدیریت</h2></div>
+  <div class="owner-card">
+    <div class="owner-crown">OWNER</div>
+    <h3>Mash</h3>
+    <span>Founder Of Nord</span>
+  </div>
+  <div class="team-grid">
+    <div class="member">ASHPOUR — Staff</div>
+    <div class="member">Fatemezahra — Staff</div>
+    <div class="member">Ali110 — Staff</div>
+    <div class="member">Mxp — Admin</div>
+    <div class="member" id="admin5-member">Admin 5</div>
+  </div>
 </section>
 
 <section id="about">
-
-<h2>
-
-ℹ️ درباره ما
-
-</h2>
-
-<p id="about-text">
-
-....
- 
-</p>
-
+  <h2>درباره ما</h2>
+  <p id="about-text">سرور ماینکرافت نورد یک سرور فارسی‌زبان با هدف ایجاد محیطی دوستانه و حرفه‌ای برای بازیکنان ایرانی است.</p>
 </section>
 
-<button id="topBtn">
+<footer>
+  <p>NORD SERVER &copy; 2026 — تمامی حقوق محفوظ است</p>
+</footer>
 
-⬆️
-
-</button>
+<button id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
 
 <script>
-
-function copyIP(){
-
-navigator.clipboard.writeText(
-
-document.getElementById(
-"server-ip"
-).innerText
-
-);
-
-alert("COPY IP");
-
+function copyServerIP() {
+  const ip = document.getElementById('server-ip').innerText;
+  navigator.clipboard.writeText(ip).then(() => {
+    const btn = event.target;
+    const original = btn.textContent;
+    btn.textContent = 'کپی شد!';
+    btn.style.background = 'var(--ice)';
+    btn.style.color = '#000';
+    setTimeout(() => {
+      btn.textContent = original;
+      btn.style.background = '';
+      btn.style.color = '';
+    }, 2000);
+  });
 }
 
-const topBtn =
-document.getElementById(
-"topBtn"
-);
-
+const topBtn = document.getElementById('topBtn');
 window.onscroll = () => {
-
-if(window.scrollY > 300){
-
-topBtn.style.display =
-"block";
-
-}else{
-
-topBtn.style.display =
-"none";
-
-}
-
+  topBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
 };
-
-topBtn.onclick = () => {
-
-window.scrollTo({
-
-top:0,
-
-behavior:"smooth"
-
-});
-
-};
-
 </script>
 
-<script src="loadSettings.js"></script>
+<script src="js/loadsettings.js"></script>
+<script>
+// sync stats bar with card values after settings load
+window.addEventListener('DOMContentLoaded', () => {
+  setTimeout(() => {
+    const ipEl = document.getElementById('server-ip');
+    const baleEl = document.getElementById('bale-channel');
+    if (ipEl) document.getElementById('server-ip-stat').textContent = ipEl.textContent;
+    if (baleEl) document.getElementById('bale-stat').textContent = baleEl.textContent;
+  }, 50);
+});
+</script>
 
 </body>
-
 </html>
