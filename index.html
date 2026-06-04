@@ -171,6 +171,21 @@ transition:.5s;
 }
 .btn:hover::before{left:100%;}
 
+/* SEARCH BOX */
+.search-box{
+max-width:700px;
+margin:0 auto 30px auto;
+}
+.search-box input{
+width:100%;
+padding:12px;
+border-radius:10px;
+border:none;
+background:#070b18;
+color:white;
+outline:none;
+}
+
 /* GRID */
 .container{
 display:grid;
@@ -207,27 +222,23 @@ border:1px solid #1b2a44;
 backdrop-filter:blur(10px);
 }
 
-/* INPUT */
-input{
-width:90%;
-padding:12px;
-border-radius:10px;
-border:none;
-margin-top:10px;
-background:#070b18;
-color:white;
-outline:none;
-}
-
 /* TEAM */
 .team-card{
-background:#070b18;
+background:rgba(11,16,32,.85);
 border:1px solid #1b2a44;
-padding:15px;
-margin:10px 0;
-border-radius:12px;
+border-radius:14px;
+padding:18px;
+margin:12px 0;
+transition:.3s;
 text-align:center;
 }
+.team-card:hover{
+transform:translateY(-5px);
+border-color:#00e5ff;
+box-shadow:0 0 20px #00e5ff22;
+}
+.owner{color:#ffd700;font-weight:bold;text-shadow:0 0 15px #ffd70088;}
+.admin{color:#00e5ff;}
 
 /* FLOAT */
 @keyframes float{
@@ -245,7 +256,6 @@ border-top:1px solid #1b2a44;
 margin-top:30px;
 }
 </style>
-
 </head>
 
 <body>
@@ -294,12 +304,15 @@ margin-top:30px;
 <p>اعلامیه 2: سیستم دانلود فعال شد.</p>
 </section>
 
-<!-- DOWNLOAD + SEARCH -->
+<!-- SEARCH -->
+<section class="box" id="search">
+<h2>🔍 جستجو</h2>
+<input id="searchInput" placeholder="جستجو در فایل‌ها...">
+</section>
+
+<!-- DOWNLOAD -->
 <section class="box" id="downloads">
 <h2>دانلودها</h2>
-<div class="search-box">
-<input id="searchInput" placeholder="🔍 جستجو در فایل‌ها...">
-</div>
 <div class="container" id="list">
 <div class="card">Resource Pack<a class="btn">Download</a></div>
 <div class="card">FPS Booster<a class="btn">Download</a></div>
@@ -316,12 +329,15 @@ margin-top:30px;
 <!-- TEAM -->
 <section class="box" id="team">
 <h2>تیم پشتیبانی</h2>
-<div class="team-card"><h3>Owner</h3><p>Mash</p></div>
-<div class="team-card"><h3>Admin 1</h3><p>---</p></div>
-<div class="team-card"><h3>Admin 2</h3><p>---</p></div>
-<div class="team-card"><h3>Admin 3</h3><p>---</p></div>
-<div class="team-card"><h3>Admin 4</h3><p>---</p></div>
-<div class="team-card"><h3>Admin 5</h3><p>---</p></div>
+<div class="team-card">
+<h3 class="owner">👑 Owner</h3>
+<p class="owner">Mash</p>
+</div>
+<div class="team-card"><h3 class="admin">🛡️ Admin 1</h3><p>---</p></div>
+<div class="team-card"><h3 class="admin">🛡️ Admin 2</h3><p>---</p></div>
+<div class="team-card"><h3 class="admin">🛡️ Admin 3</h3><p>---</p></div>
+<div class="team-card"><h3 class="admin">🛡️ Admin 4</h3><p>---</p></div>
+<div class="team-card"><h3 class="admin">🛡️ Admin 5</h3><p>---</p></div>
 </section>
 
 <footer>© 2026 NORD SERVER HUB</footer>
