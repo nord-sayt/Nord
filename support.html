@@ -1,184 +1,68 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-
 <head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
-
-<title>Nord Support</title>
-
-<link rel="stylesheet"
-href="style.css">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nord — پشتیبانی</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <header>
-
-<div class="logo">
-
-⚡ NORD
-
-</div>
-
-<nav>
-
-<a href="index.html">خانه</a>
-
-<a href="downloads.html">دانلودها</a>
-
-<a href="support.html">پشتیبانی</a>
-
-<a href="gallery.html">گالری</a>
-
-</nav>
-
+  <div class="logo"><em>NORD</em></div>
+  <nav>
+    <a href="index.html">خانه</a>
+    <a href="downloads.html">دانلودها</a>
+    <a href="support.html">پشتیبانی</a>
+    <a href="gallery.html">گالری</a>
+  </nav>
 </header>
 
 <section class="support-page">
+  <h1>پشتیبانی Nord</h1>
+  <p>اگر سوال، مشکل یا پیشنهادی دارید، فرم زیر را پر کنید.</p>
 
-<h1>
+  <div class="support-card">
+    <form id="supportForm">
+      <label>نام شما</label>
+      <input type="text" required placeholder="نام خود را وارد کنید">
 
-🎧 پشتیبانی Nord
+      <label>آیدی بله</label>
+      <input type="text" required placeholder="@username">
 
-</h1>
+      <label>موضوع درخواست</label>
+      <input type="text" required placeholder="موضوع را وارد کنید">
 
-<p>
+      <label>متن درخواست</label>
+      <textarea rows="7" required placeholder="پیام خود را بنویسید"></textarea>
 
-اگر سوال، مشکل یا پیشنهادی دارید،
-فرم زیر را پر کنید.
+      <button type="submit">ارسال درخواست</button>
+    </form>
+  </div>
 
-</p>
-
-<div class="support-card">
-
-<form id="supportForm">
-
-<label>
-
-نام شما
-
-</label>
-
-<input
-type="text"
-required
-placeholder="نام خود را وارد کنید">
-
-<label>
-
-آیدی بله
-
-</label>
-
-<input
-type="text"
-required
-placeholder="@username">
-
-<label>
-
-موضوع درخواست
-
-</label>
-
-<input
-type="text"
-required
-placeholder="موضوع را وارد کنید">
-
-<label>
-
-متن درخواست
-
-</label>
-
-<textarea
-rows="8"
-required
-placeholder="پیام خود را بنویسید">
-</textarea>
-
-<button type="submit">
-
-📨 ارسال درخواست
-
-</button>
-
-</form>
-
-</div>
-
-<div class="support-info">
-
-<div class="info-box">
-
-<h3>
-
-📱 شماره پشتیبانی
-
-</h3>
-
-<p>
-
-09212302379
-
-</p>
-
-</div>
-
-<div class="info-box">
-
-<h3>
-
-📢 کانال بله
-
-</h3>
-
-<p>
-
-@minecraft_nord
-
-</p>
-
-</div>
-
-</div>
-
+  <div class="support-info">
+    <div class="info-box">
+      <h3>شماره پشتیبانی</h3>
+      <p>09212302379</p>
+    </div>
+    <div class="info-box">
+      <h3>کانال بله</h3>
+      <p>@minecraft_nord</p>
+    </div>
+  </div>
 </section>
 
 <footer>
-
-<p>
-
-NORD SERVER © 2026
-
-</p>
-
+  <p>NORD SERVER &copy; 2026</p>
 </footer>
 
 <script>
-
-document
-.getElementById("supportForm")
-.addEventListener("submit",function(e){
-
-e.preventDefault();
-
-alert(
-"درخواست شما ثبت شد."
-);
-
-this.reset();
-
+document.getElementById('supportForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  alert('درخواست شما ثبت شد.');
+  this.reset();
 });
-
 </script>
 
 </body>
-
 </html>
