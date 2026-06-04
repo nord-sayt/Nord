@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NORD FILES | Download Center</title>
+<title>NORD SERVER HUB PRO</title>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;800&display=swap');
@@ -11,46 +12,72 @@
 body{
 margin:0;
 font-family:Vazirmatn;
-background:#070A12;
+background:#05070f;
 color:white;
 overflow-x:hidden;
 }
 
-/* نور پس‌زمینه */
+/* 🌌 animated background */
 body::before{
 content:"";
 position:fixed;
-width:600px;
-height:600px;
-background:radial-gradient(circle,#00e5ff33,#0000);
+width:800px;
+height:800px;
+background:radial-gradient(circle,#00e5ff33,#0000 60%);
 top:-200px;
 left:-200px;
-filter:blur(60px);
+filter:blur(80px);
+animation:bgMove 10s infinite alternate;
 }
 
-/* هدر */
+@keyframes bgMove{
+from{transform:translate(0,0);}
+to{transform:translate(200px,100px);}
+}
+
+/* HEADER GLASS */
 header{
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:20px 40px;
-backdrop-filter:blur(10px);
-background:#0b1020aa;
+padding:18px 40px;
 position:sticky;
 top:0;
 z-index:10;
+
+background:rgba(10,15,30,0.6);
+backdrop-filter:blur(14px);
 border-bottom:1px solid #1b2a44;
 }
 
 .logo{
-font-size:22px;
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.logo-icon{
+width:44px;
+height:44px;
+border-radius:50%;
+background:linear-gradient(135deg,#00e5ff,#0066ff);
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:900;
+color:black;
+box-shadow:0 0 25px #00e5ff55;
+animation:pulse 2s infinite;
+}
+
+.logo-text{
 font-weight:800;
 color:#00e5ff;
 letter-spacing:2px;
 }
 
 nav a{
-color:#ccc;
+color:#aaa;
 margin:0 10px;
 text-decoration:none;
 transition:.3s;
@@ -60,32 +87,55 @@ nav a:hover{
 color:#00e5ff;
 }
 
-/* هیرو */
+/* HERO */
 .hero{
 text-align:center;
-padding:100px 20px;
+padding:90px 20px 50px;
 }
 
 .hero h1{
-font-size:55px;
+font-size:60px;
 margin:0;
 color:#00e5ff;
-text-shadow:0 0 20px #00e5ff55;
+text-shadow:0 0 25px #00e5ff55;
 }
 
 .hero p{
 color:#aaa;
-margin-top:10px;
 }
 
+/* SERVER PANEL */
+.panel{
+margin:20px auto;
+max-width:420px;
+padding:25px;
+border-radius:18px;
+
+background:rgba(20,25,40,0.6);
+backdrop-filter:blur(12px);
+border:1px solid #1b2a44;
+
+box-shadow:0 0 30px #00e5ff22;
+}
+
+.panel p{
+margin:8px 0;
+color:#aaa;
+}
+
+.panel b{
+color:#00e5ff;
+}
+
+/* BUTTON */
 .btn{
 display:inline-block;
-margin-top:25px;
-padding:12px 25px;
-background:linear-gradient(45deg,#00e5ff,#0066ff);
-border-radius:12px;
+margin-top:15px;
+padding:12px 22px;
+background:linear-gradient(135deg,#00e5ff,#0066ff);
 color:black;
-font-weight:bold;
+font-weight:700;
+border-radius:12px;
 text-decoration:none;
 transition:.3s;
 position:relative;
@@ -93,55 +143,35 @@ overflow:hidden;
 }
 
 .btn:hover{
-transform:translateY(-5px) scale(1.05);
-box-shadow:0 0 20px #00e5ff55;
+transform:translateY(-6px) scale(1.05);
+box-shadow:0 0 25px #00e5ff55;
 }
 
-/* نور دکمه */
-.btn::before{
-content:"";
-position:absolute;
-top:0;
-left:-100%;
-width:100%;
-height:100%;
-background:linear-gradient(90deg,transparent,white,transparent);
-transition:.5s;
-}
-
-.btn:hover::before{
-left:100%;
-}
-
-/* کانتینر کارت‌ها */
+/* GRID */
 .container{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
 gap:20px;
 padding:40px;
 }
 
-/* کارت‌ها شناور */
+/* CARD PRO */
 .card{
-background:#0b1020;
+background:rgba(20,25,40,0.6);
+backdrop-filter:blur(10px);
 border:1px solid #1b2a44;
-border-radius:15px;
+border-radius:16px;
 padding:20px;
+
 transition:.4s;
 position:relative;
 overflow:hidden;
-
-animation:float 6s ease-in-out infinite;
-box-shadow:0 10px 25px #00000055;
 }
 
-.card:nth-child(2){ animation-delay:1s; }
-.card:nth-child(3){ animation-delay:2s; }
-
 .card:hover{
-transform:translateY(-15px) scale(1.03);
-box-shadow:0 0 25px #00e5ff33;
+transform:translateY(-10px) scale(1.03);
 border-color:#00e5ff88;
+box-shadow:0 0 30px #00e5ff22;
 }
 
 .card h3{
@@ -157,120 +187,128 @@ font-size:14px;
 .download{
 display:block;
 margin-top:15px;
-text-align:center;
 padding:10px;
 background:#00e5ff;
 color:black;
+text-align:center;
 border-radius:10px;
-text-decoration:none;
 font-weight:bold;
+text-decoration:none;
 transition:.3s;
-position:relative;
-overflow:hidden;
 }
 
 .download:hover{
-transform:translateY(-5px);
+transform:scale(1.05);
 box-shadow:0 0 20px #00e5ff55;
 }
 
-/* نور روی دکمه دانلود */
-.download::before{
-content:"";
-position:absolute;
-top:0;
-left:-100%;
-width:100%;
-height:100%;
-background:linear-gradient(90deg,transparent,white,transparent);
-transition:.5s;
-}
-
-.download:hover::before{
-left:100%;
-}
-
-/* سرور */
-.server{
+/* BOX */
+.box{
 margin:40px;
-padding:30px;
-background:#0b1020;
+padding:25px;
+background:rgba(20,25,40,0.6);
+border-radius:16px;
 border:1px solid #1b2a44;
-border-radius:15px;
+backdrop-filter:blur(10px);
 text-align:center;
 }
 
-.server h2{
-color:#00e5ff;
+input{
+padding:12px;
+width:80%;
+border-radius:12px;
+border:none;
+outline:none;
+margin-top:10px;
+background:#0b1020;
+color:white;
 }
 
-/* فوتر */
+/* FOOTER */
 footer{
 text-align:center;
 padding:20px;
-color:#555;
+color:#666;
 border-top:1px solid #1b2a44;
-margin-top:50px;
+margin-top:40px;
 }
 
-/* انیمیشن شناور */
-@keyframes float{
-0%{transform:translateY(0px);}
-50%{transform:translateY(-10px);}
-100%{transform:translateY(0px);}
+/* ANIMATIONS */
+@keyframes pulse{
+0%{transform:scale(1);}
+50%{transform:scale(1.12);}
+100%{transform:scale(1);}
 }
 </style>
+
 </head>
 
 <body>
 
 <header>
-<div class="logo">NORD</div>
+<div class="logo">
+<div class="logo-icon">N</div>
+<div class="logo-text">NORD SERVER</div>
+</div>
+
 <nav>
 <a href="#">خانه</a>
-<a href="#downloads">دانلودها</a>
 <a href="#server">سرور</a>
-<a href="#">پشتیبانی</a>
+<a href="#downloads">دانلود</a>
+<a href="#search">جستجو</a>
+<a href="#support">پشتیبانی</a>
 </nav>
 </header>
 
 <section class="hero">
-<h1>NORD FILES</h1>
-<p>مرکز دانلود فایل‌های گیمینگ، مودها و ابزارهای حرفه‌ای</p>
-<a class="btn" href="#downloads">ورود به دانلودها</a>
+<h1>NORD SERVER</h1>
+<p>Gaming Server Hub | Fast | Stable | Pro Experience</p>
+
+<div class="panel" id="server">
+<p>IP: <b>play.nord.ir</b></p>
+<p>Version: <b>1.21</b></p>
+<p>Status: 🟢 Online</p>
+<a class="btn" href="#">Copy IP</a>
+</div>
 </section>
 
-<section id="downloads" class="container">
+<section class="container" id="downloads">
 
 <div class="card">
-<h3>Minecraft Mod Pack</h3>
-<p>نسخه 1.21 | بهترین مودهای گرافیکی</p>
-<a class="download" href="#">دانلود</a>
+<h3>Resource Pack</h3>
+<p>HD Texture Pack</p>
+<a class="download" href="#">Download</a>
 </div>
 
 <div class="card">
-<h3>FPS Booster Tool</h3>
-<p>افزایش FPS برای سیستم‌های ضعیف</p>
-<a class="download" href="#">دانلود</a>
+<h3>FPS Booster</h3>
+<p>Increase Performance</p>
+<a class="download" href="#">Download</a>
 </div>
 
 <div class="card">
-<h3>Shader Ultra RTX</h3>
-<p>گرافیک سینمایی و حرفه‌ای</p>
-<a class="download" href="#">دانلود</a>
+<h3>Shader Ultra</h3>
+<p>Cinematic Graphics</p>
+<a class="download" href="#">Download</a>
 </div>
 
 </section>
 
-<section id="server" class="server">
-<h2>Nord Server</h2>
-<p>IP: play.nord.ir</p>
-<p>Version: 1.21 | Players: 120+</p>
-<a class="btn" href="#">کپی IP</a>
+<section class="box" id="search">
+<h2>Search</h2>
+<input type="text" placeholder="Search in Nord Server...">
+</section>
+
+<section class="box" id="support">
+<h2>Support</h2>
+<p>Contact us via social media</p>
+
+<a class="btn" href="#">Telegram</a>
+<a class="btn" href="#">Bale</a>
 </section>
 
 <footer>
-© 2026 NORD FILES | All Rights Reserved
+© 2026 NORD SERVER HUB
 </footer>
 
 </body>
