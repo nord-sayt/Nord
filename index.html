@@ -7,23 +7,21 @@
 <title>NORD SERVER HUB</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;800&display=swap');
-
 body{
 margin:0;
-font-family:Vazirmatn;
+font-family:Vazirmatn, tahoma;
 background:#05070f;
 color:white;
 overflow-x:hidden;
 }
 
-/* background glow */
+/* glow */
 body::before{
 content:"";
 position:fixed;
 width:800px;
 height:800px;
-background:radial-gradient(circle,#00e5ff33,#0000 60%);
+background:radial-gradient(circle,#00e5ff33,#0000 70%);
 top:-200px;
 left:-200px;
 filter:blur(80px);
@@ -35,7 +33,7 @@ from{transform:translate(0,0);}
 to{transform:translate(200px,120px);}
 }
 
-/* HEADER */
+/* HEADER (بدون سرچ بالا طبق خواسته تو) */
 header{
 display:flex;
 justify-content:space-between;
@@ -49,6 +47,7 @@ backdrop-filter:blur(14px);
 border-bottom:1px solid #1b2a44;
 }
 
+/* LOGO */
 .logo-box{
 display:flex;
 align-items:center;
@@ -90,148 +89,116 @@ color:#00e5ff;
 /* HERO */
 .hero{
 text-align:center;
-padding:90px 20px 40px;
+padding:80px 20px 30px;
 }
 
 .hero h1{
-font-size:60px;
-margin:0;
+font-size:55px;
 color:#00e5ff;
 text-shadow:0 0 25px #00e5ff55;
 }
 
-.hero p{
-color:#aaa;
-}
-
-/* PANEL */
 .panel{
 margin:20px auto;
 max-width:420px;
 padding:25px;
 border-radius:18px;
 background:rgba(20,25,40,0.6);
-backdrop-filter:blur(12px);
 border:1px solid #1b2a44;
-box-shadow:0 0 30px #00e5ff22;
+animation:float 6s ease-in-out infinite;
 }
 
-.panel b{
-color:#00e5ff;
-}
-
-/* BUTTON */
-.btn{
+/* BUTTONS (شناورتر) */
+.btn, .download{
 display:inline-block;
 margin-top:12px;
-padding:12px 22px;
+padding:12px 20px;
 background:linear-gradient(135deg,#00e5ff,#0066ff);
 color:black;
 font-weight:700;
 border-radius:12px;
 text-decoration:none;
 transition:.3s;
+position:relative;
+overflow:hidden;
 }
 
-.btn:hover{
-transform:translateY(-6px) scale(1.05);
+.btn:hover, .download:hover{
+transform:translateY(-6px) scale(1.06);
 box-shadow:0 0 25px #00e5ff55;
 }
 
-/* GRID */
+/* floating cards */
 .container{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
 gap:20px;
-padding:40px;
+padding:30px;
 }
 
-/* CARD */
 .card{
 background:rgba(20,25,40,0.6);
-backdrop-filter:blur(10px);
 border:1px solid #1b2a44;
 border-radius:16px;
 padding:20px;
-transition:.4s;
 animation:float 6s ease-in-out infinite;
+transition:.3s;
 }
 
 .card:hover{
-transform:translateY(-10px) scale(1.03);
-border-color:#00e5ff88;
-box-shadow:0 0 30px #00e5ff22;
+transform:translateY(-12px) scale(1.03);
+border-color:#00e5ff;
 }
 
-.card h3{
-margin:0;
+/* SEARCH (داخل دانلود) */
+.search-box{
+display:flex;
+align-items:center;
+gap:10px;
+background:#0b1020;
+padding:12px;
+border-radius:12px;
+border:1px solid #1b2a44;
+margin:20px 30px 10px;
+}
+
+.search-box span{
 color:#00e5ff;
+font-size:18px;
 }
 
-.card p{
-color:#aaa;
-font-size:14px;
+.search-box input{
+flex:1;
+border:none;
+outline:none;
+background:transparent;
+color:white;
 }
 
-/* DOWNLOAD */
-.download{
-display:block;
-margin-top:15px;
-padding:10px;
-background:#00e5ff;
-color:black;
-text-align:center;
-border-radius:10px;
-font-weight:bold;
-text-decoration:none;
-}
-
-/* BOX (search/support/admin) */
+/* SUPPORT */
 .box{
 margin:40px;
 padding:25px;
 background:rgba(20,25,40,0.6);
 border-radius:16px;
 border:1px solid #1b2a44;
-backdrop-filter:blur(10px);
 text-align:center;
 }
 
-input{
-padding:12px;
-width:80%;
-border-radius:12px;
-border:none;
-outline:none;
-margin-top:10px;
-background:#0b1020;
-color:white;
-}
-
-/* TICKET BOX */
+/* TICKET */
 .ticket{
 margin-top:10px;
 padding:10px;
 border:1px solid #1b2a44;
 border-radius:10px;
 background:#0b1020;
-text-align:right;
 }
 
-/* FOOTER */
-footer{
-text-align:center;
-padding:20px;
-color:#666;
-border-top:1px solid #1b2a44;
-margin-top:40px;
-}
-
-/* ANIMATIONS */
+/* FLOAT */
 @keyframes float{
-0%{transform:translateY(0px);}
+0%{transform:translateY(0);}
 50%{transform:translateY(-10px);}
-100%{transform:translateY(0px);}
+100%{transform:translateY(0);}
 }
 
 @keyframes pulse{
@@ -239,13 +206,20 @@ margin-top:40px;
 50%{transform:scale(1.1);}
 100%{transform:scale(1);}
 }
+
+footer{
+text-align:center;
+padding:20px;
+color:#777;
+border-top:1px solid #1b2a44;
+margin-top:40px;
+}
 </style>
 
 </head>
 
 <body>
 
-<!-- HEADER -->
 <header>
 
 <div class="logo-box">
@@ -254,100 +228,86 @@ margin-top:40px;
 </div>
 
 <nav>
-<a href="#">خانه</a>
 <a href="#server">سرور</a>
 <a href="#downloads">دانلود</a>
-<a href="#search">جستجو</a>
 <a href="#support">پشتیبانی</a>
-<a href="#admin">ادمین</a>
 </nav>
 
 </header>
 
-<!-- HERO -->
 <section class="hero">
 
 <h1>NORD SERVER</h1>
-<p>Gaming Server Hub | Pro Experience</p>
 
-<div class="panel" id="server">
-<p>IP: <b>در حال ساخت..</b></p>
-<p>Version: <b>1.18.2</b></p>
-<p>Status: 🔴Ofline</p>
-<a class="btn">Copy IP</a>
+<div class="panel">
+<p>IP: در حال ساخت...</p>
+<p>Version: 1.18.2</p>
+<p>Status: 🔴 Offline</p>
 </div>
 
 </section>
 
-<!-- DOWNLOADS -->
-<section class="container" id="downloads">
+<!-- DOWNLOAD + SEARCH -->
+<section id="downloads">
+
+<h2 style="padding:0 30px;">Downloads</h2>
+
+<div class="search-box">
+<span>🔍</span>
+<input id="searchInput" type="text" placeholder="جستجو در دانلودها...">
+</div>
+
+<div class="container">
 
 <div class="card">
 <h3>Resource Pack</h3>
-<p>HD Texture Pack</p>
 <a class="download">Download</a>
 </div>
 
 <div class="card">
 <h3>FPS Booster</h3>
-<p>Performance Boost</p>
 <a class="download">Download</a>
 </div>
 
 <div class="card">
 <h3>Shader Pack</h3>
-<p>Ultra Graphics</p>
 <a class="download">Download</a>
+</div>
+
 </div>
 
 </section>
 
-<!-- SEARCH -->
-<section class="box" id="search">
-<h2>Search</h2>
-<input type="text" placeholder="Search Nord Server...">
-</section>
-
 <!-- SUPPORT -->
-<section class="box" id="support">
+<section id="support" class="box">
+
 <h2>Support</h2>
-<p>Contact via Bale</p>
-<a class="btn" href="https://ble.ir/USERNAME">💬 Bale</a>
-</section>
 
-<!-- ADMIN PANEL (Frontend demo) -->
-<section class="box" id="admin">
-
-<h2>Admin Panel</h2>
-<p>Tickets (Local Demo)</p>
-
-<div id="tickets"></div>
+<a class="btn" href="https://ble.ir/@ma_shahripour" target="_blank">
+💬 ارتباط در بله
+</a>
 
 </section>
-
-<script>
-let tickets = JSON.parse(localStorage.getItem("tickets") || "[]");
-
-function loadTickets(){
-let box = document.getElementById("tickets");
-box.innerHTML = "";
-
-tickets.forEach(t=>{
-box.innerHTML += `
-<div class="ticket">
-<b>${t.name}</b><br>
-${t.msg}<br>
-<small style="color:#00e5ff">${t.contact}</small>
-</div>`;
-});
-}
-
-loadTickets();
-</script>
 
 <footer>
 © 2026 NORD SERVER HUB
 </footer>
+
+<script>
+// 🔍 REAL SEARCH
+const input = document.getElementById("searchInput");
+const cards = document.querySelectorAll(".card");
+
+input.addEventListener("input", () => {
+let value = input.value.toLowerCase();
+
+cards.forEach(card => {
+let text = card.innerText.toLowerCase();
+
+card.style.display = text.includes(value) ? "block" : "none";
+});
+});
+</script>
 
 </body>
 </html>
