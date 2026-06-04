@@ -16,7 +16,7 @@ color:white;
 overflow-x:hidden;
 }
 
-/* background glow */
+/* نور پس‌زمینه */
 body::before{
 content:"";
 position:fixed;
@@ -28,6 +28,7 @@ left:-200px;
 filter:blur(60px);
 }
 
+/* هدر */
 header{
 display:flex;
 justify-content:space-between;
@@ -59,13 +60,14 @@ nav a:hover{
 color:#00e5ff;
 }
 
+/* هیرو */
 .hero{
 text-align:center;
 padding:100px 20px;
 }
 
 .hero h1{
-font-size:50px;
+font-size:55px;
 margin:0;
 color:#00e5ff;
 text-shadow:0 0 20px #00e5ff55;
@@ -86,13 +88,32 @@ color:black;
 font-weight:bold;
 text-decoration:none;
 transition:.3s;
+position:relative;
+overflow:hidden;
 }
 
 .btn:hover{
-transform:scale(1.05);
+transform:translateY(-5px) scale(1.05);
 box-shadow:0 0 20px #00e5ff55;
 }
 
+/* نور دکمه */
+.btn::before{
+content:"";
+position:absolute;
+top:0;
+left:-100%;
+width:100%;
+height:100%;
+background:linear-gradient(90deg,transparent,white,transparent);
+transition:.5s;
+}
+
+.btn:hover::before{
+left:100%;
+}
+
+/* کانتینر کارت‌ها */
 .container{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -100,20 +121,27 @@ gap:20px;
 padding:40px;
 }
 
+/* کارت‌ها شناور */
 .card{
 background:#0b1020;
 border:1px solid #1b2a44;
 border-radius:15px;
 padding:20px;
-transition:.3s;
+transition:.4s;
 position:relative;
 overflow:hidden;
+
+animation:float 6s ease-in-out infinite;
+box-shadow:0 10px 25px #00000055;
 }
 
+.card:nth-child(2){ animation-delay:1s; }
+.card:nth-child(3){ animation-delay:2s; }
+
 .card:hover{
-transform:translateY(-10px);
-box-shadow:0 10px 30px #00e5ff22;
-border-color:#00e5ff55;
+transform:translateY(-15px) scale(1.03);
+box-shadow:0 0 25px #00e5ff33;
+border-color:#00e5ff88;
 }
 
 .card h3{
@@ -136,8 +164,33 @@ color:black;
 border-radius:10px;
 text-decoration:none;
 font-weight:bold;
+transition:.3s;
+position:relative;
+overflow:hidden;
 }
 
+.download:hover{
+transform:translateY(-5px);
+box-shadow:0 0 20px #00e5ff55;
+}
+
+/* نور روی دکمه دانلود */
+.download::before{
+content:"";
+position:absolute;
+top:0;
+left:-100%;
+width:100%;
+height:100%;
+background:linear-gradient(90deg,transparent,white,transparent);
+transition:.5s;
+}
+
+.download:hover::before{
+left:100%;
+}
+
+/* سرور */
 .server{
 margin:40px;
 padding:30px;
@@ -151,12 +204,20 @@ text-align:center;
 color:#00e5ff;
 }
 
+/* فوتر */
 footer{
 text-align:center;
 padding:20px;
 color:#555;
 border-top:1px solid #1b2a44;
 margin-top:50px;
+}
+
+/* انیمیشن شناور */
+@keyframes float{
+0%{transform:translateY(0px);}
+50%{transform:translateY(-10px);}
+100%{transform:translateY(0px);}
 }
 </style>
 </head>
@@ -167,8 +228,8 @@ margin-top:50px;
 <div class="logo">NORD</div>
 <nav>
 <a href="#">خانه</a>
-<a href="#">دانلودها</a>
-<a href="#">سرور</a>
+<a href="#downloads">دانلودها</a>
+<a href="#server">سرور</a>
 <a href="#">پشتیبانی</a>
 </nav>
 </header>
@@ -201,7 +262,7 @@ margin-top:50px;
 
 </section>
 
-<section class="server">
+<section id="server" class="server">
 <h2>Nord Server</h2>
 <p>IP: play.nord.ir</p>
 <p>Version: 1.21 | Players: 120+</p>
