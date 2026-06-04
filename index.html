@@ -12,55 +12,53 @@ margin:0;
 font-family:tahoma;
 background:#05070f;
 color:white;
-overflow:hidden;
+overflow-x:hidden;
+scroll-behavior:smooth;
 }
 
-/* 🌌 LOADING */
-#loader{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:#05070f;
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:center;
-z-index:9999;
-}
-
-.spinner{
-width:60px;
-height:60px;
-border-radius:50%;
-border:4px solid #1b2a44;
-border-top:4px solid #00e5ff;
-animation:spin 1s linear infinite;
-}
-
-@keyframes spin{
-100%{transform:rotate(360deg);}
-}
-
-/* 🌌 BACKGROUND EFFECT */
+/* 🌌 BACKGROUND */
 body::before{
 content:"";
 position:fixed;
 width:900px;
 height:900px;
-background:radial-gradient(circle,#00e5ff25,#0066ff10,#0000 70%);
-top:-250px;
-left:-250px;
-filter:blur(100px);
-animation:floatBG 15s infinite ease-in-out;
+background:radial-gradient(circle,#00e5ff30,#0066ff10,transparent 70%);
+top:-200px;
+left:-200px;
+filter:blur(110px);
+animation:bgMove 12s infinite ease-in-out;
 z-index:-1;
 }
 
-@keyframes floatBG{
+@keyframes bgMove{
 0%{transform:translate(0,0);}
 50%{transform:translate(200px,120px);}
 100%{transform:translate(0,0);}
+}
+
+/* LOADING */
+#loader{
+position:fixed;
+inset:0;
+background:#05070f;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+z-index:9999;
+}
+
+.spinner{
+width:55px;
+height:55px;
+border:4px solid #1b2a44;
+border-top:4px solid #00e5ff;
+border-radius:50%;
+animation:spin 1s linear infinite;
+}
+
+@keyframes spin{
+100%{transform:rotate(360deg);}
 }
 
 /* HEADER */
@@ -69,7 +67,7 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 padding:18px 40px;
-background:rgba(10,15,30,0.65);
+background:rgba(10,15,30,0.7);
 backdrop-filter:blur(18px);
 border-bottom:1px solid #1b2a44;
 position:sticky;
@@ -77,31 +75,19 @@ top:0;
 z-index:10;
 }
 
-.logo-box{
+.logo{
 display:flex;
-align-items:center;
 gap:10px;
+align-items:center;
 }
 
-.logo-icon{
-width:44px;
-height:44px;
+.logo-box{
+width:40px;
+height:40px;
 border-radius:50%;
 background:linear-gradient(135deg,#ff2b2b,#8b0000);
-display:flex;
-align-items:center;
-justify-content:center;
-font-weight:900;
-color:white;
-box-shadow:0 0 18px #ff2b2b88;
 }
 
-.logo-text{
-color:#00e5ff;
-font-weight:800;
-}
-
-/* NAV */
 nav a{
 color:#aaa;
 margin:0 10px;
@@ -112,51 +98,73 @@ nav a:hover{
 color:#00e5ff;
 }
 
-/* SECTION */
+/* SECTIONS */
 section{
-padding:30px;
+padding:60px 25px;
 }
 
-/* BOX */
-.panel, .box, .card{
+.box{
+max-width:900px;
+margin:auto;
 background:rgba(20,25,40,0.6);
-border:1px solid #1b2a44;
+padding:25px;
 border-radius:16px;
-padding:20px;
+border:1px solid #1b2a44;
 transition:.3s;
-animation:float 6s ease-in-out infinite;
 }
 
-.card:hover{
-transform:translateY(-10px);
-border-color:#00e5ff;
+.box:hover{
+transform:translateY(-5px);
 }
 
 /* BUTTON */
 .btn{
 display:inline-block;
-margin-top:12px;
 padding:12px 20px;
+margin-top:10px;
 background:linear-gradient(135deg,#00e5ff,#0066ff);
 color:black;
 border-radius:12px;
 text-decoration:none;
 font-weight:700;
+transition:.3s;
 }
 
-/* GRID */
+.btn:hover{
+transform:scale(1.05);
+}
+
+/* DOWNLOAD GRID */
 .container{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-gap:20px;
-padding:30px;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:15px;
+margin-top:20px;
 }
 
-/* FLOAT */
-@keyframes float{
-0%{transform:translateY(0);}
-50%{transform:translateY(-12px);}
-100%{transform:translateY(0);}
+.card{
+background:rgba(20,25,40,0.6);
+padding:20px;
+border-radius:14px;
+border:1px solid #1b2a44;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+border-color:#00e5ff;
+}
+
+/* SEARCH */
+input{
+width:100%;
+padding:12px;
+border-radius:10px;
+border:none;
+outline:none;
+background:#0b1020;
+color:white;
+margin-top:10px;
 }
 
 /* FOOTER */
@@ -165,26 +173,24 @@ text-align:center;
 padding:20px;
 color:#777;
 border-top:1px solid #1b2a44;
-margin-top:40px;
+margin-top:50px;
 }
-
 </style>
 
 </head>
 
 <body>
 
-<!-- LOADING -->
+<!-- LOADER -->
 <div id="loader">
 <div class="spinner"></div>
 <p>Loading Nord Server...</p>
 </div>
 
 <header>
-
-<div class="logo-box">
-<div class="logo-icon">N</div>
-<div class="logo-text">NORD SERVER</div>
+<div class="logo">
+<div class="logo-box"></div>
+<h3>NORD SERVER</h3>
 </div>
 
 <nav>
@@ -194,69 +200,59 @@ margin-top:40px;
 <a href="#news">اعلامیه</a>
 <a href="#support">پشتیبانی</a>
 </nav>
-
 </header>
 
+<!-- SERVER -->
 <section id="server">
-
+<div class="box">
 <h2>سرور</h2>
-
-<div class="panel">
 <p>IP: play.nord.ir</p>
 <p>Version: 1.18.2</p>
 <p>Status: Offline</p>
-
 <a class="btn" onclick="copyIP()">کپی آیپی</a>
 </div>
-
 </section>
 
-<section class="container" id="downloads">
+<!-- DOWNLOADS -->
+<section id="downloads">
+<div class="box">
+<h2>دانلودها</h2>
 
-<div class="card">
-<h3>Resource Pack</h3>
-<a class="btn">Download</a>
+<input id="search" placeholder="جستجو فایل...">
+
+<div class="container" id="list">
+
+<div class="card">Resource Pack</div>
+<div class="card">FPS Booster</div>
+<div class="card">Shader Pack</div>
+
 </div>
-
-<div class="card">
-<h3>FPS Booster</h3>
-<a class="btn">Download</a>
 </div>
-
-<div class="card">
-<h3>Shader Pack</h3>
-<a class="btn">Download</a>
-</div>
-
 </section>
 
-<section id="about" class="box">
-
+<!-- ABOUT -->
+<section id="about">
+<div class="box">
 <h2>درباره ما</h2>
-
-<p>
-Nord Server یک سرور ماینکرفت برای PvP و Survival است.
-</p>
-
+<p>Nord Server یک سرور Minecraft برای PvP و Survival است.</p>
+</div>
 </section>
 
-<section id="news" class="box">
-
-<h2>اعلامیه‌ها</h2>
-
+<!-- NEWS -->
+<section id="news">
+<div class="box">
+<h2>اعلامیه</h2>
 <p>سرور در حال ساخت است.</p>
 <p>سیستم دانلود فعال شد.</p>
-
+</div>
 </section>
 
-<section id="support" class="box">
-
+<!-- SUPPORT -->
+<section id="support">
+<div class="box">
 <h2>پشتیبانی</h2>
-
-<a class="btn" href="https://ble.ir/ma_shahripour" target="_blank">
-ارتباط در بله
-</a>
-
+<a class="btn" href="https://ble.ir/ma_shahripour">ارتباط در بله</a>
+</div>
 </section>
 
 <footer>
@@ -266,17 +262,25 @@ Nord Server یک سرور ماینکرفت برای PvP و Survival است.
 <script>
 
 /* LOADER */
-window.onload = function(){
+window.onload = ()=>{
 setTimeout(()=>{
 document.getElementById("loader").style.display="none";
-},1200);
-}
+},1000);
+};
 
 /* COPY IP */
 function copyIP(){
 navigator.clipboard.writeText("play.nord.ir");
-alert("IP کپی شد ✔");
+alert("IP کپی شد");
 }
+
+/* SEARCH */
+document.getElementById("search").addEventListener("input",function(){
+let val=this.value.toLowerCase();
+document.querySelectorAll(".card").forEach(c=>{
+c.style.display=c.innerText.toLowerCase().includes(val)?"block":"none";
+});
+});
 
 </script>
 
