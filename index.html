@@ -15,7 +15,7 @@ color:white;
 overflow:hidden;
 }
 
-/* 🌌 LOADING SCREEN */
+/* 🌌 LOADING */
 #loader{
 position:fixed;
 width:100%;
@@ -29,8 +29,8 @@ z-index:9999;
 }
 
 .spinner{
-width:60px;
-height:60px;
+width:55px;
+height:55px;
 border:4px solid #1b2a44;
 border-top:4px solid #00e5ff;
 border-radius:50%;
@@ -42,15 +42,11 @@ animation:spin 1s linear infinite;
 }
 
 /* 🌌 PARTICLES */
-#particles{
-position:fixed;
-width:100%;
-height:100%;
-z-index:-1;
-}
-
 canvas{
-display:block;
+position:fixed;
+top:0;
+left:0;
+z-index:-1;
 }
 
 /* HEADER */
@@ -59,12 +55,9 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 padding:18px 40px;
-position:sticky;
-top:0;
 background:rgba(10,15,30,0.7);
 backdrop-filter:blur(15px);
 border-bottom:1px solid #1b2a44;
-z-index:10;
 }
 
 .logo-box{
@@ -91,17 +84,17 @@ color:#00e5ff;
 font-weight:800;
 }
 
+/* SECTIONS */
 section{
-padding:30px;
+padding:25px;
 }
 
-/* PANEL */
-.panel, .box, .card{
+.panel,.box,.card{
 background:rgba(20,25,40,0.6);
 border:1px solid #1b2a44;
 border-radius:16px;
 padding:20px;
-margin:20px;
+margin:15px;
 }
 
 /* BUTTON */
@@ -113,130 +106,176 @@ color:black;
 border-radius:12px;
 text-decoration:none;
 font-weight:700;
-transition:.3s;
 }
 
-.btn:hover{
-transform:scale(1.05);
-box-shadow:0 0 20px #00e5ff55;
+/* DOWNLOAD GRID */
+.container{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:15px;
+padding:20px;
+}
+
+/* SEARCH */
+.search{
+display:flex;
+gap:10px;
+margin:15px;
+background:#0b1020;
+padding:10px;
+border-radius:12px;
+border:1px solid #1b2a44;
+}
+
+.search input{
+flex:1;
+border:none;
+background:transparent;
+color:white;
+outline:none;
 }
 
 /* STATUS */
-.status{
-color:#aaa;
-}
+.online{color:#00ff99;}
+.offline{color:#ff4d4d;}
 
-.online{
-color:#00ff99;
-font-weight:bold;
-}
-
-.offline{
-color:#ff4d4d;
-font-weight:bold;
-}
 </style>
 
 </head>
 
 <body>
 
-<!-- LOADER -->
+<!-- LOADING -->
 <div id="loader">
 <div class="spinner"></div>
 <p>Loading NORD SERVER...</p>
 </div>
 
-<!-- PARTICLES -->
 <canvas id="particles"></canvas>
 
 <header>
-
 <div class="logo-box">
 <div class="logo-icon">N</div>
 <div class="logo-text">NORD SERVER</div>
 </div>
-
 </header>
 
 <section>
 
-<h1>NORD SERVER</h1>
+<h2>سرور</h2>
 
 <div class="panel">
-
 <p>IP: play.nord.ir</p>
-<p>Version: 1.18.2</p>
+<p>Version:📶1.18.2</p>
+<p>Status: <span id="status">🔴Offline</span></p>
+<a class="btn" onclick="copyIP()">کپی آیپی</a>
+</div>
 
-<p class="status">Status: <span id="status">Checking...</span></p>
+</section>
 
-<a class="btn" onclick="copyIP()">Copy IP</a>
+<!-- ABOUT -->
+<section class="box">
+<h2>درباره ما</h2>
+<p>Nord Server یک سرور.</p>
+</section>
+
+<!-- NEWS -->
+<section class="box">
+<h2>اعلامیه‌ها</h2>
+<p>سرور در حال ساخت است</p>
+<p>سیستم دانلود فعال شد</p>
+</section>
+
+<!-- DOWNLOAD + SEARCH -->
+<section>
+
+<h2>دانلودها</h2>
+
+<div class="search">
+<span>🔍</span>
+<input id="searchInput" placeholder="جستجو در فایل‌ها...">
+</div>
+
+<div class="container">
+
+<div class="card">
+<p>Resource Pack</p>
+<a class="btn">Download</a>
+</div>
+
+<div class="card">
+<p>FPS Booster</p>
+<a class="btn">Download</a>
+</div>
+
+<div class="card">
+<p>Shader Pack</p>
+<a class="btn">Download</a>
+</div>
 
 </div>
 
 </section>
 
+<!-- SUPPORT -->
 <section class="box">
-
-<h2>Server Status</h2>
-<p id="mcStatus">Checking Minecraft server...</p>
-
+<h2>پشتیبانی</h2>
+<a class="btn" href="https://ble.ir/ma_shahripour">بله</a>
 </section>
 
 <script>
 
 //////////////////////////////////////////////////
-// ⚡ LOADING SCREEN
+// LOADING
 //////////////////////////////////////////////////
-window.addEventListener("load",()=>{
-setTimeout(()=>{
-document.getElementById("loader").style.display="none";
-},1200);
-});
+window.onload = () => {
+setTimeout(()=>document.getElementById("loader").style.display="none",1200);
+};
 
 //////////////////////////////////////////////////
-// 📋 COPY IP
+// COPY IP
 //////////////////////////////////////////////////
 function copyIP(){
 navigator.clipboard.writeText("play.nord.ir");
-alert("IP copied ✔");
+alert("کپی شد ✔");
 }
 
 //////////////////////////////////////////////////
-// 🟢 MINECRAFT SERVER STATUS (simple API ping)
+// REAL MINECRAFT STATUS
 //////////////////////////////////////////////////
-async function checkServer(){
-try{
-let res = await fetch("https://api.mcsrvstat.us/2/play.nord.ir");
-let data = await res.json();
-
-if(data.online){
-document.getElementById("status").innerHTML="Online 🟢";
-document.getElementById("mcStatus").innerHTML="Server is ONLINE 🟢";
-}else{
-document.getElementById("status").innerHTML="Offline 🔴";
-document.getElementById("mcStatus").innerHTML="Server is OFFLINE 🔴";
-}
-}catch(e){
-document.getElementById("status").innerHTML="Unknown";
-}
-}
-
-checkServer();
+fetch("https://api.mcsrvstat.us/2/play.nord.ir")
+.then(r=>r.json())
+.then(data=>{
+document.getElementById("status").innerText =
+data.online ? "Online 🟢" : "Offline 🔴";
+});
 
 //////////////////////////////////////////////////
-// 🌌 PARTICLES SYSTEM
+// SEARCH FILTER
 //////////////////////////////////////////////////
-const canvas = document.getElementById("particles");
-const ctx = canvas.getContext("2d");
+const input=document.getElementById("searchInput");
+const cards=document.querySelectorAll(".card");
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+input.addEventListener("input",()=>{
+cards.forEach(c=>{
+c.style.display=c.innerText.toLowerCase().includes(input.value.toLowerCase())
+?"block":"none";
+});
+});
 
-let particles = [];
+//////////////////////////////////////////////////
+// PARTICLES
+//////////////////////////////////////////////////
+const canvas=document.getElementById("particles");
+const ctx=canvas.getContext("2d");
 
-for(let i=0;i<80;i++){
-particles.push({
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+
+let p=[];
+
+for(let i=0;i<60;i++){
+p.push({
 x:Math.random()*canvas.width,
 y:Math.random()*canvas.height,
 r:Math.random()*2,
@@ -245,26 +284,26 @@ dy:(Math.random()-0.5)
 });
 }
 
-function animate(){
+function draw(){
 ctx.clearRect(0,0,canvas.width,canvas.height);
 
-for(let p of particles){
-p.x += p.dx;
-p.y += p.dy;
+p.forEach(a=>{
+a.x+=a.dx;
+a.y+=a.dy;
 
-if(p.x<0||p.x>canvas.width) p.dx*=-1;
-if(p.y<0||p.y>canvas.height) p.dy*=-1;
+if(a.x<0||a.x>canvas.width)a.dx*=-1;
+if(a.y<0||a.y>canvas.height)a.dy*=-1;
 
 ctx.beginPath();
-ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+ctx.arc(a.x,a.y,a.r,0,Math.PI*2);
 ctx.fillStyle="#00e5ff55";
 ctx.fill();
+});
+
+requestAnimationFrame(draw);
 }
 
-requestAnimationFrame(animate);
-}
-
-animate();
+draw();
 
 </script>
 
