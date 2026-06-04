@@ -9,7 +9,7 @@
 <style>
 body{
 margin:0;
-font-family:Vazirmatn, tahoma;
+font-family:tahoma;
 background:#05070f;
 color:white;
 overflow-x:hidden;
@@ -25,15 +25,15 @@ background:radial-gradient(circle,#00e5ff33,#0000 70%);
 top:-200px;
 left:-200px;
 filter:blur(80px);
-animation:bgMove 12s infinite alternate;
+animation:move 12s infinite alternate;
 }
 
-@keyframes bgMove{
+@keyframes move{
 from{transform:translate(0,0);}
 to{transform:translate(200px,120px);}
 }
 
-/* HEADER (بدون سرچ بالا طبق خواسته تو) */
+/* HEADER */
 header{
 display:flex;
 justify-content:space-between;
@@ -54,20 +54,22 @@ align-items:center;
 gap:10px;
 }
 
+/* 🔴 NORD LOGO (جای آرم قرمز) */
 .logo-icon{
 width:44px;
 height:44px;
 border-radius:50%;
-background:linear-gradient(135deg,#00e5ff,#0066ff);
+background:radial-gradient(circle,#00e5ff,#0066ff);
+box-shadow:0 0 20px #00e5ff88;
 display:flex;
 align-items:center;
 justify-content:center;
 font-weight:900;
 color:black;
-box-shadow:0 0 25px #00e5ff55;
 animation:pulse 2s infinite;
 }
 
+/* TEXT */
 .logo-text{
 font-weight:800;
 color:#00e5ff;
@@ -93,7 +95,7 @@ padding:80px 20px 30px;
 }
 
 .hero h1{
-font-size:55px;
+font-size:50px;
 color:#00e5ff;
 text-shadow:0 0 25px #00e5ff55;
 }
@@ -108,8 +110,8 @@ border:1px solid #1b2a44;
 animation:float 6s ease-in-out infinite;
 }
 
-/* BUTTONS (شناورتر) */
-.btn, .download{
+/* BUTTON */
+.btn{
 display:inline-block;
 margin-top:12px;
 padding:12px 20px;
@@ -119,16 +121,13 @@ font-weight:700;
 border-radius:12px;
 text-decoration:none;
 transition:.3s;
-position:relative;
-overflow:hidden;
 }
 
-.btn:hover, .download:hover{
-transform:translateY(-6px) scale(1.06);
-box-shadow:0 0 25px #00e5ff55;
+.btn:hover{
+transform:translateY(-6px) scale(1.05);
 }
 
-/* floating cards */
+/* GRID */
 .container{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
@@ -136,6 +135,7 @@ gap:20px;
 padding:30px;
 }
 
+/* CARD */
 .card{
 background:rgba(20,25,40,0.6);
 border:1px solid #1b2a44;
@@ -150,32 +150,7 @@ transform:translateY(-12px) scale(1.03);
 border-color:#00e5ff;
 }
 
-/* SEARCH (داخل دانلود) */
-.search-box{
-display:flex;
-align-items:center;
-gap:10px;
-background:#0b1020;
-padding:12px;
-border-radius:12px;
-border:1px solid #1b2a44;
-margin:20px 30px 10px;
-}
-
-.search-box span{
-color:#00e5ff;
-font-size:18px;
-}
-
-.search-box input{
-flex:1;
-border:none;
-outline:none;
-background:transparent;
-color:white;
-}
-
-/* SUPPORT */
+/* BOX */
 .box{
 margin:40px;
 padding:25px;
@@ -183,15 +158,6 @@ background:rgba(20,25,40,0.6);
 border-radius:16px;
 border:1px solid #1b2a44;
 text-align:center;
-}
-
-/* TICKET */
-.ticket{
-margin-top:10px;
-padding:10px;
-border:1px solid #1b2a44;
-border-radius:10px;
-background:#0b1020;
 }
 
 /* FLOAT */
@@ -203,10 +169,11 @@ background:#0b1020;
 
 @keyframes pulse{
 0%{transform:scale(1);}
-50%{transform:scale(1.1);}
+50%{transform:scale(1.15);}
 100%{transform:scale(1);}
 }
 
+/* FOOTER */
 footer{
 text-align:center;
 padding:20px;
@@ -223,8 +190,12 @@ margin-top:40px;
 <header>
 
 <div class="logo-box">
-<div class="logo-icon">N</div>
+
+<!-- 🔥 آرم نورد (جای قرمز قبلی) -->
+<div class="logo-icon"></div>
+
 <div class="logo-text">NORD SERVER</div>
+
 </div>
 
 <nav>
@@ -235,56 +206,50 @@ margin-top:40px;
 
 </header>
 
+<!-- HERO -->
 <section class="hero">
 
 <h1>NORD SERVER</h1>
 
 <div class="panel">
-<p>IP: در حال ساخت...</p>
-<p>Version: 1.18.2</p>
+
+<p>IP: <b id="ipText">play.nord.ir</b></p>
+<p>Version: <b>1.18.2</b></p>
 <p>Status: 🔴 Offline</p>
+
+<a class="btn" onclick="copyIP()">📋 Copy IP</a>
+
 </div>
 
 </section>
 
-<!-- DOWNLOAD + SEARCH -->
-<section id="downloads">
-
-<h2 style="padding:0 30px;">Downloads</h2>
-
-<div class="search-box">
-<span>🔍</span>
-<input id="searchInput" type="text" placeholder="جستجو در دانلودها...">
-</div>
-
-<div class="container">
+<!-- DOWNLOADS -->
+<section class="container" id="downloads">
 
 <div class="card">
 <h3>Resource Pack</h3>
-<a class="download">Download</a>
+<a class="btn">Download</a>
 </div>
 
 <div class="card">
 <h3>FPS Booster</h3>
-<a class="download">Download</a>
+<a class="btn">Download</a>
 </div>
 
 <div class="card">
 <h3>Shader Pack</h3>
-<a class="download">Download</a>
-</div>
-
+<a class="btn">Download</a>
 </div>
 
 </section>
 
 <!-- SUPPORT -->
-<section id="support" class="box">
+<section class="box" id="support">
 
 <h2>Support</h2>
 
 <a class="btn" href="https://ble.ir/@ma_shahripour" target="_blank">
-💬 ارتباط در بله
+💬 پشتیبانی
 </a>
 
 </section>
@@ -294,19 +259,11 @@ margin-top:40px;
 </footer>
 
 <script>
-// 🔍 REAL SEARCH
-const input = document.getElementById("searchInput");
-const cards = document.querySelectorAll(".card");
-
-input.addEventListener("input", () => {
-let value = input.value.toLowerCase();
-
-cards.forEach(card => {
-let text = card.innerText.toLowerCase();
-
-card.style.display = text.includes(value) ? "block" : "none";
-});
-});
+function copyIP(){
+const ip = document.getElementById("ipText").innerText;
+navigator.clipboard.writeText(ip);
+alert("IP کپی شد ✔");
+}
 </script>
 
 </body>
