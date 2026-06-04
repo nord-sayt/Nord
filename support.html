@@ -1,68 +1,46 @@
-<!DOCTYPE html>
-<html lang="fa" dir="rtl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nord — پشتیبانی</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+<section class="box" id="support">
 
-<header>
-  <div class="logo"><em>NORD</em></div>
-  <nav>
-    <a href="index.html">خانه</a>
-    <a href="downloads.html">دانلودها</a>
-    <a href="support.html">پشتیبانی</a>
-    <a href="gallery.html">گالری</a>
-  </nav>
-</header>
+<h2>Nord Support Center</h2>
+<p>برای ارتباط سریع با پشتیبانی یا ارسال مشکل از فرم زیر استفاده کن</p>
 
-<section class="support-page">
-  <h1>پشتیبانی Nord</h1>
-  <p>اگر سوال، مشکل یا پیشنهادی دارید، فرم زیر را پر کنید.</p>
+<!-- Bale Button -->
+<a class="btn" href="https://ble.ir/USERNAME" target="_blank">
+💬 ورود به بله (Bale)
+</a>
 
-  <div class="support-card">
-    <form id="supportForm">
-      <label>نام شما</label>
-      <input type="text" required placeholder="نام خود را وارد کنید">
+<hr style="margin:20px 0; border:1px solid #1b2a44;">
 
-      <label>آیدی بله</label>
-      <input type="text" required placeholder="@username">
+<!-- Ticket Form -->
+<h3>ارسال تیکت سریع</h3>
 
-      <label>موضوع درخواست</label>
-      <input type="text" required placeholder="موضوع را وارد کنید">
+<form onsubmit="sendTicket(event)">
 
-      <label>متن درخواست</label>
-      <textarea rows="7" required placeholder="پیام خود را بنویسید"></textarea>
+<input type="text" id="name" placeholder="نام شما" required>
+<br><br>
 
-      <button type="submit">ارسال درخواست</button>
-    </form>
-  </div>
+<input type="text" id="problem" placeholder="مشکل شما چیست؟" required>
+<br><br>
 
-  <div class="support-info">
-    <div class="info-box">
-      <h3>شماره پشتیبانی</h3>
-      <p>09212302379</p>
-    </div>
-    <div class="info-box">
-      <h3>کانال بله</h3>
-      <p>@minecraft_nord</p>
-    </div>
-  </div>
+<input type="email" id="contact" placeholder="ایمیل یا آی‌دی بله" required>
+<br><br>
+
+<button class="btn" type="submit">ارسال تیکت</button>
+
+</form>
+
+<p id="msg" style="margin-top:15px;color:#00e5ff;"></p>
+
 </section>
 
-<footer>
-  <p>NORD SERVER &copy; 2026</p>
-</footer>
-
 <script>
-document.getElementById('supportForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-  alert('درخواست شما ثبت شد.');
-  this.reset();
-});
-</script>
+function sendTicket(e){
+e.preventDefault();
 
-</body>
-</html>
+document.getElementById("msg").innerText =
+"✔ تیکت شما ثبت شد! به زودی بررسی می‌شود.";
+
+document.getElementById("name").value="";
+document.getElementById("problem").value="";
+document.getElementById("contact").value="";
+}
+</script>
