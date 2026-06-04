@@ -4,27 +4,31 @@ font-family:tahoma;
 background:#05070f;
 color:white;
 overflow-x:hidden;
+scroll-behavior:smooth;
 }
 
-/* 🌌 animated glow background */
+/* 🌌 animated glow background (اصلاح نرم) */
 body::before{
 content:"";
 position:fixed;
 width:900px;
 height:900px;
-background:radial-gradient(circle,#00e5ff30,#0000 70%);
+background:radial-gradient(circle,#00e5ff25,#0066ff10,#0000 70%);
 top:-250px;
 left:-250px;
-filter:blur(90px);
-animation:bgMove 12s ease-in-out infinite alternate;
+filter:blur(95px);
+animation:bgMove 14s ease-in-out infinite alternate;
+pointer-events:none;
+z-index:-1;
 }
 
 @keyframes bgMove{
-from{transform:translate(0,0);}
-to{transform:translate(220px,120px);}
+0%{transform:translate(0,0) scale(1);}
+50%{transform:translate(180px,100px) scale(1.05);}
+100%{transform:translate(0,0) scale(1);}
 }
 
-/* HEADER GLASS */
+/* HEADER GLASS (بدون تغییر ساختار) */
 header{
 display:flex;
 justify-content:space-between;
@@ -51,7 +55,7 @@ nav a{
 color:#aaa;
 margin:0 10px;
 text-decoration:none;
-transition:.3s;
+transition:.25s;
 position:relative;
 }
 
@@ -59,7 +63,7 @@ nav a:hover{
 color:#00e5ff;
 }
 
-/* underline animation */
+/* underline animation (نرم‌تر شد) */
 nav a::after{
 content:"";
 position:absolute;
@@ -68,7 +72,7 @@ left:0;
 width:0%;
 height:2px;
 background:#00e5ff;
-transition:.3s;
+transition:.25s;
 }
 
 nav a:hover::after{
@@ -80,7 +84,7 @@ section{
 padding:35px;
 }
 
-/* SERVER PANEL */
+/* SERVER PANEL (بهینه شده) */
 .panel{
 background:rgba(11,16,32,0.85);
 padding:20px;
@@ -90,7 +94,7 @@ animation:float 6s ease-in-out infinite;
 box-shadow:0 0 25px #00e5ff10;
 }
 
-/* BUTTON */
+/* BUTTON (نرم‌تر) */
 .btn{
 display:inline-block;
 margin-top:10px;
@@ -99,13 +103,14 @@ background:linear-gradient(135deg,#00e5ff,#0066ff);
 color:black;
 border-radius:8px;
 text-decoration:none;
-transition:.3s;
+transition:.25s;
 font-weight:bold;
+will-change:transform;
 }
 
 .btn:hover{
-transform:translateY(-5px) scale(1.05);
-box-shadow:0 0 20px #00e5ff55;
+transform:translateY(-4px) scale(1.04);
+box-shadow:0 0 18px #00e5ff55;
 }
 
 /* GRID */
@@ -115,18 +120,18 @@ grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
 gap:15px;
 }
 
-/* CARD PRO */
+/* CARD */
 .card{
 background:rgba(11,16,32,0.85);
 padding:15px;
 border-radius:14px;
 border:1px solid #1b2a44;
-animation:float 6s ease-in-out infinite;
-transition:.3s;
+animation:float 7s ease-in-out infinite;
+transition:.25s;
 }
 
 .card:hover{
-transform:translateY(-12px) scale(1.03);
+transform:translateY(-10px) scale(1.02);
 border-color:#00e5ff;
 box-shadow:0 0 25px #00e5ff22;
 }
@@ -141,7 +146,7 @@ border:1px solid #1b2a44;
 backdrop-filter:blur(10px);
 }
 
-/* INPUT */
+/* INPUT (بهبود خوانایی) */
 input{
 width:90%;
 padding:12px;
@@ -165,7 +170,7 @@ background:#070b18;
 /* FLOAT */
 @keyframes float{
 0%{transform:translateY(0);}
-50%{transform:translateY(-10px);}
+50%{transform:translateY(-8px);}
 100%{transform:translateY(0);}
 }
 
