@@ -1,172 +1,179 @@
-/* ===========================
-   BASE RESET
-=========================== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Vazir', sans-serif;
+body{
+margin:0;
+font-family:tahoma;
+background:#05070f;
+color:white;
+overflow-x:hidden;
 }
 
-body {
-  direction: rtl;
-  background: #0a0f17;
-  color: #e1e1e1;
-  overflow-x: hidden;
+/* 🌌 animated glow background */
+body::before{
+content:"";
+position:fixed;
+width:900px;
+height:900px;
+background:radial-gradient(circle,#00e5ff30,#0000 70%);
+top:-250px;
+left:-250px;
+filter:blur(90px);
+animation:bgMove 12s ease-in-out infinite alternate;
 }
 
-/* نور پس‌زمینه شناور */
-body::before,
-body::after {
-  content: "";
-  position: fixed;
-  width: 600px;
-  height: 600px;
-  border-radius: 50%;
-  filter: blur(180px);
-  z-index: -1;
+@keyframes bgMove{
+from{transform:translate(0,0);}
+to{transform:translate(220px,120px);}
 }
 
-body::before {
-  top: -100px;
-  left: -100px;
-  background: rgba(0, 200, 255, 0.15);
-  animation: neonPulse 8s infinite alternate ease-in-out;
+/* HEADER GLASS */
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 30px;
+background:rgba(11,16,32,0.75);
+backdrop-filter:blur(15px);
+position:sticky;
+top:0;
+border-bottom:1px solid #1b2a44;
+z-index:10;
 }
 
-body::after {
-  bottom: -120px;
-  right: -120px;
-  background: rgba(0, 255, 150, 0.12);
-  animation: neonPulse 7s infinite alternate ease-in-out;
+/* LOGO */
+.logo{
+color:#00e5ff;
+font-weight:bold;
+font-size:18px;
+text-shadow:0 0 10px #00e5ff55;
 }
 
-@keyframes neonPulse {
-  from { transform: translateY(0) scale(1); }
-  to { transform: translateY(-30px) scale(1.15); }
+/* NAV */
+nav a{
+color:#aaa;
+margin:0 10px;
+text-decoration:none;
+transition:.3s;
+position:relative;
 }
 
-/* ===========================
-   HEADER
-=========================== */
-header {
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(12px);
-  padding: 15px 30px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 2px solid #005eff;
+nav a:hover{
+color:#00e5ff;
 }
 
-header a {
-  color: #00e5ff;
-  font-size: 1.1rem;
-  margin: 0 12px;
-  text-shadow: 0 0 8px #00e5ff;
-  transition: 0.3s ease;
+/* underline animation */
+nav a::after{
+content:"";
+position:absolute;
+bottom:-5px;
+left:0;
+width:0%;
+height:2px;
+background:#00e5ff;
+transition:.3s;
 }
 
-header a:hover {
-  color: #00ffae;
-  text-shadow: 0 0 12px #00ffae;
+nav a:hover::after{
+width:100%;
 }
 
-/* ===========================
-   TITLE
-=========================== */
-h1 {
-  text-align: center;
-  margin-top: 30px;
-  color: #00e5ff;
-  font-size: 2.8rem;
-  text-shadow: 0 0 12px #00e5ff, 0 0 24px #0088ff;
-  animation: titleGlow 2.5s infinite alternate ease-in-out;
+/* SECTION */
+section{
+padding:35px;
 }
 
-@keyframes titleGlow {
-  0% { filter: drop-shadow(0 0 6px #00e5ff); }
-  100% { filter: drop-shadow(0 0 26px #0088ff); }
+/* SERVER PANEL */
+.panel{
+background:rgba(11,16,32,0.85);
+padding:20px;
+border-radius:14px;
+border:1px solid #1b2a44;
+animation:float 6s ease-in-out infinite;
+box-shadow:0 0 25px #00e5ff10;
 }
 
-/* ===========================
-   FILE LIST (HANDLES)
-=========================== */
-.downloads {
-  width: 90%;
-  margin: auto;
-  margin-top: 40px;
-  border-top: 2px solid #00e5ff;
-  padding-top: 20px;
+/* BUTTON */
+.btn{
+display:inline-block;
+margin-top:10px;
+padding:10px 15px;
+background:linear-gradient(135deg,#00e5ff,#0066ff);
+color:black;
+border-radius:8px;
+text-decoration:none;
+transition:.3s;
+font-weight:bold;
 }
 
-.downloads .file {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 18px 25px;
-  margin-bottom: 18px;
-  background: rgba(0, 0, 0, 0.65);
-  border-radius: 10px;
-  border-left: 5px solid #00e5ff;
-  backdrop-filter: blur(10px);
-  
-  transition: 0.4s ease,
-              transform 0.3s ease;
+.btn:hover{
+transform:translateY(-5px) scale(1.05);
+box-shadow:0 0 20px #00e5ff55;
 }
 
-.downloads .file:hover {
-  border-left-color: #00ff91;
-  transform: translateX(10px);
-  box-shadow: 0 12px 30px rgba(0, 255, 145, 0.3);
+/* GRID */
+.container{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:15px;
 }
 
-.downloads .file h3 {
-  font-size: 1.3rem;
-  color: #00e5ff;
-  text-shadow: 0 0 6px #00e5ff;
+/* CARD PRO */
+.card{
+background:rgba(11,16,32,0.85);
+padding:15px;
+border-radius:14px;
+border:1px solid #1b2a44;
+animation:float 6s ease-in-out infinite;
+transition:.3s;
 }
 
-.downloads .file span {
-  color: #cfcfcf;
+.card:hover{
+transform:translateY(-12px) scale(1.03);
+border-color:#00e5ff;
+box-shadow:0 0 25px #00e5ff22;
 }
 
-.downloads .file a {
-  background: #005eff;
-  padding: 10px 18px;
-  border-radius: 6px;
-  color: white;
-  font-weight: bold;
-  text-shadow: 0 0 6px #000;
-  transition: 0.3s ease;
+/* BOX */
+.box{
+margin-top:20px;
+padding:20px;
+background:rgba(11,16,32,0.85);
+border-radius:14px;
+border:1px solid #1b2a44;
+backdrop-filter:blur(10px);
 }
 
-.downloads .file a:hover {
-  background: #00ffae;
-  color: #000;
-  box-shadow: 0 0 16px #00ffae;
+/* INPUT */
+input{
+width:90%;
+padding:12px;
+border-radius:10px;
+border:none;
+margin-top:10px;
+background:#070b18;
+color:white;
+outline:none;
 }
 
-/* ===========================
-   FLOATING ICONS / EMOJI
-=========================== */
-.icon-float {
-  position: relative;
-  animation: hop 2s infinite ease-in-out;
+/* TICKET */
+.ticket{
+margin-top:10px;
+padding:12px;
+border:1px solid #1b2a44;
+border-radius:10px;
+background:#070b18;
 }
 
-@keyframes hop {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
+/* FLOAT */
+@keyframes float{
+0%{transform:translateY(0);}
+50%{transform:translateY(-10px);}
+100%{transform:translateY(0);}
 }
 
-/* ===========================
-   FOOTER
-=========================== */
-footer {
-  text-align: center;
-  padding: 25px;
-  margin-top: 50px;
-  color: #888;
-  font-size: 0.9rem;
+/* FOOTER */
+footer{
+text-align:center;
+padding:20px;
+color:#777;
+border-top:1px solid #1b2a44;
+margin-top:30px;
 }
